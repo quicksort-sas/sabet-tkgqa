@@ -1,0 +1,1189 @@
+nohup: ignoring input
+#######################
+
+===== ARGUMENTS =====
+tkbc_model_file: tcomplex.ckpt
+tkg_file: full.txt
+model: embedkgqa
+subgraph_reasoning: False
+time_sensitivity: False
+aware_module: False
+dataset_name: wikidata_big_complex
+supervision: soft
+load_from: 
+save_to: embedkgqa
+max_epochs: 20
+eval_k: 1
+valid_freq: 1
+batch_size: 150
+valid_batch_size: 150
+frozen: 1
+lm_frozen: 1
+lr: 0.0002
+mode: train
+eval_split: valid
+lm: distill_bert
+fuse: add
+extra_entities: False
+corrupt_hard: 0.0
+test: test
+temperature: 1.0
+=====================
+
+Loading tkbc model from /Data/.data/models/wikidata_big_complex/kg_embeddings/tcomplex.ckpt
+Number ent,rel,ts from loaded model: 125726 406 9621
+Loaded tkbc model
+Freezing LM params
+Freezing entity/time embeddings
+Total questions =  35795
+Preparing data for split train
+Total questions =  5006
+Preparing data for split test
+Total questions =  5020
+Preparing data for split valid
+Not loading from checkpoint. Starting fresh!
+Creating new log file
+Starting training
+Epoch 1/20 Step 100/239 LR 1.10e-04 Loss 14.6799
+/Data/.envs/graphRag/lib64/python3.9/site-packages/torch/optim/lr_scheduler.py:209: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch 1/20 Step 200/239 LR 2.00e-04 Loss 11.9188
+Epoch 1/20 Step 239/239 LR 2.00e-04 Loss 11.2781
+Epoch loss = 2695.4730558395386
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 224.198107
+Eval batch size 150
+Hits at 1: 0.169
+before_after 	 0.202 	 total questions: 797
+first_last 	 0.113 	 total questions: 3433
+time_join 	 0.381 	 total questions: 790
+
+complex 	 0.169 	 total questions: 5020
+
+entity 	 0.24 	 total questions: 3340
+time 	 0.029 	 total questions: 1680
+
+Hits at 10: 0.475
+before_after 	 0.467 	 total questions: 797
+first_last 	 0.417 	 total questions: 3433
+time_join 	 0.737 	 total questions: 790
+
+complex 	 0.475 	 total questions: 5020
+
+entity 	 0.572 	 total questions: 3340
+time 	 0.283 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.877198
+Eval batch size 150
+Hits at 1: 0.243
+before_after 	 0.304 	 total questions: 181
+first_last 	 0.172 	 total questions: 676
+time_join 	 0.503 	 total questions: 143
+
+complex 	 0.243 	 total questions: 1000
+
+entity 	 0.32 	 total questions: 654
+time 	 0.098 	 total questions: 346
+
+Hits at 10: 0.603
+before_after 	 0.508 	 total questions: 181
+first_last 	 0.587 	 total questions: 676
+time_join 	 0.797 	 total questions: 143
+
+complex 	 0.603 	 total questions: 1000
+
+entity 	 0.653 	 total questions: 654
+time 	 0.509 	 total questions: 346
+
+Epoch 2/20 Step 100/239 LR 2.00e-04 Loss 7.1248
+Epoch 2/20 Step 200/239 LR 1.99e-04 Loss 6.8521
+Epoch 2/20 Step 239/239 LR 1.98e-04 Loss 6.7637
+Epoch loss = 1616.5183582305908
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 201.481609
+Eval batch size 150
+Hits at 1: 0.197
+before_after 	 0.23 	 total questions: 797
+first_last 	 0.147 	 total questions: 3433
+time_join 	 0.378 	 total questions: 790
+
+complex 	 0.197 	 total questions: 5020
+
+entity 	 0.274 	 total questions: 3340
+time 	 0.043 	 total questions: 1680
+
+Hits at 10: 0.535
+before_after 	 0.536 	 total questions: 797
+first_last 	 0.487 	 total questions: 3433
+time_join 	 0.744 	 total questions: 790
+
+complex 	 0.535 	 total questions: 5020
+
+entity 	 0.644 	 total questions: 3340
+time 	 0.319 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 31.835156
+Eval batch size 150
+Hits at 1: 0.309
+before_after 	 0.348 	 total questions: 181
+first_last 	 0.243 	 total questions: 676
+time_join 	 0.573 	 total questions: 143
+
+complex 	 0.309 	 total questions: 1000
+
+entity 	 0.404 	 total questions: 654
+time 	 0.13 	 total questions: 346
+
+Hits at 10: 0.67
+before_after 	 0.564 	 total questions: 181
+first_last 	 0.663 	 total questions: 676
+time_join 	 0.839 	 total questions: 143
+
+complex 	 0.67 	 total questions: 1000
+
+entity 	 0.723 	 total questions: 654
+time 	 0.569 	 total questions: 346
+
+Epoch 3/20 Step 100/239 LR 1.97e-04 Loss 6.0200
+Epoch 3/20 Step 200/239 LR 1.95e-04 Loss 5.9122
+Epoch 3/20 Step 239/239 LR 1.94e-04 Loss 5.8872
+Epoch loss = 1407.051215171814
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 190.301637
+Eval batch size 150
+Hits at 1: 0.211
+before_after 	 0.236 	 total questions: 797
+first_last 	 0.162 	 total questions: 3433
+time_join 	 0.397 	 total questions: 790
+
+complex 	 0.211 	 total questions: 5020
+
+entity 	 0.293 	 total questions: 3340
+time 	 0.046 	 total questions: 1680
+
+Hits at 10: 0.567
+before_after 	 0.552 	 total questions: 797
+first_last 	 0.524 	 total questions: 3433
+time_join 	 0.765 	 total questions: 790
+
+complex 	 0.567 	 total questions: 5020
+
+entity 	 0.672 	 total questions: 3340
+time 	 0.357 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 28.775773
+Eval batch size 150
+Hits at 1: 0.332
+before_after 	 0.326 	 total questions: 181
+first_last 	 0.268 	 total questions: 676
+time_join 	 0.643 	 total questions: 143
+
+complex 	 0.332 	 total questions: 1000
+
+entity 	 0.422 	 total questions: 654
+time 	 0.162 	 total questions: 346
+
+Hits at 10: 0.727
+before_after 	 0.613 	 total questions: 181
+first_last 	 0.728 	 total questions: 676
+time_join 	 0.867 	 total questions: 143
+
+complex 	 0.727 	 total questions: 1000
+
+entity 	 0.757 	 total questions: 654
+time 	 0.671 	 total questions: 346
+
+Epoch 4/20 Step 100/239 LR 1.91e-04 Loss 5.4430
+Epoch 4/20 Step 200/239 LR 1.88e-04 Loss 5.4084
+Epoch 4/20 Step 239/239 LR 1.87e-04 Loss 5.3862
+Epoch loss = 1287.2944931983948
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 183.746966
+Eval batch size 150
+Hits at 1: 0.229
+before_after 	 0.252 	 total questions: 797
+first_last 	 0.175 	 total questions: 3433
+time_join 	 0.441 	 total questions: 790
+
+complex 	 0.229 	 total questions: 5020
+
+entity 	 0.318 	 total questions: 3340
+time 	 0.051 	 total questions: 1680
+
+Hits at 10: 0.584
+before_after 	 0.567 	 total questions: 797
+first_last 	 0.54 	 total questions: 3433
+time_join 	 0.792 	 total questions: 790
+
+complex 	 0.584 	 total questions: 5020
+
+entity 	 0.694 	 total questions: 3340
+time 	 0.364 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 26.421907
+Eval batch size 150
+Hits at 1: 0.356
+before_after 	 0.343 	 total questions: 181
+first_last 	 0.306 	 total questions: 676
+time_join 	 0.608 	 total questions: 143
+
+complex 	 0.356 	 total questions: 1000
+
+entity 	 0.442 	 total questions: 654
+time 	 0.194 	 total questions: 346
+
+Hits at 10: 0.747
+before_after 	 0.635 	 total questions: 181
+first_last 	 0.754 	 total questions: 676
+time_join 	 0.853 	 total questions: 143
+
+complex 	 0.747 	 total questions: 1000
+
+entity 	 0.774 	 total questions: 654
+time 	 0.697 	 total questions: 346
+
+Epoch 5/20 Step 100/239 LR 1.83e-04 Loss 5.1583
+Epoch 5/20 Step 200/239 LR 1.79e-04 Loss 5.1116
+Epoch 5/20 Step 239/239 LR 1.78e-04 Loss 5.0901
+Epoch loss = 1216.522292137146
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 179.333770
+Eval batch size 150
+Hits at 1: 0.236
+before_after 	 0.27 	 total questions: 797
+first_last 	 0.177 	 total questions: 3433
+time_join 	 0.458 	 total questions: 790
+
+complex 	 0.236 	 total questions: 5020
+
+entity 	 0.331 	 total questions: 3340
+time 	 0.046 	 total questions: 1680
+
+Hits at 10: 0.595
+before_after 	 0.577 	 total questions: 797
+first_last 	 0.55 	 total questions: 3433
+time_join 	 0.81 	 total questions: 790
+
+complex 	 0.595 	 total questions: 5020
+
+entity 	 0.707 	 total questions: 3340
+time 	 0.373 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 24.734028
+Eval batch size 150
+Hits at 1: 0.374
+before_after 	 0.37 	 total questions: 181
+first_last 	 0.321 	 total questions: 676
+time_join 	 0.629 	 total questions: 143
+
+complex 	 0.374 	 total questions: 1000
+
+entity 	 0.46 	 total questions: 654
+time 	 0.211 	 total questions: 346
+
+Hits at 10: 0.778
+before_after 	 0.641 	 total questions: 181
+first_last 	 0.793 	 total questions: 676
+time_join 	 0.881 	 total questions: 143
+
+complex 	 0.778 	 total questions: 1000
+
+entity 	 0.798 	 total questions: 654
+time 	 0.74 	 total questions: 346
+
+Epoch 6/20 Step 100/239 LR 1.73e-04 Loss 4.8248
+Epoch 6/20 Step 200/239 LR 1.69e-04 Loss 4.7757
+Epoch 6/20 Step 239/239 LR 1.67e-04 Loss 4.7923
+Epoch loss = 1145.3630480766296
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 179.335083
+Eval batch size 150
+Hits at 1: 0.233
+before_after 	 0.265 	 total questions: 797
+first_last 	 0.179 	 total questions: 3433
+time_join 	 0.435 	 total questions: 790
+
+complex 	 0.233 	 total questions: 5020
+
+entity 	 0.325 	 total questions: 3340
+time 	 0.05 	 total questions: 1680
+
+Hits at 10: 0.591
+before_after 	 0.572 	 total questions: 797
+first_last 	 0.547 	 total questions: 3433
+time_join 	 0.805 	 total questions: 790
+
+complex 	 0.591 	 total questions: 5020
+
+entity 	 0.703 	 total questions: 3340
+time 	 0.369 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 23.707736
+Eval batch size 150
+Hits at 1: 0.397
+before_after 	 0.398 	 total questions: 181
+first_last 	 0.346 	 total questions: 676
+time_join 	 0.636 	 total questions: 143
+
+complex 	 0.397 	 total questions: 1000
+
+entity 	 0.468 	 total questions: 654
+time 	 0.263 	 total questions: 346
+
+Hits at 10: 0.796
+before_after 	 0.635 	 total questions: 181
+first_last 	 0.817 	 total questions: 676
+time_join 	 0.902 	 total questions: 143
+
+complex 	 0.796 	 total questions: 1000
+
+entity 	 0.809 	 total questions: 654
+time 	 0.772 	 total questions: 346
+
+Epoch 7/20 Step 100/239 LR 1.61e-04 Loss 4.5778
+Epoch 7/20 Step 200/239 LR 1.56e-04 Loss 4.5818
+Epoch 7/20 Step 239/239 LR 1.54e-04 Loss 4.5973
+Epoch loss = 1098.7513000965118
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 175.065420
+Eval batch size 150
+Hits at 1: 0.236
+before_after 	 0.271 	 total questions: 797
+first_last 	 0.181 	 total questions: 3433
+time_join 	 0.442 	 total questions: 790
+
+complex 	 0.236 	 total questions: 5020
+
+entity 	 0.331 	 total questions: 3340
+time 	 0.047 	 total questions: 1680
+
+Hits at 10: 0.603
+before_after 	 0.587 	 total questions: 797
+first_last 	 0.559 	 total questions: 3433
+time_join 	 0.814 	 total questions: 790
+
+complex 	 0.603 	 total questions: 5020
+
+entity 	 0.714 	 total questions: 3340
+time 	 0.383 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 22.032528
+Eval batch size 150
+Hits at 1: 0.442
+before_after 	 0.425 	 total questions: 181
+first_last 	 0.398 	 total questions: 676
+time_join 	 0.671 	 total questions: 143
+
+complex 	 0.442 	 total questions: 1000
+
+entity 	 0.497 	 total questions: 654
+time 	 0.338 	 total questions: 346
+
+Hits at 10: 0.814
+before_after 	 0.669 	 total questions: 181
+first_last 	 0.831 	 total questions: 676
+time_join 	 0.916 	 total questions: 143
+
+complex 	 0.814 	 total questions: 1000
+
+entity 	 0.821 	 total questions: 654
+time 	 0.801 	 total questions: 346
+
+Epoch 8/20 Step 100/239 LR 1.48e-04 Loss 4.4648
+Epoch 8/20 Step 200/239 LR 1.42e-04 Loss 4.4592
+Epoch 8/20 Step 239/239 LR 1.39e-04 Loss 4.4611
+Epoch loss = 1066.2069747447968
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 175.302354
+Eval batch size 150
+Hits at 1: 0.242
+before_after 	 0.277 	 total questions: 797
+first_last 	 0.184 	 total questions: 3433
+time_join 	 0.463 	 total questions: 790
+
+complex 	 0.242 	 total questions: 5020
+
+entity 	 0.338 	 total questions: 3340
+time 	 0.052 	 total questions: 1680
+
+Hits at 10: 0.601
+before_after 	 0.597 	 total questions: 797
+first_last 	 0.551 	 total questions: 3433
+time_join 	 0.819 	 total questions: 790
+
+complex 	 0.601 	 total questions: 5020
+
+entity 	 0.72 	 total questions: 3340
+time 	 0.363 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 20.798164
+Eval batch size 150
+Hits at 1: 0.44
+before_after 	 0.436 	 total questions: 181
+first_last 	 0.401 	 total questions: 676
+time_join 	 0.629 	 total questions: 143
+
+complex 	 0.44 	 total questions: 1000
+
+entity 	 0.506 	 total questions: 654
+time 	 0.315 	 total questions: 346
+
+Hits at 10: 0.833
+before_after 	 0.663 	 total questions: 181
+first_last 	 0.865 	 total questions: 676
+time_join 	 0.895 	 total questions: 143
+
+complex 	 0.833 	 total questions: 1000
+
+entity 	 0.826 	 total questions: 654
+time 	 0.847 	 total questions: 346
+
+Epoch 9/20 Step 100/239 LR 1.33e-04 Loss 4.2930
+Epoch 9/20 Step 200/239 LR 1.26e-04 Loss 4.3033
+Epoch 9/20 Step 239/239 LR 1.24e-04 Loss 4.3061
+Epoch loss = 1029.160055398941
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 175.824679
+Eval batch size 150
+Hits at 1: 0.245
+before_after 	 0.275 	 total questions: 797
+first_last 	 0.188 	 total questions: 3433
+time_join 	 0.463 	 total questions: 790
+
+complex 	 0.245 	 total questions: 5020
+
+entity 	 0.342 	 total questions: 3340
+time 	 0.054 	 total questions: 1680
+
+Hits at 10: 0.597
+before_after 	 0.597 	 total questions: 797
+first_last 	 0.546 	 total questions: 3433
+time_join 	 0.819 	 total questions: 790
+
+complex 	 0.597 	 total questions: 5020
+
+entity 	 0.718 	 total questions: 3340
+time 	 0.358 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 20.244831
+Eval batch size 150
+Hits at 1: 0.455
+before_after 	 0.436 	 total questions: 181
+first_last 	 0.411 	 total questions: 676
+time_join 	 0.685 	 total questions: 143
+
+complex 	 0.455 	 total questions: 1000
+
+entity 	 0.52 	 total questions: 654
+time 	 0.332 	 total questions: 346
+
+Hits at 10: 0.844
+before_after 	 0.669 	 total questions: 181
+first_last 	 0.873 	 total questions: 676
+time_join 	 0.93 	 total questions: 143
+
+complex 	 0.844 	 total questions: 1000
+
+entity 	 0.841 	 total questions: 654
+time 	 0.85 	 total questions: 346
+
+Epoch 10/20 Step 100/239 LR 1.17e-04 Loss 4.1269
+Epoch 10/20 Step 200/239 LR 1.10e-04 Loss 4.1377
+Epoch 10/20 Step 239/239 LR 1.08e-04 Loss 4.1516
+Epoch loss = 992.2322933673859
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 172.644591
+Eval batch size 150
+Hits at 1: 0.245
+before_after 	 0.269 	 total questions: 797
+first_last 	 0.188 	 total questions: 3433
+time_join 	 0.47 	 total questions: 790
+
+complex 	 0.245 	 total questions: 5020
+
+entity 	 0.343 	 total questions: 3340
+time 	 0.05 	 total questions: 1680
+
+Hits at 10: 0.605
+before_after 	 0.595 	 total questions: 797
+first_last 	 0.558 	 total questions: 3433
+time_join 	 0.819 	 total questions: 790
+
+complex 	 0.605 	 total questions: 5020
+
+entity 	 0.718 	 total questions: 3340
+time 	 0.38 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 19.394439
+Eval batch size 150
+Hits at 1: 0.476
+before_after 	 0.47 	 total questions: 181
+first_last 	 0.435 	 total questions: 676
+time_join 	 0.678 	 total questions: 143
+
+complex 	 0.476 	 total questions: 1000
+
+entity 	 0.534 	 total questions: 654
+time 	 0.367 	 total questions: 346
+
+Hits at 10: 0.85
+before_after 	 0.669 	 total questions: 181
+first_last 	 0.883 	 total questions: 676
+time_join 	 0.923 	 total questions: 143
+
+complex 	 0.85 	 total questions: 1000
+
+entity 	 0.843 	 total questions: 654
+time 	 0.864 	 total questions: 346
+
+Epoch 11/20 Step 100/239 LR 1.01e-04 Loss 4.0689
+Epoch 11/20 Step 200/239 LR 9.42e-05 Loss 4.0541
+Epoch 11/20 Step 239/239 LR 9.16e-05 Loss 4.0527
+Epoch loss = 968.5968108177185
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 171.256723
+Eval batch size 150
+Hits at 1: 0.245
+before_after 	 0.28 	 total questions: 797
+first_last 	 0.185 	 total questions: 3433
+time_join 	 0.473 	 total questions: 790
+
+complex 	 0.245 	 total questions: 5020
+
+entity 	 0.344 	 total questions: 3340
+time 	 0.049 	 total questions: 1680
+
+Hits at 10: 0.608
+before_after 	 0.598 	 total questions: 797
+first_last 	 0.559 	 total questions: 3433
+time_join 	 0.829 	 total questions: 790
+
+complex 	 0.608 	 total questions: 5020
+
+entity 	 0.72 	 total questions: 3340
+time 	 0.385 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 18.969513
+Eval batch size 150
+Hits at 1: 0.487
+before_after 	 0.481 	 total questions: 181
+first_last 	 0.448 	 total questions: 676
+time_join 	 0.678 	 total questions: 143
+
+complex 	 0.487 	 total questions: 1000
+
+entity 	 0.538 	 total questions: 654
+time 	 0.39 	 total questions: 346
+
+Hits at 10: 0.86
+before_after 	 0.696 	 total questions: 181
+first_last 	 0.886 	 total questions: 676
+time_join 	 0.944 	 total questions: 143
+
+complex 	 0.86 	 total questions: 1000
+
+entity 	 0.849 	 total questions: 654
+time 	 0.882 	 total questions: 346
+
+Epoch 12/20 Step 100/239 LR 8.48e-05 Loss 3.9493
+Epoch 12/20 Step 200/239 LR 7.82e-05 Loss 3.9540
+Epoch 12/20 Step 239/239 LR 7.56e-05 Loss 3.9700
+Epoch loss = 948.8367764949799
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 170.719606
+Eval batch size 150
+Hits at 1: 0.246
+before_after 	 0.277 	 total questions: 797
+first_last 	 0.187 	 total questions: 3433
+time_join 	 0.471 	 total questions: 790
+
+complex 	 0.246 	 total questions: 5020
+
+entity 	 0.345 	 total questions: 3340
+time 	 0.049 	 total questions: 1680
+
+Hits at 10: 0.613
+before_after 	 0.6 	 total questions: 797
+first_last 	 0.565 	 total questions: 3433
+time_join 	 0.838 	 total questions: 790
+
+complex 	 0.613 	 total questions: 5020
+
+entity 	 0.727 	 total questions: 3340
+time 	 0.387 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 18.364952
+Eval batch size 150
+Hits at 1: 0.503
+before_after 	 0.492 	 total questions: 181
+first_last 	 0.467 	 total questions: 676
+time_join 	 0.685 	 total questions: 143
+
+complex 	 0.503 	 total questions: 1000
+
+entity 	 0.544 	 total questions: 654
+time 	 0.425 	 total questions: 346
+
+Hits at 10: 0.873
+before_after 	 0.713 	 total questions: 181
+first_last 	 0.901 	 total questions: 676
+time_join 	 0.944 	 total questions: 143
+
+complex 	 0.873 	 total questions: 1000
+
+entity 	 0.856 	 total questions: 654
+time 	 0.905 	 total questions: 346
+
+Epoch 13/20 Step 100/239 LR 6.91e-05 Loss 3.8893
+Epoch 13/20 Step 200/239 LR 6.28e-05 Loss 3.9151
+Epoch 13/20 Step 239/239 LR 6.03e-05 Loss 3.9050
+Epoch loss = 933.2985961437225
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 170.161254
+Eval batch size 150
+Hits at 1: 0.251
+before_after 	 0.287 	 total questions: 797
+first_last 	 0.191 	 total questions: 3433
+time_join 	 0.476 	 total questions: 790
+
+complex 	 0.251 	 total questions: 5020
+
+entity 	 0.351 	 total questions: 3340
+time 	 0.051 	 total questions: 1680
+
+Hits at 10: 0.61
+before_after 	 0.593 	 total questions: 797
+first_last 	 0.562 	 total questions: 3433
+time_join 	 0.833 	 total questions: 790
+
+complex 	 0.61 	 total questions: 5020
+
+entity 	 0.721 	 total questions: 3340
+time 	 0.389 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 18.117875
+Eval batch size 150
+Hits at 1: 0.514
+before_after 	 0.492 	 total questions: 181
+first_last 	 0.485 	 total questions: 676
+time_join 	 0.678 	 total questions: 143
+
+complex 	 0.514 	 total questions: 1000
+
+entity 	 0.558 	 total questions: 654
+time 	 0.431 	 total questions: 346
+
+Hits at 10: 0.881
+before_after 	 0.729 	 total questions: 181
+first_last 	 0.91 	 total questions: 676
+time_join 	 0.937 	 total questions: 143
+
+complex 	 0.881 	 total questions: 1000
+
+entity 	 0.867 	 total questions: 654
+time 	 0.908 	 total questions: 346
+
+Epoch 14/20 Step 100/239 LR 5.42e-05 Loss 3.8175
+Epoch 14/20 Step 200/239 LR 4.84e-05 Loss 3.8215
+Epoch 14/20 Step 239/239 LR 4.62e-05 Loss 3.8299
+Epoch loss = 915.3435037136078
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 168.846132
+Eval batch size 150
+Hits at 1: 0.248
+before_after 	 0.279 	 total questions: 797
+first_last 	 0.19 	 total questions: 3433
+time_join 	 0.468 	 total questions: 790
+
+complex 	 0.248 	 total questions: 5020
+
+entity 	 0.344 	 total questions: 3340
+time 	 0.056 	 total questions: 1680
+
+Hits at 10: 0.613
+before_after 	 0.598 	 total questions: 797
+first_last 	 0.565 	 total questions: 3433
+time_join 	 0.837 	 total questions: 790
+
+complex 	 0.613 	 total questions: 5020
+
+entity 	 0.724 	 total questions: 3340
+time 	 0.392 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 17.272725
+Eval batch size 150
+Hits at 1: 0.521
+before_after 	 0.497 	 total questions: 181
+first_last 	 0.487 	 total questions: 676
+time_join 	 0.713 	 total questions: 143
+
+complex 	 0.521 	 total questions: 1000
+
+entity 	 0.569 	 total questions: 654
+time 	 0.431 	 total questions: 346
+
+Hits at 10: 0.882
+before_after 	 0.729 	 total questions: 181
+first_last 	 0.911 	 total questions: 676
+time_join 	 0.937 	 total questions: 143
+
+complex 	 0.882 	 total questions: 1000
+
+entity 	 0.87 	 total questions: 654
+time 	 0.905 	 total questions: 346
+
+Epoch 15/20 Step 100/239 LR 4.06e-05 Loss 3.7147
+Epoch 15/20 Step 200/239 LR 3.54e-05 Loss 3.7720
+Epoch 15/20 Step 239/239 LR 3.34e-05 Loss 3.7774
+Epoch loss = 902.803759098053
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 169.067606
+Eval batch size 150
+Hits at 1: 0.249
+before_after 	 0.289 	 total questions: 797
+first_last 	 0.188 	 total questions: 3433
+time_join 	 0.471 	 total questions: 790
+
+complex 	 0.249 	 total questions: 5020
+
+entity 	 0.349 	 total questions: 3340
+time 	 0.051 	 total questions: 1680
+
+Hits at 10: 0.612
+before_after 	 0.602 	 total questions: 797
+first_last 	 0.564 	 total questions: 3433
+time_join 	 0.834 	 total questions: 790
+
+complex 	 0.612 	 total questions: 5020
+
+entity 	 0.724 	 total questions: 3340
+time 	 0.391 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 17.443904
+Eval batch size 150
+Hits at 1: 0.523
+before_after 	 0.497 	 total questions: 181
+first_last 	 0.49 	 total questions: 676
+time_join 	 0.713 	 total questions: 143
+
+complex 	 0.523 	 total questions: 1000
+
+entity 	 0.575 	 total questions: 654
+time 	 0.425 	 total questions: 346
+
+Hits at 10: 0.891
+before_after 	 0.74 	 total questions: 181
+first_last 	 0.92 	 total questions: 676
+time_join 	 0.944 	 total questions: 143
+
+complex 	 0.891 	 total questions: 1000
+
+entity 	 0.881 	 total questions: 654
+time 	 0.91 	 total questions: 346
+
+Epoch 16/20 Step 100/239 LR 2.86e-05 Loss 3.7229
+Epoch 16/20 Step 200/239 LR 2.42e-05 Loss 3.7307
+Epoch 16/20 Step 239/239 LR 2.25e-05 Loss 3.7305
+Epoch loss = 891.5835063457489
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 169.829980
+Eval batch size 150
+Hits at 1: 0.249
+before_after 	 0.277 	 total questions: 797
+first_last 	 0.191 	 total questions: 3433
+time_join 	 0.471 	 total questions: 790
+
+complex 	 0.249 	 total questions: 5020
+
+entity 	 0.348 	 total questions: 3340
+time 	 0.052 	 total questions: 1680
+
+Hits at 10: 0.61
+before_after 	 0.597 	 total questions: 797
+first_last 	 0.561 	 total questions: 3433
+time_join 	 0.835 	 total questions: 790
+
+complex 	 0.61 	 total questions: 5020
+
+entity 	 0.722 	 total questions: 3340
+time 	 0.388 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 17.130275
+Eval batch size 150
+Hits at 1: 0.526
+before_after 	 0.492 	 total questions: 181
+first_last 	 0.494 	 total questions: 676
+time_join 	 0.72 	 total questions: 143
+
+complex 	 0.526 	 total questions: 1000
+
+entity 	 0.569 	 total questions: 654
+time 	 0.445 	 total questions: 346
+
+Hits at 10: 0.892
+before_after 	 0.746 	 total questions: 181
+first_last 	 0.919 	 total questions: 676
+time_join 	 0.951 	 total questions: 143
+
+complex 	 0.892 	 total questions: 1000
+
+entity 	 0.882 	 total questions: 654
+time 	 0.91 	 total questions: 346
+
+Epoch 17/20 Step 100/239 LR 1.86e-05 Loss 3.7366
+Epoch 17/20 Step 200/239 LR 1.50e-05 Loss 3.6966
+Epoch 17/20 Step 239/239 LR 1.37e-05 Loss 3.7103
+Epoch loss = 886.7497985363007
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 169.560582
+Eval batch size 150
+Hits at 1: 0.251
+before_after 	 0.279 	 total questions: 797
+first_last 	 0.193 	 total questions: 3433
+time_join 	 0.478 	 total questions: 790
+
+complex 	 0.251 	 total questions: 5020
+
+entity 	 0.351 	 total questions: 3340
+time 	 0.052 	 total questions: 1680
+
+Hits at 10: 0.611
+before_after 	 0.597 	 total questions: 797
+first_last 	 0.562 	 total questions: 3433
+time_join 	 0.838 	 total questions: 790
+
+complex 	 0.611 	 total questions: 5020
+
+entity 	 0.722 	 total questions: 3340
+time 	 0.389 	 total questions: 1680
+
+Valid score increased
+Saving model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 16.938209
+Eval batch size 150
+Hits at 1: 0.534
+before_after 	 0.503 	 total questions: 181
+first_last 	 0.506 	 total questions: 676
+time_join 	 0.706 	 total questions: 143
+
+complex 	 0.534 	 total questions: 1000
+
+entity 	 0.576 	 total questions: 654
+time 	 0.454 	 total questions: 346
+
+Hits at 10: 0.891
+before_after 	 0.751 	 total questions: 181
+first_last 	 0.916 	 total questions: 676
+time_join 	 0.951 	 total questions: 143
+
+complex 	 0.891 	 total questions: 1000
+
+entity 	 0.879 	 total questions: 654
+time 	 0.913 	 total questions: 346
+
+Epoch 18/20 Step 100/239 LR 1.07e-05 Loss 3.6347
+Epoch 18/20 Step 200/239 LR 8.16e-06 Loss 3.6540
+Epoch 18/20 Step 239/239 LR 7.27e-06 Loss 3.6767
+Epoch loss = 878.7196612358093
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 168.343501
+Eval batch size 150
+Hits at 1: 0.25
+before_after 	 0.281 	 total questions: 797
+first_last 	 0.191 	 total questions: 3433
+time_join 	 0.478 	 total questions: 790
+
+complex 	 0.25 	 total questions: 5020
+
+entity 	 0.35 	 total questions: 3340
+time 	 0.051 	 total questions: 1680
+
+Hits at 10: 0.612
+before_after 	 0.601 	 total questions: 797
+first_last 	 0.561 	 total questions: 3433
+time_join 	 0.844 	 total questions: 790
+
+complex 	 0.612 	 total questions: 5020
+
+entity 	 0.725 	 total questions: 3340
+time 	 0.387 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 17.132911
+Eval batch size 150
+Hits at 1: 0.531
+before_after 	 0.503 	 total questions: 181
+first_last 	 0.504 	 total questions: 676
+time_join 	 0.692 	 total questions: 143
+
+complex 	 0.531 	 total questions: 1000
+
+entity 	 0.572 	 total questions: 654
+time 	 0.454 	 total questions: 346
+
+Hits at 10: 0.89
+before_after 	 0.751 	 total questions: 181
+first_last 	 0.917 	 total questions: 676
+time_join 	 0.937 	 total questions: 143
+
+complex 	 0.89 	 total questions: 1000
+
+entity 	 0.878 	 total questions: 654
+time 	 0.913 	 total questions: 346
+
+Epoch 19/20 Step 100/239 LR 5.31e-06 Loss 3.6565
+Epoch 19/20 Step 200/239 LR 3.79e-06 Loss 3.6540
+Epoch 19/20 Step 239/239 LR 3.33e-06 Loss 3.6644
+Epoch loss = 875.7829654216766
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 170.803545
+Eval batch size 150
+Hits at 1: 0.251
+before_after 	 0.277 	 total questions: 797
+first_last 	 0.192 	 total questions: 3433
+time_join 	 0.482 	 total questions: 790
+
+complex 	 0.251 	 total questions: 5020
+
+entity 	 0.351 	 total questions: 3340
+time 	 0.051 	 total questions: 1680
+
+Hits at 10: 0.612
+before_after 	 0.597 	 total questions: 797
+first_last 	 0.562 	 total questions: 3433
+time_join 	 0.846 	 total questions: 790
+
+complex 	 0.612 	 total questions: 5020
+
+entity 	 0.725 	 total questions: 3340
+time 	 0.389 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 16.882673
+Eval batch size 150
+Hits at 1: 0.535
+before_after 	 0.508 	 total questions: 181
+first_last 	 0.507 	 total questions: 676
+time_join 	 0.699 	 total questions: 143
+
+complex 	 0.535 	 total questions: 1000
+
+entity 	 0.575 	 total questions: 654
+time 	 0.46 	 total questions: 346
+
+Hits at 10: 0.89
+before_after 	 0.751 	 total questions: 181
+first_last 	 0.916 	 total questions: 676
+time_join 	 0.944 	 total questions: 143
+
+complex 	 0.89 	 total questions: 1000
+
+entity 	 0.878 	 total questions: 654
+time 	 0.913 	 total questions: 346
+
+Epoch 20/20 Step 100/239 LR 2.45e-06 Loss 3.6479
+Epoch 20/20 Step 200/239 LR 2.04e-06 Loss 3.6636
+Epoch 20/20 Step 239/239 LR 2.00e-06 Loss 3.6626
+Epoch loss = 875.3494663238525
+Evaluating split valid
+Step 34/34
+Split valid
+Loss 169.942841
+Eval batch size 150
+Hits at 1: 0.251
+before_after 	 0.279 	 total questions: 797
+first_last 	 0.193 	 total questions: 3433
+time_join 	 0.475 	 total questions: 790
+
+complex 	 0.251 	 total questions: 5020
+
+entity 	 0.351 	 total questions: 3340
+time 	 0.052 	 total questions: 1680
+
+Hits at 10: 0.612
+before_after 	 0.605 	 total questions: 797
+first_last 	 0.561 	 total questions: 3433
+time_join 	 0.842 	 total questions: 790
+
+complex 	 0.612 	 total questions: 5020
+
+entity 	 0.725 	 total questions: 3340
+time 	 0.388 	 total questions: 1680
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 17.011549
+Eval batch size 150
+Hits at 1: 0.537
+before_after 	 0.503 	 total questions: 181
+first_last 	 0.512 	 total questions: 676
+time_join 	 0.699 	 total questions: 143
+
+complex 	 0.537 	 total questions: 1000
+
+entity 	 0.573 	 total questions: 654
+time 	 0.468 	 total questions: 346
+
+Hits at 10: 0.894
+before_after 	 0.751 	 total questions: 181
+first_last 	 0.922 	 total questions: 676
+time_join 	 0.944 	 total questions: 143
+
+complex 	 0.894 	 total questions: 1000
+
+entity 	 0.882 	 total questions: 654
+time 	 0.916 	 total questions: 346
+
+Loading best model from /Data/.models/wikidata_big_complex/qa_models/embedkgqa.ckpt
+Evaluating split test
+Step 34/34
+Split test
+Loss 165.706578
+Eval batch size 150
+Hits at 1: 0.26
+before_after 	 0.327 	 total questions: 907
+first_last 	 0.18 	 total questions: 3303
+time_join 	 0.514 	 total questions: 796
+
+complex 	 0.26 	 total questions: 5006
+
+entity 	 0.361 	 total questions: 3382
+time 	 0.05 	 total questions: 1624
+
+Hits at 10: 0.618
+before_after 	 0.616 	 total questions: 907
+first_last 	 0.557 	 total questions: 3303
+time_join 	 0.872 	 total questions: 796
+
+complex 	 0.618 	 total questions: 5006
+
+entity 	 0.742 	 total questions: 3382
+time 	 0.36 	 total questions: 1624
+
+Final TEST evaluation (best model) done
+Training finished

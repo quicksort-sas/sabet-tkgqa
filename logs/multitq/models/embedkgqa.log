@@ -1,0 +1,1960 @@
+nohup: ignoring input
+/Data/.envs/graphRag/lib64/python3.9/site-packages/transformers/utils/hub.py:110: FutureWarning: Using `TRANSFORMERS_CACHE` is deprecated and will be removed in v5 of Transformers. Use `HF_HOME` instead.
+  warnings.warn(
+#######################
+
+===== ARGUMENTS =====
+tkbc_model_file: tcomplex_ALL.ckpt
+tkg_file: full.txt
+model: embedkgqa
+subgraph_reasoning: False
+time_sensitivity: False
+aware_module: False
+dataset_name: MultiTQ
+supervision: soft
+load_from: 
+save_to: embedkgqa
+max_epochs: 20
+eval_k: 1
+valid_freq: 1
+batch_size: 150
+valid_batch_size: 150
+frozen: 1
+lm_frozen: 1
+lr: 0.0002
+mode: train
+eval_split: valid
+lm: distill_bert
+fuse: add
+extra_entities: False
+corrupt_hard: 0.0
+test: test
+temperature: 1.0
+=====================
+
+Loading tkbc model from /Data/.data/models/MultiTQ/kg_embeddings/tcomplex_ALL.ckpt
+Number ent,rel,ts from loaded model: 10488 502 4160
+Loaded tkbc model
+Freezing LM params
+Freezing entity/time embeddings
+Total questions =  386787
+Preparing data for split train
+Total questions =  54584
+Preparing data for split test
+Total questions =  57979
+Preparing data for split dev
+Not loading from checkpoint. Starting fresh!
+Creating new log file
+Starting training
+Epoch 1/20 Step 100/2579 LR 1.10e-04 Loss 16.8732
+/Data/.envs/graphRag/lib64/python3.9/site-packages/torch/optim/lr_scheduler.py:209: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch 1/20 Step 200/2579 LR 2.00e-04 Loss 14.8640
+Epoch 1/20 Step 300/2579 LR 2.00e-04 Loss 13.6365
+Epoch 1/20 Step 400/2579 LR 2.00e-04 Loss 12.8637
+Epoch 1/20 Step 500/2579 LR 2.00e-04 Loss 12.2937
+Epoch 1/20 Step 600/2579 LR 2.00e-04 Loss 11.8701
+Epoch 1/20 Step 700/2579 LR 2.00e-04 Loss 11.5175
+Epoch 1/20 Step 800/2579 LR 2.00e-04 Loss 11.2400
+Epoch 1/20 Step 900/2579 LR 2.00e-04 Loss 10.9944
+Epoch 1/20 Step 1000/2579 LR 2.00e-04 Loss 10.7781
+Epoch 1/20 Step 1100/2579 LR 2.00e-04 Loss 10.5881
+Epoch 1/20 Step 1200/2579 LR 2.00e-04 Loss 10.4126
+Epoch 1/20 Step 1300/2579 LR 2.00e-04 Loss 10.2619
+Epoch 1/20 Step 1400/2579 LR 2.00e-04 Loss 10.1235
+Epoch 1/20 Step 1500/2579 LR 2.00e-04 Loss 9.9939
+Epoch 1/20 Step 1600/2579 LR 2.00e-04 Loss 9.8713
+Epoch 1/20 Step 1700/2579 LR 2.00e-04 Loss 9.7608
+Epoch 1/20 Step 1800/2579 LR 2.00e-04 Loss 9.6575
+Epoch 1/20 Step 1900/2579 LR 1.99e-04 Loss 9.5648
+Epoch 1/20 Step 2000/2579 LR 1.99e-04 Loss 9.4764
+Epoch 1/20 Step 2100/2579 LR 1.99e-04 Loss 9.3922
+Epoch 1/20 Step 2200/2579 LR 1.99e-04 Loss 9.3127
+Epoch 1/20 Step 2300/2579 LR 1.99e-04 Loss 9.2381
+Epoch 1/20 Step 2400/2579 LR 1.99e-04 Loss 9.1692
+Epoch 1/20 Step 2500/2579 LR 1.99e-04 Loss 9.0990
+Epoch 1/20 Step 2579/2579 LR 1.99e-04 Loss 9.0455
+Epoch loss = 23328.35940361023
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2698.772285
+Eval batch size 150
+Hits at 1: 0.169
+after_first 	 0.09 	 total questions: 6499
+before_after 	 0.319 	 total questions: 11655
+before_last 	 0.087 	 total questions: 6532
+equal 	 0.215 	 total questions: 18983
+equal_multi 	 0.217 	 total questions: 3213
+first_last 	 0.012 	 total questions: 11097
+
+complex 	 0.169 	 total questions: 57979
+
+entity 	 0.241 	 total questions: 40565
+time 	 0.001 	 total questions: 17414
+
+Hits at 10: 0.406
+after_first 	 0.331 	 total questions: 6499
+before_after 	 0.769 	 total questions: 11655
+before_last 	 0.334 	 total questions: 6532
+equal 	 0.418 	 total questions: 18983
+equal_multi 	 0.576 	 total questions: 3213
+first_last 	 0.04 	 total questions: 11097
+
+complex 	 0.406 	 total questions: 57979
+
+entity 	 0.578 	 total questions: 40565
+time 	 0.004 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 45.179597
+Eval batch size 150
+Hits at 1: 0.226
+after_first 	 0.128 	 total questions: 109
+before_after 	 0.515 	 total questions: 165
+before_last 	 0.217 	 total questions: 115
+equal 	 0.218 	 total questions: 380
+equal_multi 	 0.171 	 total questions: 35
+first_last 	 0.066 	 total questions: 196
+
+complex 	 0.226 	 total questions: 1000
+
+entity 	 0.34 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.423
+after_first 	 0.422 	 total questions: 109
+before_after 	 0.861 	 total questions: 165
+before_last 	 0.426 	 total questions: 115
+equal 	 0.361 	 total questions: 380
+equal_multi 	 0.543 	 total questions: 35
+first_last 	 0.153 	 total questions: 196
+
+complex 	 0.423 	 total questions: 1000
+
+entity 	 0.636 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 2/20 Step 100/2579 LR 1.99e-04 Loss 7.2849
+Epoch 2/20 Step 200/2579 LR 1.99e-04 Loss 7.2623
+Epoch 2/20 Step 300/2579 LR 1.99e-04 Loss 7.2523
+Epoch 2/20 Step 400/2579 LR 1.99e-04 Loss 7.2071
+Epoch 2/20 Step 500/2579 LR 1.98e-04 Loss 7.1801
+Epoch 2/20 Step 600/2579 LR 1.98e-04 Loss 7.1691
+Epoch 2/20 Step 700/2579 LR 1.98e-04 Loss 7.1442
+Epoch 2/20 Step 800/2579 LR 1.98e-04 Loss 7.1195
+Epoch 2/20 Step 900/2579 LR 1.98e-04 Loss 7.0959
+Epoch 2/20 Step 1000/2579 LR 1.98e-04 Loss 7.0707
+Epoch 2/20 Step 1100/2579 LR 1.98e-04 Loss 7.0498
+Epoch 2/20 Step 1200/2579 LR 1.98e-04 Loss 7.0314
+Epoch 2/20 Step 1300/2579 LR 1.98e-04 Loss 7.0112
+Epoch 2/20 Step 1400/2579 LR 1.97e-04 Loss 6.9928
+Epoch 2/20 Step 1500/2579 LR 1.97e-04 Loss 6.9723
+Epoch 2/20 Step 1600/2579 LR 1.97e-04 Loss 6.9514
+Epoch 2/20 Step 1700/2579 LR 1.97e-04 Loss 6.9336
+Epoch 2/20 Step 1800/2579 LR 1.97e-04 Loss 6.9155
+Epoch 2/20 Step 1900/2579 LR 1.97e-04 Loss 6.8964
+Epoch 2/20 Step 2000/2579 LR 1.96e-04 Loss 6.8760
+Epoch 2/20 Step 2100/2579 LR 1.96e-04 Loss 6.8576
+Epoch 2/20 Step 2200/2579 LR 1.96e-04 Loss 6.8435
+Epoch 2/20 Step 2300/2579 LR 1.96e-04 Loss 6.8276
+Epoch 2/20 Step 2400/2579 LR 1.96e-04 Loss 6.8091
+Epoch 2/20 Step 2500/2579 LR 1.96e-04 Loss 6.7921
+Epoch 2/20 Step 2579/2579 LR 1.95e-04 Loss 6.7796
+Epoch loss = 17484.52249288559
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2415.667419
+Eval batch size 150
+Hits at 1: 0.195
+after_first 	 0.101 	 total questions: 6499
+before_after 	 0.396 	 total questions: 11655
+before_last 	 0.096 	 total questions: 6532
+equal 	 0.233 	 total questions: 18983
+equal_multi 	 0.257 	 total questions: 3213
+first_last 	 0.015 	 total questions: 11097
+
+complex 	 0.195 	 total questions: 57979
+
+entity 	 0.278 	 total questions: 40565
+time 	 0.001 	 total questions: 17414
+
+Hits at 10: 0.438
+after_first 	 0.367 	 total questions: 6499
+before_after 	 0.822 	 total questions: 11655
+before_last 	 0.373 	 total questions: 6532
+equal 	 0.444 	 total questions: 18983
+equal_multi 	 0.63 	 total questions: 3213
+first_last 	 0.046 	 total questions: 11097
+
+complex 	 0.438 	 total questions: 57979
+
+entity 	 0.623 	 total questions: 40565
+time 	 0.007 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 40.526880
+Eval batch size 150
+Hits at 1: 0.252
+after_first 	 0.193 	 total questions: 109
+before_after 	 0.558 	 total questions: 165
+before_last 	 0.226 	 total questions: 115
+equal 	 0.239 	 total questions: 380
+equal_multi 	 0.2 	 total questions: 35
+first_last 	 0.077 	 total questions: 196
+
+complex 	 0.252 	 total questions: 1000
+
+entity 	 0.379 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.451
+after_first 	 0.459 	 total questions: 109
+before_after 	 0.897 	 total questions: 165
+before_last 	 0.47 	 total questions: 115
+equal 	 0.389 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.153 	 total questions: 196
+
+complex 	 0.451 	 total questions: 1000
+
+entity 	 0.678 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 3/20 Step 100/2579 LR 1.95e-04 Loss 6.3180
+Epoch 3/20 Step 200/2579 LR 1.95e-04 Loss 6.3482
+Epoch 3/20 Step 300/2579 LR 1.95e-04 Loss 6.3265
+Epoch 3/20 Step 400/2579 LR 1.95e-04 Loss 6.3024
+Epoch 3/20 Step 500/2579 LR 1.95e-04 Loss 6.2934
+Epoch 3/20 Step 600/2579 LR 1.94e-04 Loss 6.2886
+Epoch 3/20 Step 700/2579 LR 1.94e-04 Loss 6.2765
+Epoch 3/20 Step 800/2579 LR 1.94e-04 Loss 6.2656
+Epoch 3/20 Step 900/2579 LR 1.94e-04 Loss 6.2524
+Epoch 3/20 Step 1000/2579 LR 1.94e-04 Loss 6.2406
+Epoch 3/20 Step 1100/2579 LR 1.93e-04 Loss 6.2307
+Epoch 3/20 Step 1200/2579 LR 1.93e-04 Loss 6.2251
+Epoch 3/20 Step 1300/2579 LR 1.93e-04 Loss 6.2142
+Epoch 3/20 Step 1400/2579 LR 1.93e-04 Loss 6.2074
+Epoch 3/20 Step 1500/2579 LR 1.92e-04 Loss 6.2017
+Epoch 3/20 Step 1600/2579 LR 1.92e-04 Loss 6.1927
+Epoch 3/20 Step 1700/2579 LR 1.92e-04 Loss 6.1859
+Epoch 3/20 Step 1800/2579 LR 1.92e-04 Loss 6.1811
+Epoch 3/20 Step 1900/2579 LR 1.91e-04 Loss 6.1735
+Epoch 3/20 Step 2000/2579 LR 1.91e-04 Loss 6.1698
+Epoch 3/20 Step 2100/2579 LR 1.91e-04 Loss 6.1618
+Epoch 3/20 Step 2200/2579 LR 1.91e-04 Loss 6.1559
+Epoch 3/20 Step 2300/2579 LR 1.90e-04 Loss 6.1512
+Epoch 3/20 Step 2400/2579 LR 1.90e-04 Loss 6.1442
+Epoch 3/20 Step 2500/2579 LR 1.90e-04 Loss 6.1389
+Epoch 3/20 Step 2579/2579 LR 1.90e-04 Loss 6.1340
+Epoch loss = 15819.613520622253
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2309.776811
+Eval batch size 150
+Hits at 1: 0.213
+after_first 	 0.111 	 total questions: 6499
+before_after 	 0.431 	 total questions: 11655
+before_last 	 0.105 	 total questions: 6532
+equal 	 0.251 	 total questions: 18983
+equal_multi 	 0.286 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.213 	 total questions: 57979
+
+entity 	 0.303 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.459
+after_first 	 0.394 	 total questions: 6499
+before_after 	 0.843 	 total questions: 11655
+before_last 	 0.397 	 total questions: 6532
+equal 	 0.473 	 total questions: 18983
+equal_multi 	 0.667 	 total questions: 3213
+first_last 	 0.049 	 total questions: 11097
+
+complex 	 0.459 	 total questions: 57979
+
+entity 	 0.653 	 total questions: 40565
+time 	 0.008 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.709061
+Eval batch size 150
+Hits at 1: 0.248
+after_first 	 0.174 	 total questions: 109
+before_after 	 0.564 	 total questions: 165
+before_last 	 0.235 	 total questions: 115
+equal 	 0.226 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.071 	 total questions: 196
+
+complex 	 0.248 	 total questions: 1000
+
+entity 	 0.373 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.463
+after_first 	 0.486 	 total questions: 109
+before_after 	 0.903 	 total questions: 165
+before_last 	 0.487 	 total questions: 115
+equal 	 0.405 	 total questions: 380
+equal_multi 	 0.629 	 total questions: 35
+first_last 	 0.148 	 total questions: 196
+
+complex 	 0.463 	 total questions: 1000
+
+entity 	 0.695 	 total questions: 665
+time 	 0.003 	 total questions: 335
+
+Epoch 4/20 Step 100/2579 LR 1.89e-04 Loss 5.9627
+Epoch 4/20 Step 200/2579 LR 1.89e-04 Loss 5.9626
+Epoch 4/20 Step 300/2579 LR 1.89e-04 Loss 5.9582
+Epoch 4/20 Step 400/2579 LR 1.89e-04 Loss 5.9361
+Epoch 4/20 Step 500/2579 LR 1.88e-04 Loss 5.9321
+Epoch 4/20 Step 600/2579 LR 1.88e-04 Loss 5.9271
+Epoch 4/20 Step 700/2579 LR 1.88e-04 Loss 5.9256
+Epoch 4/20 Step 800/2579 LR 1.87e-04 Loss 5.9248
+Epoch 4/20 Step 900/2579 LR 1.87e-04 Loss 5.9250
+Epoch 4/20 Step 1000/2579 LR 1.87e-04 Loss 5.9227
+Epoch 4/20 Step 1100/2579 LR 1.87e-04 Loss 5.9225
+Epoch 4/20 Step 1200/2579 LR 1.86e-04 Loss 5.9207
+Epoch 4/20 Step 1300/2579 LR 1.86e-04 Loss 5.9187
+Epoch 4/20 Step 1400/2579 LR 1.86e-04 Loss 5.9171
+Epoch 4/20 Step 1500/2579 LR 1.85e-04 Loss 5.9148
+Epoch 4/20 Step 1600/2579 LR 1.85e-04 Loss 5.9143
+Epoch 4/20 Step 1700/2579 LR 1.85e-04 Loss 5.9119
+Epoch 4/20 Step 1800/2579 LR 1.84e-04 Loss 5.9092
+Epoch 4/20 Step 1900/2579 LR 1.84e-04 Loss 5.9072
+Epoch 4/20 Step 2000/2579 LR 1.84e-04 Loss 5.9055
+Epoch 4/20 Step 2100/2579 LR 1.83e-04 Loss 5.9058
+Epoch 4/20 Step 2200/2579 LR 1.83e-04 Loss 5.9024
+Epoch 4/20 Step 2300/2579 LR 1.83e-04 Loss 5.9017
+Epoch 4/20 Step 2400/2579 LR 1.82e-04 Loss 5.9010
+Epoch 4/20 Step 2500/2579 LR 1.82e-04 Loss 5.9003
+Epoch 4/20 Step 2579/2579 LR 1.82e-04 Loss 5.9004
+Epoch loss = 15217.041870594025
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2284.151460
+Eval batch size 150
+Hits at 1: 0.212
+after_first 	 0.108 	 total questions: 6499
+before_after 	 0.433 	 total questions: 11655
+before_last 	 0.103 	 total questions: 6532
+equal 	 0.25 	 total questions: 18983
+equal_multi 	 0.289 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.212 	 total questions: 57979
+
+entity 	 0.302 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.459
+after_first 	 0.388 	 total questions: 6499
+before_after 	 0.841 	 total questions: 11655
+before_last 	 0.398 	 total questions: 6532
+equal 	 0.472 	 total questions: 18983
+equal_multi 	 0.672 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.459 	 total questions: 57979
+
+entity 	 0.652 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.594181
+Eval batch size 150
+Hits at 1: 0.248
+after_first 	 0.193 	 total questions: 109
+before_after 	 0.57 	 total questions: 165
+before_last 	 0.209 	 total questions: 115
+equal 	 0.224 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.077 	 total questions: 196
+
+complex 	 0.248 	 total questions: 1000
+
+entity 	 0.373 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.455
+after_first 	 0.495 	 total questions: 109
+before_after 	 0.891 	 total questions: 165
+before_last 	 0.478 	 total questions: 115
+equal 	 0.397 	 total questions: 380
+equal_multi 	 0.543 	 total questions: 35
+first_last 	 0.148 	 total questions: 196
+
+complex 	 0.455 	 total questions: 1000
+
+entity 	 0.683 	 total questions: 665
+time 	 0.003 	 total questions: 335
+
+Epoch 5/20 Step 100/2579 LR 1.81e-04 Loss 5.9064
+Epoch 5/20 Step 200/2579 LR 1.81e-04 Loss 5.8663
+Epoch 5/20 Step 300/2579 LR 1.81e-04 Loss 5.8395
+Epoch 5/20 Step 400/2579 LR 1.80e-04 Loss 5.8375
+Epoch 5/20 Step 500/2579 LR 1.80e-04 Loss 5.8415
+Epoch 5/20 Step 600/2579 LR 1.79e-04 Loss 5.8408
+Epoch 5/20 Step 700/2579 LR 1.79e-04 Loss 5.8436
+Epoch 5/20 Step 800/2579 LR 1.79e-04 Loss 5.8447
+Epoch 5/20 Step 900/2579 LR 1.78e-04 Loss 5.8449
+Epoch 5/20 Step 1000/2579 LR 1.78e-04 Loss 5.8435
+Epoch 5/20 Step 1100/2579 LR 1.78e-04 Loss 5.8386
+Epoch 5/20 Step 1200/2579 LR 1.77e-04 Loss 5.8362
+Epoch 5/20 Step 1300/2579 LR 1.77e-04 Loss 5.8367
+Epoch 5/20 Step 1400/2579 LR 1.76e-04 Loss 5.8385
+Epoch 5/20 Step 1500/2579 LR 1.76e-04 Loss 5.8383
+Epoch 5/20 Step 1600/2579 LR 1.76e-04 Loss 5.8373
+Epoch 5/20 Step 1700/2579 LR 1.75e-04 Loss 5.8363
+Epoch 5/20 Step 1800/2579 LR 1.75e-04 Loss 5.8369
+Epoch 5/20 Step 1900/2579 LR 1.74e-04 Loss 5.8335
+Epoch 5/20 Step 2000/2579 LR 1.74e-04 Loss 5.8317
+Epoch 5/20 Step 2100/2579 LR 1.74e-04 Loss 5.8309
+Epoch 5/20 Step 2200/2579 LR 1.73e-04 Loss 5.8302
+Epoch 5/20 Step 2300/2579 LR 1.73e-04 Loss 5.8290
+Epoch 5/20 Step 2400/2579 LR 1.72e-04 Loss 5.8291
+Epoch 5/20 Step 2500/2579 LR 1.72e-04 Loss 5.8280
+Epoch 5/20 Step 2579/2579 LR 1.72e-04 Loss 5.8287
+Epoch loss = 15032.272990226746
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2277.593138
+Eval batch size 150
+Hits at 1: 0.218
+after_first 	 0.113 	 total questions: 6499
+before_after 	 0.446 	 total questions: 11655
+before_last 	 0.104 	 total questions: 6532
+equal 	 0.254 	 total questions: 18983
+equal_multi 	 0.299 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.218 	 total questions: 57979
+
+entity 	 0.31 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.46
+after_first 	 0.391 	 total questions: 6499
+before_after 	 0.843 	 total questions: 11655
+before_last 	 0.397 	 total questions: 6532
+equal 	 0.474 	 total questions: 18983
+equal_multi 	 0.677 	 total questions: 3213
+first_last 	 0.049 	 total questions: 11097
+
+complex 	 0.46 	 total questions: 57979
+
+entity 	 0.654 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.312418
+Eval batch size 150
+Hits at 1: 0.265
+after_first 	 0.183 	 total questions: 109
+before_after 	 0.594 	 total questions: 165
+before_last 	 0.252 	 total questions: 115
+equal 	 0.242 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.087 	 total questions: 196
+
+complex 	 0.265 	 total questions: 1000
+
+entity 	 0.398 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.462
+after_first 	 0.486 	 total questions: 109
+before_after 	 0.903 	 total questions: 165
+before_last 	 0.487 	 total questions: 115
+equal 	 0.403 	 total questions: 380
+equal_multi 	 0.629 	 total questions: 35
+first_last 	 0.148 	 total questions: 196
+
+complex 	 0.462 	 total questions: 1000
+
+entity 	 0.692 	 total questions: 665
+time 	 0.006 	 total questions: 335
+
+Epoch 6/20 Step 100/2579 LR 1.71e-04 Loss 5.8242
+Epoch 6/20 Step 200/2579 LR 1.71e-04 Loss 5.8140
+Epoch 6/20 Step 300/2579 LR 1.70e-04 Loss 5.7974
+Epoch 6/20 Step 400/2579 LR 1.70e-04 Loss 5.7965
+Epoch 6/20 Step 500/2579 LR 1.69e-04 Loss 5.7914
+Epoch 6/20 Step 600/2579 LR 1.69e-04 Loss 5.7847
+Epoch 6/20 Step 700/2579 LR 1.69e-04 Loss 5.7889
+Epoch 6/20 Step 800/2579 LR 1.68e-04 Loss 5.7974
+Epoch 6/20 Step 900/2579 LR 1.68e-04 Loss 5.7982
+Epoch 6/20 Step 1000/2579 LR 1.67e-04 Loss 5.7989
+Epoch 6/20 Step 1100/2579 LR 1.67e-04 Loss 5.7991
+Epoch 6/20 Step 1200/2579 LR 1.66e-04 Loss 5.8002
+Epoch 6/20 Step 1300/2579 LR 1.66e-04 Loss 5.8036
+Epoch 6/20 Step 1400/2579 LR 1.65e-04 Loss 5.8042
+Epoch 6/20 Step 1500/2579 LR 1.65e-04 Loss 5.8075
+Epoch 6/20 Step 1600/2579 LR 1.65e-04 Loss 5.8046
+Epoch 6/20 Step 1700/2579 LR 1.64e-04 Loss 5.8009
+Epoch 6/20 Step 1800/2579 LR 1.64e-04 Loss 5.8025
+Epoch 6/20 Step 1900/2579 LR 1.63e-04 Loss 5.8019
+Epoch 6/20 Step 2000/2579 LR 1.63e-04 Loss 5.7996
+Epoch 6/20 Step 2100/2579 LR 1.62e-04 Loss 5.8002
+Epoch 6/20 Step 2200/2579 LR 1.62e-04 Loss 5.7991
+Epoch 6/20 Step 2300/2579 LR 1.61e-04 Loss 5.7976
+Epoch 6/20 Step 2400/2579 LR 1.61e-04 Loss 5.7965
+Epoch 6/20 Step 2500/2579 LR 1.60e-04 Loss 5.7966
+Epoch 6/20 Step 2579/2579 LR 1.60e-04 Loss 5.7978
+Epoch loss = 14952.505053520203
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2278.319831
+Eval batch size 150
+Hits at 1: 0.214
+after_first 	 0.111 	 total questions: 6499
+before_after 	 0.434 	 total questions: 11655
+before_last 	 0.103 	 total questions: 6532
+equal 	 0.252 	 total questions: 18983
+equal_multi 	 0.299 	 total questions: 3213
+first_last 	 0.017 	 total questions: 11097
+
+complex 	 0.214 	 total questions: 57979
+
+entity 	 0.305 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.461
+after_first 	 0.393 	 total questions: 6499
+before_after 	 0.845 	 total questions: 11655
+before_last 	 0.398 	 total questions: 6532
+equal 	 0.474 	 total questions: 18983
+equal_multi 	 0.674 	 total questions: 3213
+first_last 	 0.049 	 total questions: 11097
+
+complex 	 0.461 	 total questions: 57979
+
+entity 	 0.655 	 total questions: 40565
+time 	 0.008 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.970997
+Eval batch size 150
+Hits at 1: 0.259
+after_first 	 0.174 	 total questions: 109
+before_after 	 0.594 	 total questions: 165
+before_last 	 0.226 	 total questions: 115
+equal 	 0.239 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.082 	 total questions: 196
+
+complex 	 0.259 	 total questions: 1000
+
+entity 	 0.389 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.458
+after_first 	 0.505 	 total questions: 109
+before_after 	 0.897 	 total questions: 165
+before_last 	 0.504 	 total questions: 115
+equal 	 0.384 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.153 	 total questions: 196
+
+complex 	 0.458 	 total questions: 1000
+
+entity 	 0.689 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 7/20 Step 100/2579 LR 1.59e-04 Loss 5.7778
+Epoch 7/20 Step 200/2579 LR 1.59e-04 Loss 5.7958
+Epoch 7/20 Step 300/2579 LR 1.58e-04 Loss 5.7808
+Epoch 7/20 Step 400/2579 LR 1.58e-04 Loss 5.7762
+Epoch 7/20 Step 500/2579 LR 1.57e-04 Loss 5.7748
+Epoch 7/20 Step 600/2579 LR 1.57e-04 Loss 5.7713
+Epoch 7/20 Step 700/2579 LR 1.56e-04 Loss 5.7752
+Epoch 7/20 Step 800/2579 LR 1.56e-04 Loss 5.7746
+Epoch 7/20 Step 900/2579 LR 1.55e-04 Loss 5.7781
+Epoch 7/20 Step 1000/2579 LR 1.55e-04 Loss 5.7790
+Epoch 7/20 Step 1100/2579 LR 1.54e-04 Loss 5.7816
+Epoch 7/20 Step 1200/2579 LR 1.54e-04 Loss 5.7811
+Epoch 7/20 Step 1300/2579 LR 1.53e-04 Loss 5.7833
+Epoch 7/20 Step 1400/2579 LR 1.53e-04 Loss 5.7834
+Epoch 7/20 Step 1500/2579 LR 1.52e-04 Loss 5.7822
+Epoch 7/20 Step 1600/2579 LR 1.52e-04 Loss 5.7812
+Epoch 7/20 Step 1700/2579 LR 1.51e-04 Loss 5.7824
+Epoch 7/20 Step 1800/2579 LR 1.51e-04 Loss 5.7808
+Epoch 7/20 Step 1900/2579 LR 1.50e-04 Loss 5.7791
+Epoch 7/20 Step 2000/2579 LR 1.50e-04 Loss 5.7803
+Epoch 7/20 Step 2100/2579 LR 1.49e-04 Loss 5.7811
+Epoch 7/20 Step 2200/2579 LR 1.49e-04 Loss 5.7797
+Epoch 7/20 Step 2300/2579 LR 1.48e-04 Loss 5.7798
+Epoch 7/20 Step 2400/2579 LR 1.48e-04 Loss 5.7796
+Epoch 7/20 Step 2500/2579 LR 1.47e-04 Loss 5.7801
+Epoch 7/20 Step 2579/2579 LR 1.47e-04 Loss 5.7807
+Epoch loss = 14908.34217596054
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2272.925809
+Eval batch size 150
+Hits at 1: 0.218
+after_first 	 0.11 	 total questions: 6499
+before_after 	 0.444 	 total questions: 11655
+before_last 	 0.108 	 total questions: 6532
+equal 	 0.258 	 total questions: 18983
+equal_multi 	 0.298 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.218 	 total questions: 57979
+
+entity 	 0.311 	 total questions: 40565
+time 	 0.001 	 total questions: 17414
+
+Hits at 10: 0.461
+after_first 	 0.392 	 total questions: 6499
+before_after 	 0.842 	 total questions: 11655
+before_last 	 0.398 	 total questions: 6532
+equal 	 0.478 	 total questions: 18983
+equal_multi 	 0.675 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.461 	 total questions: 57979
+
+entity 	 0.656 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.075826
+Eval batch size 150
+Hits at 1: 0.257
+after_first 	 0.183 	 total questions: 109
+before_after 	 0.606 	 total questions: 165
+before_last 	 0.2 	 total questions: 115
+equal 	 0.226 	 total questions: 380
+equal_multi 	 0.286 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.257 	 total questions: 1000
+
+entity 	 0.386 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.46
+after_first 	 0.505 	 total questions: 109
+before_after 	 0.903 	 total questions: 165
+before_last 	 0.478 	 total questions: 115
+equal 	 0.395 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.153 	 total questions: 196
+
+complex 	 0.46 	 total questions: 1000
+
+entity 	 0.69 	 total questions: 665
+time 	 0.003 	 total questions: 335
+
+Epoch 8/20 Step 100/2579 LR 1.46e-04 Loss 5.7556
+Epoch 8/20 Step 200/2579 LR 1.46e-04 Loss 5.7518
+Epoch 8/20 Step 300/2579 LR 1.45e-04 Loss 5.7564
+Epoch 8/20 Step 400/2579 LR 1.44e-04 Loss 5.7496
+Epoch 8/20 Step 500/2579 LR 1.44e-04 Loss 5.7502
+Epoch 8/20 Step 600/2579 LR 1.43e-04 Loss 5.7489
+Epoch 8/20 Step 700/2579 LR 1.43e-04 Loss 5.7529
+Epoch 8/20 Step 800/2579 LR 1.42e-04 Loss 5.7561
+Epoch 8/20 Step 900/2579 LR 1.42e-04 Loss 5.7562
+Epoch 8/20 Step 1000/2579 LR 1.41e-04 Loss 5.7582
+Epoch 8/20 Step 1100/2579 LR 1.41e-04 Loss 5.7537
+Epoch 8/20 Step 1200/2579 LR 1.40e-04 Loss 5.7571
+Epoch 8/20 Step 1300/2579 LR 1.40e-04 Loss 5.7576
+Epoch 8/20 Step 1400/2579 LR 1.39e-04 Loss 5.7591
+Epoch 8/20 Step 1500/2579 LR 1.38e-04 Loss 5.7587
+Epoch 8/20 Step 1600/2579 LR 1.38e-04 Loss 5.7620
+Epoch 8/20 Step 1700/2579 LR 1.37e-04 Loss 5.7653
+Epoch 8/20 Step 1800/2579 LR 1.37e-04 Loss 5.7661
+Epoch 8/20 Step 1900/2579 LR 1.36e-04 Loss 5.7652
+Epoch 8/20 Step 2000/2579 LR 1.36e-04 Loss 5.7647
+Epoch 8/20 Step 2100/2579 LR 1.35e-04 Loss 5.7661
+Epoch 8/20 Step 2200/2579 LR 1.34e-04 Loss 5.7664
+Epoch 8/20 Step 2300/2579 LR 1.34e-04 Loss 5.7665
+Epoch 8/20 Step 2400/2579 LR 1.33e-04 Loss 5.7639
+Epoch 8/20 Step 2500/2579 LR 1.33e-04 Loss 5.7640
+Epoch 8/20 Step 2579/2579 LR 1.32e-04 Loss 5.7634
+Epoch loss = 14863.808824062347
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2267.412311
+Eval batch size 150
+Hits at 1: 0.219
+after_first 	 0.111 	 total questions: 6499
+before_after 	 0.452 	 total questions: 11655
+before_last 	 0.107 	 total questions: 6532
+equal 	 0.257 	 total questions: 18983
+equal_multi 	 0.298 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.219 	 total questions: 57979
+
+entity 	 0.313 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.463
+after_first 	 0.397 	 total questions: 6499
+before_after 	 0.847 	 total questions: 11655
+before_last 	 0.398 	 total questions: 6532
+equal 	 0.478 	 total questions: 18983
+equal_multi 	 0.68 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.463 	 total questions: 57979
+
+entity 	 0.658 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.090607
+Eval batch size 150
+Hits at 1: 0.258
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.588 	 total questions: 165
+before_last 	 0.217 	 total questions: 115
+equal 	 0.232 	 total questions: 380
+equal_multi 	 0.286 	 total questions: 35
+first_last 	 0.082 	 total questions: 196
+
+complex 	 0.258 	 total questions: 1000
+
+entity 	 0.388 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.462
+after_first 	 0.505 	 total questions: 109
+before_after 	 0.909 	 total questions: 165
+before_last 	 0.487 	 total questions: 115
+equal 	 0.392 	 total questions: 380
+equal_multi 	 0.571 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.462 	 total questions: 1000
+
+entity 	 0.692 	 total questions: 665
+time 	 0.006 	 total questions: 335
+
+Epoch 9/20 Step 100/2579 LR 1.32e-04 Loss 5.7183
+Epoch 9/20 Step 200/2579 LR 1.31e-04 Loss 5.7243
+Epoch 9/20 Step 300/2579 LR 1.31e-04 Loss 5.7313
+Epoch 9/20 Step 400/2579 LR 1.30e-04 Loss 5.7290
+Epoch 9/20 Step 500/2579 LR 1.29e-04 Loss 5.7317
+Epoch 9/20 Step 600/2579 LR 1.29e-04 Loss 5.7326
+Epoch 9/20 Step 700/2579 LR 1.28e-04 Loss 5.7352
+Epoch 9/20 Step 800/2579 LR 1.28e-04 Loss 5.7360
+Epoch 9/20 Step 900/2579 LR 1.27e-04 Loss 5.7406
+Epoch 9/20 Step 1000/2579 LR 1.26e-04 Loss 5.7377
+Epoch 9/20 Step 1100/2579 LR 1.26e-04 Loss 5.7370
+Epoch 9/20 Step 1200/2579 LR 1.25e-04 Loss 5.7386
+Epoch 9/20 Step 1300/2579 LR 1.25e-04 Loss 5.7404
+Epoch 9/20 Step 1400/2579 LR 1.24e-04 Loss 5.7393
+Epoch 9/20 Step 1500/2579 LR 1.24e-04 Loss 5.7413
+Epoch 9/20 Step 1600/2579 LR 1.23e-04 Loss 5.7425
+Epoch 9/20 Step 1700/2579 LR 1.22e-04 Loss 5.7438
+Epoch 9/20 Step 1800/2579 LR 1.22e-04 Loss 5.7442
+Epoch 9/20 Step 1900/2579 LR 1.21e-04 Loss 5.7451
+Epoch 9/20 Step 2000/2579 LR 1.21e-04 Loss 5.7481
+Epoch 9/20 Step 2100/2579 LR 1.20e-04 Loss 5.7502
+Epoch 9/20 Step 2200/2579 LR 1.19e-04 Loss 5.7498
+Epoch 9/20 Step 2300/2579 LR 1.19e-04 Loss 5.7506
+Epoch 9/20 Step 2400/2579 LR 1.18e-04 Loss 5.7539
+Epoch 9/20 Step 2500/2579 LR 1.18e-04 Loss 5.7529
+Epoch 9/20 Step 2579/2579 LR 1.17e-04 Loss 5.7533
+Epoch loss = 14837.763652801514
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2267.311944
+Eval batch size 150
+Hits at 1: 0.222
+after_first 	 0.117 	 total questions: 6499
+before_after 	 0.455 	 total questions: 11655
+before_last 	 0.11 	 total questions: 6532
+equal 	 0.257 	 total questions: 18983
+equal_multi 	 0.307 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.222 	 total questions: 57979
+
+entity 	 0.316 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.464
+after_first 	 0.396 	 total questions: 6499
+before_after 	 0.85 	 total questions: 11655
+before_last 	 0.403 	 total questions: 6532
+equal 	 0.477 	 total questions: 18983
+equal_multi 	 0.678 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.464 	 total questions: 57979
+
+entity 	 0.659 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.002414
+Eval batch size 150
+Hits at 1: 0.26
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.606 	 total questions: 165
+before_last 	 0.226 	 total questions: 115
+equal 	 0.224 	 total questions: 380
+equal_multi 	 0.286 	 total questions: 35
+first_last 	 0.087 	 total questions: 196
+
+complex 	 0.26 	 total questions: 1000
+
+entity 	 0.391 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.468
+after_first 	 0.532 	 total questions: 109
+before_after 	 0.909 	 total questions: 165
+before_last 	 0.487 	 total questions: 115
+equal 	 0.397 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.468 	 total questions: 1000
+
+entity 	 0.701 	 total questions: 665
+time 	 0.006 	 total questions: 335
+
+Epoch 10/20 Step 100/2579 LR 1.17e-04 Loss 5.7247
+Epoch 10/20 Step 200/2579 LR 1.16e-04 Loss 5.7342
+Epoch 10/20 Step 300/2579 LR 1.15e-04 Loss 5.7447
+Epoch 10/20 Step 400/2579 LR 1.15e-04 Loss 5.7467
+Epoch 10/20 Step 500/2579 LR 1.14e-04 Loss 5.7512
+Epoch 10/20 Step 600/2579 LR 1.14e-04 Loss 5.7546
+Epoch 10/20 Step 700/2579 LR 1.13e-04 Loss 5.7576
+Epoch 10/20 Step 800/2579 LR 1.12e-04 Loss 5.7564
+Epoch 10/20 Step 900/2579 LR 1.12e-04 Loss 5.7537
+Epoch 10/20 Step 1000/2579 LR 1.11e-04 Loss 5.7504
+Epoch 10/20 Step 1100/2579 LR 1.11e-04 Loss 5.7509
+Epoch 10/20 Step 1200/2579 LR 1.10e-04 Loss 5.7516
+Epoch 10/20 Step 1300/2579 LR 1.09e-04 Loss 5.7476
+Epoch 10/20 Step 1400/2579 LR 1.09e-04 Loss 5.7485
+Epoch 10/20 Step 1500/2579 LR 1.08e-04 Loss 5.7471
+Epoch 10/20 Step 1600/2579 LR 1.08e-04 Loss 5.7463
+Epoch 10/20 Step 1700/2579 LR 1.07e-04 Loss 5.7454
+Epoch 10/20 Step 1800/2579 LR 1.06e-04 Loss 5.7446
+Epoch 10/20 Step 1900/2579 LR 1.06e-04 Loss 5.7453
+Epoch 10/20 Step 2000/2579 LR 1.05e-04 Loss 5.7432
+Epoch 10/20 Step 2100/2579 LR 1.05e-04 Loss 5.7442
+Epoch 10/20 Step 2200/2579 LR 1.04e-04 Loss 5.7456
+Epoch 10/20 Step 2300/2579 LR 1.03e-04 Loss 5.7466
+Epoch 10/20 Step 2400/2579 LR 1.03e-04 Loss 5.7459
+Epoch 10/20 Step 2500/2579 LR 1.02e-04 Loss 5.7453
+Epoch 10/20 Step 2579/2579 LR 1.02e-04 Loss 5.7453
+Epoch loss = 14817.017282962799
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2261.406291
+Eval batch size 150
+Hits at 1: 0.222
+after_first 	 0.117 	 total questions: 6499
+before_after 	 0.462 	 total questions: 11655
+before_last 	 0.109 	 total questions: 6532
+equal 	 0.254 	 total questions: 18983
+equal_multi 	 0.309 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.222 	 total questions: 57979
+
+entity 	 0.317 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.465
+after_first 	 0.399 	 total questions: 6499
+before_after 	 0.85 	 total questions: 11655
+before_last 	 0.405 	 total questions: 6532
+equal 	 0.478 	 total questions: 18983
+equal_multi 	 0.682 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.465 	 total questions: 57979
+
+entity 	 0.661 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.398114
+Eval batch size 150
+Hits at 1: 0.262
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.618 	 total questions: 165
+before_last 	 0.209 	 total questions: 115
+equal 	 0.232 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.087 	 total questions: 196
+
+complex 	 0.262 	 total questions: 1000
+
+entity 	 0.394 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.47
+after_first 	 0.532 	 total questions: 109
+before_after 	 0.915 	 total questions: 165
+before_last 	 0.461 	 total questions: 115
+equal 	 0.403 	 total questions: 380
+equal_multi 	 0.657 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.47 	 total questions: 1000
+
+entity 	 0.707 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 11/20 Step 100/2579 LR 1.01e-04 Loss 5.7745
+Epoch 11/20 Step 200/2579 LR 1.00e-04 Loss 5.7387
+Epoch 11/20 Step 300/2579 LR 9.98e-05 Loss 5.7363
+Epoch 11/20 Step 400/2579 LR 9.92e-05 Loss 5.7423
+Epoch 11/20 Step 500/2579 LR 9.86e-05 Loss 5.7382
+Epoch 11/20 Step 600/2579 LR 9.80e-05 Loss 5.7428
+Epoch 11/20 Step 700/2579 LR 9.74e-05 Loss 5.7347
+Epoch 11/20 Step 800/2579 LR 9.68e-05 Loss 5.7348
+Epoch 11/20 Step 900/2579 LR 9.62e-05 Loss 5.7316
+Epoch 11/20 Step 1000/2579 LR 9.56e-05 Loss 5.7290
+Epoch 11/20 Step 1100/2579 LR 9.50e-05 Loss 5.7325
+Epoch 11/20 Step 1200/2579 LR 9.43e-05 Loss 5.7310
+Epoch 11/20 Step 1300/2579 LR 9.37e-05 Loss 5.7328
+Epoch 11/20 Step 1400/2579 LR 9.31e-05 Loss 5.7342
+Epoch 11/20 Step 1500/2579 LR 9.25e-05 Loss 5.7339
+Epoch 11/20 Step 1600/2579 LR 9.19e-05 Loss 5.7337
+Epoch 11/20 Step 1700/2579 LR 9.13e-05 Loss 5.7349
+Epoch 11/20 Step 1800/2579 LR 9.07e-05 Loss 5.7334
+Epoch 11/20 Step 1900/2579 LR 9.01e-05 Loss 5.7328
+Epoch 11/20 Step 2000/2579 LR 8.95e-05 Loss 5.7332
+Epoch 11/20 Step 2100/2579 LR 8.89e-05 Loss 5.7340
+Epoch 11/20 Step 2200/2579 LR 8.83e-05 Loss 5.7350
+Epoch 11/20 Step 2300/2579 LR 8.77e-05 Loss 5.7365
+Epoch 11/20 Step 2400/2579 LR 8.71e-05 Loss 5.7347
+Epoch 11/20 Step 2500/2579 LR 8.65e-05 Loss 5.7352
+Epoch 11/20 Step 2579/2579 LR 8.61e-05 Loss 5.7363
+Epoch loss = 14793.852635383606
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2261.472884
+Eval batch size 150
+Hits at 1: 0.221
+after_first 	 0.119 	 total questions: 6499
+before_after 	 0.458 	 total questions: 11655
+before_last 	 0.11 	 total questions: 6532
+equal 	 0.255 	 total questions: 18983
+equal_multi 	 0.3 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.221 	 total questions: 57979
+
+entity 	 0.316 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.465
+after_first 	 0.398 	 total questions: 6499
+before_after 	 0.851 	 total questions: 11655
+before_last 	 0.404 	 total questions: 6532
+equal 	 0.479 	 total questions: 18983
+equal_multi 	 0.679 	 total questions: 3213
+first_last 	 0.049 	 total questions: 11097
+
+complex 	 0.465 	 total questions: 57979
+
+entity 	 0.662 	 total questions: 40565
+time 	 0.008 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 38.029675
+Eval batch size 150
+Hits at 1: 0.268
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.588 	 total questions: 165
+before_last 	 0.235 	 total questions: 115
+equal 	 0.247 	 total questions: 380
+equal_multi 	 0.286 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.268 	 total questions: 1000
+
+entity 	 0.403 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.465
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.909 	 total questions: 165
+before_last 	 0.487 	 total questions: 115
+equal 	 0.395 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.158 	 total questions: 196
+
+complex 	 0.465 	 total questions: 1000
+
+entity 	 0.699 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 12/20 Step 100/2579 LR 8.55e-05 Loss 5.7277
+Epoch 12/20 Step 200/2579 LR 8.49e-05 Loss 5.7394
+Epoch 12/20 Step 300/2579 LR 8.43e-05 Loss 5.7382
+Epoch 12/20 Step 400/2579 LR 8.37e-05 Loss 5.7298
+Epoch 12/20 Step 500/2579 LR 8.31e-05 Loss 5.7328
+Epoch 12/20 Step 600/2579 LR 8.25e-05 Loss 5.7299
+Epoch 12/20 Step 700/2579 LR 8.19e-05 Loss 5.7249
+Epoch 12/20 Step 800/2579 LR 8.13e-05 Loss 5.7278
+Epoch 12/20 Step 900/2579 LR 8.07e-05 Loss 5.7219
+Epoch 12/20 Step 1000/2579 LR 8.01e-05 Loss 5.7216
+Epoch 12/20 Step 1100/2579 LR 7.95e-05 Loss 5.7268
+Epoch 12/20 Step 1200/2579 LR 7.89e-05 Loss 5.7236
+Epoch 12/20 Step 1300/2579 LR 7.83e-05 Loss 5.7183
+Epoch 12/20 Step 1400/2579 LR 7.77e-05 Loss 5.7193
+Epoch 12/20 Step 1500/2579 LR 7.72e-05 Loss 5.7185
+Epoch 12/20 Step 1600/2579 LR 7.66e-05 Loss 5.7185
+Epoch 12/20 Step 1700/2579 LR 7.60e-05 Loss 5.7214
+Epoch 12/20 Step 1800/2579 LR 7.54e-05 Loss 5.7224
+Epoch 12/20 Step 1900/2579 LR 7.48e-05 Loss 5.7215
+Epoch 12/20 Step 2000/2579 LR 7.42e-05 Loss 5.7218
+Epoch 12/20 Step 2100/2579 LR 7.36e-05 Loss 5.7214
+Epoch 12/20 Step 2200/2579 LR 7.31e-05 Loss 5.7214
+Epoch 12/20 Step 2300/2579 LR 7.25e-05 Loss 5.7248
+Epoch 12/20 Step 2400/2579 LR 7.19e-05 Loss 5.7244
+Epoch 12/20 Step 2500/2579 LR 7.13e-05 Loss 5.7256
+Epoch 12/20 Step 2579/2579 LR 7.09e-05 Loss 5.7266
+Epoch loss = 14768.914011955261
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2256.113146
+Eval batch size 150
+Hits at 1: 0.223
+after_first 	 0.119 	 total questions: 6499
+before_after 	 0.46 	 total questions: 11655
+before_last 	 0.111 	 total questions: 6532
+equal 	 0.257 	 total questions: 18983
+equal_multi 	 0.305 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.223 	 total questions: 57979
+
+entity 	 0.317 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.466
+after_first 	 0.402 	 total questions: 6499
+before_after 	 0.849 	 total questions: 11655
+before_last 	 0.405 	 total questions: 6532
+equal 	 0.481 	 total questions: 18983
+equal_multi 	 0.68 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.466 	 total questions: 57979
+
+entity 	 0.662 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.980850
+Eval batch size 150
+Hits at 1: 0.267
+after_first 	 0.193 	 total questions: 109
+before_after 	 0.636 	 total questions: 165
+before_last 	 0.235 	 total questions: 115
+equal 	 0.234 	 total questions: 380
+equal_multi 	 0.229 	 total questions: 35
+first_last 	 0.087 	 total questions: 196
+
+complex 	 0.267 	 total questions: 1000
+
+entity 	 0.402 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.466
+after_first 	 0.532 	 total questions: 109
+before_after 	 0.903 	 total questions: 165
+before_last 	 0.478 	 total questions: 115
+equal 	 0.397 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.466 	 total questions: 1000
+
+entity 	 0.699 	 total questions: 665
+time 	 0.003 	 total questions: 335
+
+Epoch 13/20 Step 100/2579 LR 7.03e-05 Loss 5.6568
+Epoch 13/20 Step 200/2579 LR 6.97e-05 Loss 5.6623
+Epoch 13/20 Step 300/2579 LR 6.91e-05 Loss 5.6832
+Epoch 13/20 Step 400/2579 LR 6.86e-05 Loss 5.7016
+Epoch 13/20 Step 500/2579 LR 6.80e-05 Loss 5.7018
+Epoch 13/20 Step 600/2579 LR 6.74e-05 Loss 5.7136
+Epoch 13/20 Step 700/2579 LR 6.69e-05 Loss 5.7161
+Epoch 13/20 Step 800/2579 LR 6.63e-05 Loss 5.7101
+Epoch 13/20 Step 900/2579 LR 6.57e-05 Loss 5.7093
+Epoch 13/20 Step 1000/2579 LR 6.52e-05 Loss 5.7098
+Epoch 13/20 Step 1100/2579 LR 6.46e-05 Loss 5.7136
+Epoch 13/20 Step 1200/2579 LR 6.40e-05 Loss 5.7148
+Epoch 13/20 Step 1300/2579 LR 6.35e-05 Loss 5.7172
+Epoch 13/20 Step 1400/2579 LR 6.29e-05 Loss 5.7168
+Epoch 13/20 Step 1500/2579 LR 6.24e-05 Loss 5.7170
+Epoch 13/20 Step 1600/2579 LR 6.18e-05 Loss 5.7185
+Epoch 13/20 Step 1700/2579 LR 6.12e-05 Loss 5.7177
+Epoch 13/20 Step 1800/2579 LR 6.07e-05 Loss 5.7199
+Epoch 13/20 Step 1900/2579 LR 6.01e-05 Loss 5.7168
+Epoch 13/20 Step 2000/2579 LR 5.96e-05 Loss 5.7161
+Epoch 13/20 Step 2100/2579 LR 5.90e-05 Loss 5.7147
+Epoch 13/20 Step 2200/2579 LR 5.85e-05 Loss 5.7154
+Epoch 13/20 Step 2300/2579 LR 5.79e-05 Loss 5.7154
+Epoch 13/20 Step 2400/2579 LR 5.74e-05 Loss 5.7169
+Epoch 13/20 Step 2500/2579 LR 5.69e-05 Loss 5.7175
+Epoch 13/20 Step 2579/2579 LR 5.64e-05 Loss 5.7180
+Epoch loss = 14746.597514629364
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2257.323981
+Eval batch size 150
+Hits at 1: 0.223
+after_first 	 0.114 	 total questions: 6499
+before_after 	 0.46 	 total questions: 11655
+before_last 	 0.11 	 total questions: 6532
+equal 	 0.257 	 total questions: 18983
+equal_multi 	 0.308 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.223 	 total questions: 57979
+
+entity 	 0.317 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.467
+after_first 	 0.401 	 total questions: 6499
+before_after 	 0.851 	 total questions: 11655
+before_last 	 0.406 	 total questions: 6532
+equal 	 0.481 	 total questions: 18983
+equal_multi 	 0.682 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.467 	 total questions: 57979
+
+entity 	 0.663 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.614487
+Eval batch size 150
+Hits at 1: 0.273
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.618 	 total questions: 165
+before_last 	 0.261 	 total questions: 115
+equal 	 0.247 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.082 	 total questions: 196
+
+complex 	 0.273 	 total questions: 1000
+
+entity 	 0.411 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.464
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.903 	 total questions: 165
+before_last 	 0.47 	 total questions: 115
+equal 	 0.397 	 total questions: 380
+equal_multi 	 0.629 	 total questions: 35
+first_last 	 0.158 	 total questions: 196
+
+complex 	 0.464 	 total questions: 1000
+
+entity 	 0.698 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 14/20 Step 100/2579 LR 5.59e-05 Loss 5.7026
+Epoch 14/20 Step 200/2579 LR 5.54e-05 Loss 5.7081
+Epoch 14/20 Step 300/2579 LR 5.48e-05 Loss 5.7045
+Epoch 14/20 Step 400/2579 LR 5.43e-05 Loss 5.7102
+Epoch 14/20 Step 500/2579 LR 5.38e-05 Loss 5.7053
+Epoch 14/20 Step 600/2579 LR 5.32e-05 Loss 5.7065
+Epoch 14/20 Step 700/2579 LR 5.27e-05 Loss 5.7093
+Epoch 14/20 Step 800/2579 LR 5.22e-05 Loss 5.7098
+Epoch 14/20 Step 900/2579 LR 5.16e-05 Loss 5.7181
+Epoch 14/20 Step 1000/2579 LR 5.11e-05 Loss 5.7227
+Epoch 14/20 Step 1100/2579 LR 5.06e-05 Loss 5.7214
+Epoch 14/20 Step 1200/2579 LR 5.01e-05 Loss 5.7217
+Epoch 14/20 Step 1300/2579 LR 4.96e-05 Loss 5.7225
+Epoch 14/20 Step 1400/2579 LR 4.90e-05 Loss 5.7232
+Epoch 14/20 Step 1500/2579 LR 4.85e-05 Loss 5.7200
+Epoch 14/20 Step 1600/2579 LR 4.80e-05 Loss 5.7183
+Epoch 14/20 Step 1700/2579 LR 4.75e-05 Loss 5.7185
+Epoch 14/20 Step 1800/2579 LR 4.70e-05 Loss 5.7165
+Epoch 14/20 Step 1900/2579 LR 4.65e-05 Loss 5.7158
+Epoch 14/20 Step 2000/2579 LR 4.60e-05 Loss 5.7141
+Epoch 14/20 Step 2100/2579 LR 4.55e-05 Loss 5.7129
+Epoch 14/20 Step 2200/2579 LR 4.50e-05 Loss 5.7135
+Epoch 14/20 Step 2300/2579 LR 4.45e-05 Loss 5.7129
+Epoch 14/20 Step 2400/2579 LR 4.40e-05 Loss 5.7126
+Epoch 14/20 Step 2500/2579 LR 4.35e-05 Loss 5.7122
+Epoch 14/20 Step 2579/2579 LR 4.31e-05 Loss 5.7116
+Epoch loss = 14730.099349498749
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2257.956167
+Eval batch size 150
+Hits at 1: 0.223
+after_first 	 0.12 	 total questions: 6499
+before_after 	 0.461 	 total questions: 11655
+before_last 	 0.111 	 total questions: 6532
+equal 	 0.255 	 total questions: 18983
+equal_multi 	 0.302 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.223 	 total questions: 57979
+
+entity 	 0.317 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.467
+after_first 	 0.401 	 total questions: 6499
+before_after 	 0.853 	 total questions: 11655
+before_last 	 0.407 	 total questions: 6532
+equal 	 0.481 	 total questions: 18983
+equal_multi 	 0.682 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.467 	 total questions: 57979
+
+entity 	 0.664 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.427839
+Eval batch size 150
+Hits at 1: 0.267
+after_first 	 0.211 	 total questions: 109
+before_after 	 0.594 	 total questions: 165
+before_last 	 0.243 	 total questions: 115
+equal 	 0.239 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.267 	 total questions: 1000
+
+entity 	 0.402 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.466
+after_first 	 0.514 	 total questions: 109
+before_after 	 0.903 	 total questions: 165
+before_last 	 0.496 	 total questions: 115
+equal 	 0.4 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.158 	 total questions: 196
+
+complex 	 0.466 	 total questions: 1000
+
+entity 	 0.698 	 total questions: 665
+time 	 0.006 	 total questions: 335
+
+Epoch 15/20 Step 100/2579 LR 4.26e-05 Loss 5.6843
+Epoch 15/20 Step 200/2579 LR 4.21e-05 Loss 5.7045
+Epoch 15/20 Step 300/2579 LR 4.16e-05 Loss 5.7020
+Epoch 15/20 Step 400/2579 LR 4.12e-05 Loss 5.7006
+Epoch 15/20 Step 500/2579 LR 4.07e-05 Loss 5.7040
+Epoch 15/20 Step 600/2579 LR 4.02e-05 Loss 5.6952
+Epoch 15/20 Step 700/2579 LR 3.97e-05 Loss 5.6898
+Epoch 15/20 Step 800/2579 LR 3.92e-05 Loss 5.6903
+Epoch 15/20 Step 900/2579 LR 3.88e-05 Loss 5.6937
+Epoch 15/20 Step 1000/2579 LR 3.83e-05 Loss 5.6950
+Epoch 15/20 Step 1100/2579 LR 3.78e-05 Loss 5.6970
+Epoch 15/20 Step 1200/2579 LR 3.74e-05 Loss 5.7000
+Epoch 15/20 Step 1300/2579 LR 3.69e-05 Loss 5.7033
+Epoch 15/20 Step 1400/2579 LR 3.64e-05 Loss 5.7021
+Epoch 15/20 Step 1500/2579 LR 3.60e-05 Loss 5.7011
+Epoch 15/20 Step 1600/2579 LR 3.55e-05 Loss 5.6989
+Epoch 15/20 Step 1700/2579 LR 3.51e-05 Loss 5.6968
+Epoch 15/20 Step 1800/2579 LR 3.46e-05 Loss 5.6975
+Epoch 15/20 Step 1900/2579 LR 3.42e-05 Loss 5.6993
+Epoch 15/20 Step 2000/2579 LR 3.37e-05 Loss 5.7011
+Epoch 15/20 Step 2100/2579 LR 3.33e-05 Loss 5.7027
+Epoch 15/20 Step 2200/2579 LR 3.29e-05 Loss 5.7035
+Epoch 15/20 Step 2300/2579 LR 3.24e-05 Loss 5.7056
+Epoch 15/20 Step 2400/2579 LR 3.20e-05 Loss 5.7052
+Epoch 15/20 Step 2500/2579 LR 3.16e-05 Loss 5.7050
+Epoch 15/20 Step 2579/2579 LR 3.12e-05 Loss 5.7049
+Epoch loss = 14712.844968795776
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2255.018855
+Eval batch size 150
+Hits at 1: 0.221
+after_first 	 0.116 	 total questions: 6499
+before_after 	 0.454 	 total questions: 11655
+before_last 	 0.109 	 total questions: 6532
+equal 	 0.256 	 total questions: 18983
+equal_multi 	 0.3 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.221 	 total questions: 57979
+
+entity 	 0.315 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.467
+after_first 	 0.399 	 total questions: 6499
+before_after 	 0.852 	 total questions: 11655
+before_last 	 0.406 	 total questions: 6532
+equal 	 0.482 	 total questions: 18983
+equal_multi 	 0.683 	 total questions: 3213
+first_last 	 0.052 	 total questions: 11097
+
+complex 	 0.467 	 total questions: 57979
+
+entity 	 0.664 	 total questions: 40565
+time 	 0.01 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.417250
+Eval batch size 150
+Hits at 1: 0.272
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.618 	 total questions: 165
+before_last 	 0.243 	 total questions: 115
+equal 	 0.247 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.087 	 total questions: 196
+
+complex 	 0.272 	 total questions: 1000
+
+entity 	 0.409 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.468
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.915 	 total questions: 165
+before_last 	 0.496 	 total questions: 115
+equal 	 0.392 	 total questions: 380
+equal_multi 	 0.657 	 total questions: 35
+first_last 	 0.158 	 total questions: 196
+
+complex 	 0.468 	 total questions: 1000
+
+entity 	 0.704 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 16/20 Step 100/2579 LR 3.08e-05 Loss 5.6567
+Epoch 16/20 Step 200/2579 LR 3.04e-05 Loss 5.6782
+Epoch 16/20 Step 300/2579 LR 2.99e-05 Loss 5.6869
+Epoch 16/20 Step 400/2579 LR 2.95e-05 Loss 5.6804
+Epoch 16/20 Step 500/2579 LR 2.91e-05 Loss 5.6883
+Epoch 16/20 Step 600/2579 LR 2.87e-05 Loss 5.6935
+Epoch 16/20 Step 700/2579 LR 2.83e-05 Loss 5.6927
+Epoch 16/20 Step 800/2579 LR 2.79e-05 Loss 5.6905
+Epoch 16/20 Step 900/2579 LR 2.75e-05 Loss 5.6895
+Epoch 16/20 Step 1000/2579 LR 2.71e-05 Loss 5.6903
+Epoch 16/20 Step 1100/2579 LR 2.66e-05 Loss 5.6909
+Epoch 16/20 Step 1200/2579 LR 2.63e-05 Loss 5.6943
+Epoch 16/20 Step 1300/2579 LR 2.59e-05 Loss 5.6959
+Epoch 16/20 Step 1400/2579 LR 2.55e-05 Loss 5.6947
+Epoch 16/20 Step 1500/2579 LR 2.51e-05 Loss 5.6969
+Epoch 16/20 Step 1600/2579 LR 2.47e-05 Loss 5.6986
+Epoch 16/20 Step 1700/2579 LR 2.43e-05 Loss 5.7005
+Epoch 16/20 Step 1800/2579 LR 2.39e-05 Loss 5.7000
+Epoch 16/20 Step 1900/2579 LR 2.35e-05 Loss 5.6983
+Epoch 16/20 Step 2000/2579 LR 2.32e-05 Loss 5.6986
+Epoch 16/20 Step 2100/2579 LR 2.28e-05 Loss 5.7010
+Epoch 16/20 Step 2200/2579 LR 2.24e-05 Loss 5.7004
+Epoch 16/20 Step 2300/2579 LR 2.21e-05 Loss 5.7005
+Epoch 16/20 Step 2400/2579 LR 2.17e-05 Loss 5.6999
+Epoch 16/20 Step 2500/2579 LR 2.13e-05 Loss 5.6973
+Epoch 16/20 Step 2579/2579 LR 2.10e-05 Loss 5.6983
+Epoch loss = 14695.912992954254
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2257.790602
+Eval batch size 150
+Hits at 1: 0.222
+after_first 	 0.117 	 total questions: 6499
+before_after 	 0.461 	 total questions: 11655
+before_last 	 0.111 	 total questions: 6532
+equal 	 0.255 	 total questions: 18983
+equal_multi 	 0.3 	 total questions: 3213
+first_last 	 0.018 	 total questions: 11097
+
+complex 	 0.222 	 total questions: 57979
+
+entity 	 0.316 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.467
+after_first 	 0.402 	 total questions: 6499
+before_after 	 0.853 	 total questions: 11655
+before_last 	 0.405 	 total questions: 6532
+equal 	 0.482 	 total questions: 18983
+equal_multi 	 0.681 	 total questions: 3213
+first_last 	 0.051 	 total questions: 11097
+
+complex 	 0.467 	 total questions: 57979
+
+entity 	 0.664 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.653291
+Eval batch size 150
+Hits at 1: 0.271
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.624 	 total questions: 165
+before_last 	 0.252 	 total questions: 115
+equal 	 0.237 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.271 	 total questions: 1000
+
+entity 	 0.408 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.469
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.909 	 total questions: 165
+before_last 	 0.504 	 total questions: 115
+equal 	 0.395 	 total questions: 380
+equal_multi 	 0.629 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.469 	 total questions: 1000
+
+entity 	 0.705 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 17/20 Step 100/2579 LR 2.07e-05 Loss 5.6817
+Epoch 17/20 Step 200/2579 LR 2.03e-05 Loss 5.6947
+Epoch 17/20 Step 300/2579 LR 2.00e-05 Loss 5.7108
+Epoch 17/20 Step 400/2579 LR 1.96e-05 Loss 5.7059
+Epoch 17/20 Step 500/2579 LR 1.93e-05 Loss 5.6995
+Epoch 17/20 Step 600/2579 LR 1.90e-05 Loss 5.7043
+Epoch 17/20 Step 700/2579 LR 1.86e-05 Loss 5.7057
+Epoch 17/20 Step 800/2579 LR 1.83e-05 Loss 5.7006
+Epoch 17/20 Step 900/2579 LR 1.80e-05 Loss 5.6958
+Epoch 17/20 Step 1000/2579 LR 1.76e-05 Loss 5.6966
+Epoch 17/20 Step 1100/2579 LR 1.73e-05 Loss 5.6962
+Epoch 17/20 Step 1200/2579 LR 1.70e-05 Loss 5.6964
+Epoch 17/20 Step 1300/2579 LR 1.67e-05 Loss 5.6985
+Epoch 17/20 Step 1400/2579 LR 1.64e-05 Loss 5.6997
+Epoch 17/20 Step 1500/2579 LR 1.60e-05 Loss 5.6986
+Epoch 17/20 Step 1600/2579 LR 1.57e-05 Loss 5.6968
+Epoch 17/20 Step 1700/2579 LR 1.54e-05 Loss 5.6938
+Epoch 17/20 Step 1800/2579 LR 1.51e-05 Loss 5.6935
+Epoch 17/20 Step 1900/2579 LR 1.48e-05 Loss 5.6967
+Epoch 17/20 Step 2000/2579 LR 1.45e-05 Loss 5.6952
+Epoch 17/20 Step 2100/2579 LR 1.42e-05 Loss 5.6942
+Epoch 17/20 Step 2200/2579 LR 1.39e-05 Loss 5.6936
+Epoch 17/20 Step 2300/2579 LR 1.37e-05 Loss 5.6937
+Epoch 17/20 Step 2400/2579 LR 1.34e-05 Loss 5.6937
+Epoch 17/20 Step 2500/2579 LR 1.31e-05 Loss 5.6941
+Epoch 17/20 Step 2579/2579 LR 1.29e-05 Loss 5.6937
+Epoch loss = 14684.107154369354
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2256.366273
+Eval batch size 150
+Hits at 1: 0.224
+after_first 	 0.12 	 total questions: 6499
+before_after 	 0.463 	 total questions: 11655
+before_last 	 0.112 	 total questions: 6532
+equal 	 0.257 	 total questions: 18983
+equal_multi 	 0.302 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.224 	 total questions: 57979
+
+entity 	 0.319 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.467
+after_first 	 0.401 	 total questions: 6499
+before_after 	 0.851 	 total questions: 11655
+before_last 	 0.405 	 total questions: 6532
+equal 	 0.482 	 total questions: 18983
+equal_multi 	 0.68 	 total questions: 3213
+first_last 	 0.051 	 total questions: 11097
+
+complex 	 0.467 	 total questions: 57979
+
+entity 	 0.663 	 total questions: 40565
+time 	 0.01 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.499395
+Eval batch size 150
+Hits at 1: 0.275
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.63 	 total questions: 165
+before_last 	 0.252 	 total questions: 115
+equal 	 0.245 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.275 	 total questions: 1000
+
+entity 	 0.414 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.469
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.915 	 total questions: 165
+before_last 	 0.496 	 total questions: 115
+equal 	 0.395 	 total questions: 380
+equal_multi 	 0.629 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.469 	 total questions: 1000
+
+entity 	 0.705 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 18/20 Step 100/2579 LR 1.26e-05 Loss 5.6832
+Epoch 18/20 Step 200/2579 LR 1.23e-05 Loss 5.6906
+Epoch 18/20 Step 300/2579 LR 1.21e-05 Loss 5.6877
+Epoch 18/20 Step 400/2579 LR 1.18e-05 Loss 5.6935
+Epoch 18/20 Step 500/2579 LR 1.15e-05 Loss 5.6896
+Epoch 18/20 Step 600/2579 LR 1.13e-05 Loss 5.6934
+Epoch 18/20 Step 700/2579 LR 1.10e-05 Loss 5.6958
+Epoch 18/20 Step 800/2579 LR 1.08e-05 Loss 5.6927
+Epoch 18/20 Step 900/2579 LR 1.05e-05 Loss 5.6962
+Epoch 18/20 Step 1000/2579 LR 1.03e-05 Loss 5.6943
+Epoch 18/20 Step 1100/2579 LR 1.00e-05 Loss 5.6935
+Epoch 18/20 Step 1200/2579 LR 9.80e-06 Loss 5.6921
+Epoch 18/20 Step 1300/2579 LR 9.57e-06 Loss 5.6944
+Epoch 18/20 Step 1400/2579 LR 9.34e-06 Loss 5.6956
+Epoch 18/20 Step 1500/2579 LR 9.11e-06 Loss 5.6946
+Epoch 18/20 Step 1600/2579 LR 8.89e-06 Loss 5.6943
+Epoch 18/20 Step 1700/2579 LR 8.67e-06 Loss 5.6935
+Epoch 18/20 Step 1800/2579 LR 8.45e-06 Loss 5.6933
+Epoch 18/20 Step 1900/2579 LR 8.24e-06 Loss 5.6934
+Epoch 18/20 Step 2000/2579 LR 8.03e-06 Loss 5.6926
+Epoch 18/20 Step 2100/2579 LR 7.82e-06 Loss 5.6922
+Epoch 18/20 Step 2200/2579 LR 7.62e-06 Loss 5.6922
+Epoch 18/20 Step 2300/2579 LR 7.42e-06 Loss 5.6928
+Epoch 18/20 Step 2400/2579 LR 7.22e-06 Loss 5.6919
+Epoch 18/20 Step 2500/2579 LR 7.03e-06 Loss 5.6930
+Epoch 18/20 Step 2579/2579 LR 6.88e-06 Loss 5.6932
+Epoch loss = 14682.84218788147
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2255.580117
+Eval batch size 150
+Hits at 1: 0.224
+after_first 	 0.12 	 total questions: 6499
+before_after 	 0.463 	 total questions: 11655
+before_last 	 0.111 	 total questions: 6532
+equal 	 0.258 	 total questions: 18983
+equal_multi 	 0.302 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.224 	 total questions: 57979
+
+entity 	 0.319 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.467
+after_first 	 0.402 	 total questions: 6499
+before_after 	 0.852 	 total questions: 11655
+before_last 	 0.405 	 total questions: 6532
+equal 	 0.483 	 total questions: 18983
+equal_multi 	 0.681 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.467 	 total questions: 57979
+
+entity 	 0.664 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Valid score increased
+Saving model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Saved model to /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.371749
+Eval batch size 150
+Hits at 1: 0.271
+after_first 	 0.193 	 total questions: 109
+before_after 	 0.624 	 total questions: 165
+before_last 	 0.252 	 total questions: 115
+equal 	 0.239 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.271 	 total questions: 1000
+
+entity 	 0.408 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.47
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.915 	 total questions: 165
+before_last 	 0.504 	 total questions: 115
+equal 	 0.397 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.47 	 total questions: 1000
+
+entity 	 0.707 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 19/20 Step 100/2579 LR 6.70e-06 Loss 5.7061
+Epoch 19/20 Step 200/2579 LR 6.51e-06 Loss 5.7044
+Epoch 19/20 Step 300/2579 LR 6.34e-06 Loss 5.6949
+Epoch 19/20 Step 400/2579 LR 6.16e-06 Loss 5.6874
+Epoch 19/20 Step 500/2579 LR 5.99e-06 Loss 5.6874
+Epoch 19/20 Step 600/2579 LR 5.82e-06 Loss 5.6830
+Epoch 19/20 Step 700/2579 LR 5.66e-06 Loss 5.6862
+Epoch 19/20 Step 800/2579 LR 5.49e-06 Loss 5.6842
+Epoch 19/20 Step 900/2579 LR 5.34e-06 Loss 5.6869
+Epoch 19/20 Step 1000/2579 LR 5.18e-06 Loss 5.6864
+Epoch 19/20 Step 1100/2579 LR 5.03e-06 Loss 5.6888
+Epoch 19/20 Step 1200/2579 LR 4.89e-06 Loss 5.6853
+Epoch 19/20 Step 1300/2579 LR 4.74e-06 Loss 5.6841
+Epoch 19/20 Step 1400/2579 LR 4.60e-06 Loss 5.6856
+Epoch 19/20 Step 1500/2579 LR 4.47e-06 Loss 5.6866
+Epoch 19/20 Step 1600/2579 LR 4.33e-06 Loss 5.6860
+Epoch 19/20 Step 1700/2579 LR 4.20e-06 Loss 5.6887
+Epoch 19/20 Step 1800/2579 LR 4.08e-06 Loss 5.6891
+Epoch 19/20 Step 1900/2579 LR 3.96e-06 Loss 5.6880
+Epoch 19/20 Step 2000/2579 LR 3.84e-06 Loss 5.6903
+Epoch 19/20 Step 2100/2579 LR 3.73e-06 Loss 5.6891
+Epoch 19/20 Step 2200/2579 LR 3.61e-06 Loss 5.6882
+Epoch 19/20 Step 2300/2579 LR 3.51e-06 Loss 5.6895
+Epoch 19/20 Step 2400/2579 LR 3.40e-06 Loss 5.6889
+Epoch 19/20 Step 2500/2579 LR 3.30e-06 Loss 5.6889
+Epoch 19/20 Step 2579/2579 LR 3.23e-06 Loss 5.6897
+Epoch loss = 14673.835407733917
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2257.074966
+Eval batch size 150
+Hits at 1: 0.223
+after_first 	 0.119 	 total questions: 6499
+before_after 	 0.462 	 total questions: 11655
+before_last 	 0.112 	 total questions: 6532
+equal 	 0.256 	 total questions: 18983
+equal_multi 	 0.3 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.223 	 total questions: 57979
+
+entity 	 0.318 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.468
+after_first 	 0.401 	 total questions: 6499
+before_after 	 0.853 	 total questions: 11655
+before_last 	 0.406 	 total questions: 6532
+equal 	 0.482 	 total questions: 18983
+equal_multi 	 0.681 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.468 	 total questions: 57979
+
+entity 	 0.664 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.224510
+Eval batch size 150
+Hits at 1: 0.275
+after_first 	 0.211 	 total questions: 109
+before_after 	 0.636 	 total questions: 165
+before_last 	 0.243 	 total questions: 115
+equal 	 0.242 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.275 	 total questions: 1000
+
+entity 	 0.414 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.468
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.915 	 total questions: 165
+before_last 	 0.504 	 total questions: 115
+equal 	 0.392 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.468 	 total questions: 1000
+
+entity 	 0.704 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Epoch 20/20 Step 100/2579 LR 3.14e-06 Loss 5.7317
+Epoch 20/20 Step 200/2579 LR 3.05e-06 Loss 5.6939
+Epoch 20/20 Step 300/2579 LR 2.96e-06 Loss 5.7004
+Epoch 20/20 Step 400/2579 LR 2.88e-06 Loss 5.6914
+Epoch 20/20 Step 500/2579 LR 2.80e-06 Loss 5.6939
+Epoch 20/20 Step 600/2579 LR 2.72e-06 Loss 5.6877
+Epoch 20/20 Step 700/2579 LR 2.65e-06 Loss 5.6797
+Epoch 20/20 Step 800/2579 LR 2.59e-06 Loss 5.6784
+Epoch 20/20 Step 900/2579 LR 2.52e-06 Loss 5.6811
+Epoch 20/20 Step 1000/2579 LR 2.46e-06 Loss 5.6816
+Epoch 20/20 Step 1100/2579 LR 2.40e-06 Loss 5.6812
+Epoch 20/20 Step 1200/2579 LR 2.35e-06 Loss 5.6835
+Epoch 20/20 Step 1300/2579 LR 2.30e-06 Loss 5.6832
+Epoch 20/20 Step 1400/2579 LR 2.26e-06 Loss 5.6850
+Epoch 20/20 Step 1500/2579 LR 2.22e-06 Loss 5.6858
+Epoch 20/20 Step 1600/2579 LR 2.18e-06 Loss 5.6841
+Epoch 20/20 Step 1700/2579 LR 2.14e-06 Loss 5.6846
+Epoch 20/20 Step 1800/2579 LR 2.11e-06 Loss 5.6868
+Epoch 20/20 Step 1900/2579 LR 2.09e-06 Loss 5.6878
+Epoch 20/20 Step 2000/2579 LR 2.06e-06 Loss 5.6887
+Epoch 20/20 Step 2100/2579 LR 2.04e-06 Loss 5.6885
+Epoch 20/20 Step 2200/2579 LR 2.03e-06 Loss 5.6892
+Epoch 20/20 Step 2300/2579 LR 2.01e-06 Loss 5.6878
+Epoch 20/20 Step 2400/2579 LR 2.01e-06 Loss 5.6880
+Epoch 20/20 Step 2500/2579 LR 2.00e-06 Loss 5.6873
+Epoch 20/20 Step 2579/2579 LR 2.00e-06 Loss 5.6868
+Epoch loss = 14666.254643917084
+Evaluating split valid
+Step 100/387
+Step 200/387
+Step 300/387
+Step 387/387
+Split valid
+Loss 2258.781199
+Eval batch size 150
+Hits at 1: 0.223
+after_first 	 0.12 	 total questions: 6499
+before_after 	 0.46 	 total questions: 11655
+before_last 	 0.112 	 total questions: 6532
+equal 	 0.256 	 total questions: 18983
+equal_multi 	 0.301 	 total questions: 3213
+first_last 	 0.019 	 total questions: 11097
+
+complex 	 0.223 	 total questions: 57979
+
+entity 	 0.318 	 total questions: 40565
+time 	 0.002 	 total questions: 17414
+
+Hits at 10: 0.468
+after_first 	 0.403 	 total questions: 6499
+before_after 	 0.853 	 total questions: 11655
+before_last 	 0.406 	 total questions: 6532
+equal 	 0.483 	 total questions: 18983
+equal_multi 	 0.679 	 total questions: 3213
+first_last 	 0.05 	 total questions: 11097
+
+complex 	 0.468 	 total questions: 57979
+
+entity 	 0.665 	 total questions: 40565
+time 	 0.009 	 total questions: 17414
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 37.470355
+Eval batch size 150
+Hits at 1: 0.274
+after_first 	 0.202 	 total questions: 109
+before_after 	 0.624 	 total questions: 165
+before_last 	 0.261 	 total questions: 115
+equal 	 0.242 	 total questions: 380
+equal_multi 	 0.257 	 total questions: 35
+first_last 	 0.092 	 total questions: 196
+
+complex 	 0.274 	 total questions: 1000
+
+entity 	 0.412 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Hits at 10: 0.468
+after_first 	 0.523 	 total questions: 109
+before_after 	 0.915 	 total questions: 165
+before_last 	 0.496 	 total questions: 115
+equal 	 0.395 	 total questions: 380
+equal_multi 	 0.6 	 total questions: 35
+first_last 	 0.163 	 total questions: 196
+
+complex 	 0.468 	 total questions: 1000
+
+entity 	 0.704 	 total questions: 665
+time 	 0.0 	 total questions: 335
+
+Loading best model from /Data/.models/MultiTQ/qa_models/embedkgqa.ckpt
+Evaluating split test
+Step 100/364
+Step 200/364
+Step 300/364
+Step 364/364
+Split test
+Loss 2068.959407
+Eval batch size 150
+Hits at 1: 0.243
+after_first 	 0.126 	 total questions: 6266
+before_after 	 0.509 	 total questions: 11073
+before_last 	 0.112 	 total questions: 6247
+equal 	 0.284 	 total questions: 17311
+equal_multi 	 0.322 	 total questions: 3207
+first_last 	 0.017 	 total questions: 10480
+
+complex 	 0.243 	 total questions: 54584
+
+entity 	 0.342 	 total questions: 38700
+time 	 0.002 	 total questions: 15884
+
+Hits at 10: 0.489
+after_first 	 0.43 	 total questions: 6266
+before_after 	 0.871 	 total questions: 11073
+before_last 	 0.422 	 total questions: 6247
+equal 	 0.514 	 total questions: 17311
+equal_multi 	 0.714 	 total questions: 3207
+first_last 	 0.051 	 total questions: 10480
+
+complex 	 0.489 	 total questions: 54584
+
+entity 	 0.685 	 total questions: 38700
+time 	 0.012 	 total questions: 15884
+
+Final TEST evaluation (best model) done
+Training finished

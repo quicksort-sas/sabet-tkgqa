@@ -1,0 +1,3000 @@
+nohup: ignoring input
+#######################
+
+===== ARGUMENTS =====
+tkbc_model_file: tcomplex.ckpt
+tkg_file: full.txt
+model: tempo_qr
+subgraph_reasoning: False
+time_sensitivity: False
+aware_module: False
+dataset_name: timequestions
+supervision: soft
+load_from: 
+save_to: tempo_qr_hard
+max_epochs: 50
+eval_k: 1
+valid_freq: 1
+batch_size: 150
+valid_batch_size: 150
+frozen: 1
+lm_frozen: 1
+lr: 0.0006
+mode: train
+eval_split: valid
+lm: distill_bert
+fuse: add
+extra_entities: False
+corrupt_hard: 0.0
+test: test
+temperature: 1.0
+=====================
+
+Loading tkbc model from /Data/.data/models/timequestions/kg_embeddings/tcomplex.ckpt
+Number ent,rel,ts from loaded model: 117643 1766 2916
+Loaded tkbc model
+Freezing LM params
+/Data/.envs/graphRag/lib64/python3.9/site-packages/torch/nn/modules/transformer.py:392: UserWarning: enable_nested_tensor is True, but self.use_nested_tensor is False because encoder_layer.self_attn.batch_first was not True(use batch_first for better inference performance)
+  warnings.warn(
+Freezing entity/time embeddings
+Total questions =  6970
+Preparing data for split train
+  0%|          | 0/6970 [00:00<?, ?it/s]  2%|▏         | 138/6970 [00:00<00:06, 1075.20it/s]  4%|▎         | 256/6970 [00:00<00:05, 1129.88it/s]  5%|▌         | 370/6970 [00:00<00:05, 1102.83it/s]  7%|▋         | 481/6970 [00:00<00:06, 1053.25it/s]  8%|▊         | 587/6970 [00:00<00:13, 484.20it/s]  10%|█         | 704/6970 [00:00<00:10, 607.67it/s] 12%|█▏        | 822/6970 [00:01<00:08, 712.77it/s] 13%|█▎        | 918/6970 [00:01<00:15, 401.57it/s] 14%|█▍        | 995/6970 [00:01<00:13, 446.97it/s] 17%|█▋        | 1162/6970 [00:01<00:09, 640.01it/s] 18%|█▊        | 1259/6970 [00:01<00:08, 677.93it/s] 19%|█▉        | 1351/6970 [00:02<00:12, 438.39it/s]No Ent 
+
+{'times': set(), 'entities': set(), 'question': 'when did they start building the giza pyramid', 'answers': {-2559}, 'paraphrases': ['when did they start building the giza pyramid'], 'answer_type': 'entity', 'template': '', 'relations': set(), 'type': ['Temp.Ans'], 'annotation': {}, 'uniq_id': 1893, 'nbhood_facts': [], 'fact': [], 'keyword_dicts': [{}]}
+
+
+ 21%|██        | 1435/6970 [00:02<00:11, 498.31it/s] 22%|██▏       | 1520/6970 [00:02<00:09, 559.44it/s] 24%|██▍       | 1656/6970 [00:02<00:07, 699.93it/s] 26%|██▌       | 1778/6970 [00:02<00:06, 786.28it/s] 28%|██▊       | 1941/6970 [00:02<00:05, 981.99it/s] 29%|██▉       | 2056/6970 [00:03<00:04, 998.96it/s] 31%|███       | 2168/6970 [00:03<00:05, 898.14it/s] 33%|███▎      | 2268/6970 [00:03<00:05, 806.61it/s] 34%|███▍      | 2357/6970 [00:03<00:05, 769.03it/s] 36%|███▌      | 2497/6970 [00:03<00:04, 902.74it/s] 37%|███▋      | 2594/6970 [00:03<00:05, 846.48it/s] 39%|███▉      | 2709/6970 [00:03<00:04, 912.56it/s] 40%|████      | 2811/6970 [00:03<00:04, 936.34it/s] 42%|████▏     | 2909/6970 [00:04<00:04, 940.17it/s] 43%|████▎     | 3006/6970 [00:04<00:04, 938.20it/s] 45%|████▌     | 3154/6970 [00:04<00:03, 1041.72it/s] 47%|████▋     | 3259/6970 [00:04<00:03, 973.64it/s]  48%|████▊     | 3380/6970 [00:04<00:03, 1022.59it/s] 51%|█████     | 3540/6970 [00:04<00:02, 1165.02it/s] 52%|█████▏    | 3659/6970 [00:04<00:03, 992.81it/s]  54%|█████▍    | 3778/6970 [00:04<00:03, 1012.79it/s] 56%|█████▌    | 3883/6970 [00:05<00:03, 836.25it/s]  58%|█████▊    | 4015/6970 [00:05<00:03, 926.55it/s] 59%|█████▉    | 4147/6970 [00:05<00:02, 1022.87it/s] 61%|██████    | 4257/6970 [00:05<00:04, 552.88it/s]  63%|██████▎   | 4422/6970 [00:05<00:03, 732.88it/s] 65%|██████▌   | 4531/6970 [00:06<00:03, 652.80it/s] 67%|██████▋   | 4636/6970 [00:06<00:03, 722.78it/s] 68%|██████▊   | 4752/6970 [00:06<00:02, 793.46it/s] 70%|██████▉   | 4850/6970 [00:06<00:02, 785.32it/s] 71%|███████   | 4941/6970 [00:06<00:02, 771.18it/s] 73%|███████▎  | 5064/6970 [00:06<00:02, 858.82it/s] 74%|███████▍  | 5165/6970 [00:06<00:02, 884.86it/s] 75%|███████▌  | 5261/6970 [00:06<00:01, 893.25it/s] 77%|███████▋  | 5369/6970 [00:06<00:01, 921.16it/s] 78%|███████▊  | 5465/6970 [00:07<00:01, 753.71it/s] 80%|███████▉  | 5547/6970 [00:07<00:01, 751.42it/s] 81%|████████  | 5627/6970 [00:07<00:01, 714.81it/s] 83%|████████▎ | 5797/6970 [00:07<00:01, 952.98it/s] 85%|████████▍ | 5900/6970 [00:07<00:01, 961.65it/s] 86%|████████▌ | 6001/6970 [00:07<00:00, 970.01it/s] 88%|████████▊ | 6102/6970 [00:07<00:00, 957.76it/s] 89%|████████▉ | 6200/6970 [00:07<00:00, 887.10it/s] 91%|█████████ | 6337/6970 [00:07<00:00, 1001.03it/s] 92%|█████████▏| 6440/6970 [00:08<00:00, 970.67it/s]  94%|█████████▍| 6539/6970 [00:08<00:00, 906.16it/s] 95%|█████████▌| 6650/6970 [00:08<00:00, 957.56it/s] 97%|█████████▋| 6791/6970 [00:08<00:00, 951.50it/s] 99%|█████████▉| 6888/6970 [00:08<00:00, 826.71it/s]100%|██████████| 6970/6970 [00:08<00:00, 801.06it/s]
+Total questions =  3237
+Preparing data for split test
+  0%|          | 0/3237 [00:00<?, ?it/s]  3%|▎         | 88/3237 [00:00<00:03, 819.46it/s]  6%|▌         | 189/3237 [00:00<00:03, 862.77it/s]  9%|▊         | 276/3237 [00:00<00:03, 745.84it/s] 11%|█         | 352/3237 [00:00<00:04, 656.23it/s] 13%|█▎        | 420/3237 [00:01<00:09, 289.87it/s] 15%|█▍        | 482/3237 [00:01<00:08, 342.02it/s] 18%|█▊        | 591/3237 [00:01<00:05, 476.92it/s] 21%|██▏       | 693/3237 [00:01<00:04, 588.87it/s] 24%|██▍       | 773/3237 [00:01<00:03, 623.10it/s] 26%|██▋       | 851/3237 [00:01<00:03, 610.67it/s]No Ent 
+
+{'times': set(), 'entities': set(), 'question': 'what is the start time for luigi cherubini has position held as directors of higher national conservatories of music, dance and drama in france', 'answers': {1822}, 'paraphrases': ['what is the start time for luigi cherubini has position held as directors of higher national conservatories of music, dance and drama in france'], 'answer_type': 'time', 'template': '', 'relations': set(), 'type': ['Temp.Ans'], 'annotation': {}, 'uniq_id': 13813, 'nbhood_facts': [], 'fact': [], 'keyword_dicts': [{}]}
+
+
+ 30%|██▉       | 969/3237 [00:01<00:03, 729.71it/s] 34%|███▍      | 1105/3237 [00:02<00:04, 497.67it/s] 37%|███▋      | 1210/3237 [00:02<00:03, 577.04it/s] 40%|███▉      | 1285/3237 [00:02<00:03, 583.86it/s] 42%|████▏     | 1374/3237 [00:02<00:02, 641.22it/s] 46%|████▌     | 1479/3237 [00:02<00:02, 722.35it/s] 48%|████▊     | 1562/3237 [00:02<00:02, 731.91it/s] 51%|█████     | 1643/3237 [00:02<00:02, 736.90it/s] 53%|█████▎    | 1722/3237 [00:03<00:03, 406.16it/s] 55%|█████▌    | 1783/3237 [00:03<00:03, 424.49it/s] 57%|█████▋    | 1855/3237 [00:03<00:02, 479.94it/s] 60%|██████    | 1944/3237 [00:03<00:02, 557.82it/s] 62%|██████▏   | 2013/3237 [00:03<00:02, 581.02it/s] 65%|██████▍   | 2103/3237 [00:03<00:01, 651.02it/s] 67%|██████▋   | 2176/3237 [00:03<00:01, 642.96it/s] 69%|██████▉   | 2248/3237 [00:03<00:01, 653.96it/s] 72%|███████▏  | 2318/3237 [00:04<00:01, 649.29it/s] 74%|███████▍  | 2404/3237 [00:04<00:01, 699.48it/s] 79%|███████▊  | 2549/3237 [00:04<00:00, 893.54it/s] 82%|████████▏ | 2641/3237 [00:05<00:02, 286.45it/s] 84%|████████▎ | 2709/3237 [00:05<00:01, 298.19it/s] 85%|████████▌ | 2767/3237 [00:05<00:01, 330.77it/s] 87%|████████▋ | 2824/3237 [00:05<00:01, 364.18it/s] 91%|█████████ | 2939/3237 [00:05<00:00, 492.98it/s] 94%|█████████▎| 3027/3237 [00:05<00:00, 557.04it/s] 97%|█████████▋| 3135/3237 [00:05<00:00, 669.82it/s] 99%|█████████▉| 3218/3237 [00:06<00:00, 577.23it/s]100%|██████████| 3237/3237 [00:06<00:00, 533.31it/s]
+Total questions =  3236
+Preparing data for split valid
+  0%|          | 0/3236 [00:00<?, ?it/s]  2%|▏         | 63/3236 [00:00<00:05, 575.04it/s]  4%|▎         | 121/3236 [00:00<00:05, 548.52it/s]  6%|▌         | 199/3236 [00:00<00:04, 627.20it/s]  8%|▊         | 265/3236 [00:00<00:09, 297.96it/s] 10%|▉         | 322/3236 [00:00<00:08, 347.56it/s] 12%|█▏        | 394/3236 [00:00<00:06, 429.03it/s]No Ent 
+
+{'times': set(), 'entities': set(), 'question': 'what devastating occurrences began on 4/7/1995', 'answers': {'Q4335326'}, 'paraphrases': ['what devastating occurrences began on 4/7/1995'], 'answer_type': 'entity', 'template': '', 'relations': set(), 'type': ['Explicit'], 'annotation': {}, 'uniq_id': 10114, 'nbhood_facts': [], 'fact': [], 'keyword_dicts': [{}]}
+
+
+ 16%|█▌        | 519/3236 [00:01<00:04, 622.23it/s] 18%|█▊        | 597/3236 [00:01<00:04, 583.76it/s] 21%|██        | 667/3236 [00:01<00:04, 593.56it/s] 23%|██▎       | 743/3236 [00:01<00:04, 620.97it/s] 25%|██▌       | 811/3236 [00:01<00:04, 604.83it/s] 29%|██▉       | 935/3236 [00:01<00:03, 755.04it/s] 31%|███▏      | 1015/3236 [00:01<00:03, 722.49it/s] 34%|███▎      | 1091/3236 [00:01<00:03, 704.81it/s] 36%|███▋      | 1175/3236 [00:01<00:02, 739.29it/s] 40%|███▉      | 1285/3236 [00:02<00:02, 815.68it/s] 46%|████▌     | 1475/3236 [00:02<00:01, 1115.68it/s] 49%|████▉     | 1591/3236 [00:02<00:01, 1042.91it/s] 53%|█████▎    | 1699/3236 [00:02<00:03, 505.81it/s]  55%|█████▌    | 1781/3236 [00:02<00:02, 497.37it/s] 57%|█████▋    | 1853/3236 [00:03<00:02, 503.33it/s] 59%|█████▉    | 1919/3236 [00:03<00:02, 505.26it/s] 63%|██████▎   | 2040/3236 [00:03<00:01, 640.63it/s] 65%|██████▌   | 2118/3236 [00:03<00:01, 604.03it/s] 68%|██████▊   | 2188/3236 [00:03<00:02, 371.95it/s] 69%|██████▉   | 2243/3236 [00:04<00:03, 264.45it/s] 72%|███████▏  | 2337/3236 [00:04<00:02, 350.86it/s] 75%|███████▌  | 2441/3236 [00:04<00:01, 458.32it/s] 78%|███████▊  | 2512/3236 [00:04<00:02, 315.09it/s] 79%|███████▉  | 2567/3236 [00:05<00:02, 229.32it/s] 81%|████████  | 2620/3236 [00:05<00:02, 263.20it/s] 82%|████████▏ | 2669/3236 [00:05<00:02, 212.06it/s] 84%|████████▍ | 2726/3236 [00:06<00:02, 251.28it/s] 86%|████████▋ | 2792/3236 [00:06<00:02, 213.74it/s] 87%|████████▋ | 2825/3236 [00:06<00:02, 196.21it/s] 89%|████████▉ | 2881/3236 [00:06<00:01, 242.47it/s] 91%|█████████ | 2935/3236 [00:07<00:01, 203.52it/s] 92%|█████████▏| 2974/3236 [00:07<00:01, 225.83it/s] 93%|█████████▎| 3021/3236 [00:07<00:00, 261.13it/s] 96%|█████████▌| 3112/3236 [00:07<00:00, 381.12it/s] 98%|█████████▊| 3175/3236 [00:07<00:00, 389.96it/s]100%|█████████▉| 3228/3236 [00:08<00:00, 258.38it/s]100%|██████████| 3236/3236 [00:08<00:00, 399.48it/s]
+Not loading from checkpoint. Starting fresh!
+Creating new log file
+Starting training
+Epoch 1/50 Step 47/47 LR 1.87e-04 Loss 11.2737
+Epoch loss = 529.8647546768188
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 235.565923
+Eval batch size 150
+Hits at 1: 0.074
+Explicit 	 0.103 	 total questions: 1302
+Implicit 	 0.021 	 total questions: 291
+Ordinal 	 0.009 	 total questions: 570
+Temp.Ans 	 0.087 	 total questions: 1073
+
+complex 	 0.074 	 total questions: 3236
+
+entity 	 0.066 	 total questions: 2292
+time 	 0.091 	 total questions: 944
+
+Hits at 10: 0.124
+Explicit 	 0.142 	 total questions: 1302
+Implicit 	 0.062 	 total questions: 291
+Ordinal 	 0.061 	 total questions: 570
+Temp.Ans 	 0.152 	 total questions: 1073
+
+complex 	 0.124 	 total questions: 3236
+
+entity 	 0.109 	 total questions: 2292
+time 	 0.16 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 66.432918
+Eval batch size 150
+Hits at 1: 0.119
+Explicit 	 0.167 	 total questions: 390
+Implicit 	 0.022 	 total questions: 91
+Ordinal 	 0.029 	 total questions: 139
+Temp.Ans 	 0.126 	 total questions: 380
+
+complex 	 0.119 	 total questions: 1000
+
+entity 	 0.116 	 total questions: 657
+time 	 0.125 	 total questions: 343
+
+Hits at 10: 0.197
+Explicit 	 0.249 	 total questions: 390
+Implicit 	 0.055 	 total questions: 91
+Ordinal 	 0.101 	 total questions: 139
+Temp.Ans 	 0.213 	 total questions: 380
+
+complex 	 0.197 	 total questions: 1000
+
+entity 	 0.187 	 total questions: 657
+time 	 0.216 	 total questions: 343
+
+Epoch 2/50 Step 47/47 LR 3.14e-04 Loss 8.5493
+Epoch loss = 401.814932346344
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 212.580787
+Eval batch size 150
+Hits at 1: 0.09
+Explicit 	 0.12 	 total questions: 1302
+Implicit 	 0.048 	 total questions: 291
+Ordinal 	 0.044 	 total questions: 570
+Temp.Ans 	 0.089 	 total questions: 1073
+
+complex 	 0.09 	 total questions: 3236
+
+entity 	 0.089 	 total questions: 2292
+time 	 0.091 	 total questions: 944
+
+Hits at 10: 0.176
+Explicit 	 0.191 	 total questions: 1302
+Implicit 	 0.107 	 total questions: 291
+Ordinal 	 0.116 	 total questions: 570
+Temp.Ans 	 0.209 	 total questions: 1073
+
+complex 	 0.176 	 total questions: 3236
+
+entity 	 0.158 	 total questions: 2292
+time 	 0.219 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 56.614835
+Eval batch size 150
+Hits at 1: 0.142
+Explicit 	 0.203 	 total questions: 390
+Implicit 	 0.044 	 total questions: 91
+Ordinal 	 0.058 	 total questions: 139
+Temp.Ans 	 0.134 	 total questions: 380
+
+complex 	 0.142 	 total questions: 1000
+
+entity 	 0.145 	 total questions: 657
+time 	 0.137 	 total questions: 343
+
+Hits at 10: 0.301
+Explicit 	 0.351 	 total questions: 390
+Implicit 	 0.154 	 total questions: 91
+Ordinal 	 0.201 	 total questions: 139
+Temp.Ans 	 0.321 	 total questions: 380
+
+complex 	 0.301 	 total questions: 1000
+
+entity 	 0.285 	 total questions: 657
+time 	 0.332 	 total questions: 343
+
+Epoch 3/50 Step 47/47 LR 4.41e-04 Loss 7.6008
+Epoch loss = 357.2376046180725
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 208.724216
+Eval batch size 150
+Hits at 1: 0.113
+Explicit 	 0.156 	 total questions: 1302
+Implicit 	 0.034 	 total questions: 291
+Ordinal 	 0.03 	 total questions: 570
+Temp.Ans 	 0.126 	 total questions: 1073
+
+complex 	 0.113 	 total questions: 3236
+
+entity 	 0.106 	 total questions: 2292
+time 	 0.129 	 total questions: 944
+
+Hits at 10: 0.208
+Explicit 	 0.244 	 total questions: 1302
+Implicit 	 0.082 	 total questions: 291
+Ordinal 	 0.074 	 total questions: 570
+Temp.Ans 	 0.27 	 total questions: 1073
+
+complex 	 0.208 	 total questions: 3236
+
+entity 	 0.176 	 total questions: 2292
+time 	 0.287 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 54.574721
+Eval batch size 150
+Hits at 1: 0.188
+Explicit 	 0.264 	 total questions: 390
+Implicit 	 0.022 	 total questions: 91
+Ordinal 	 0.079 	 total questions: 139
+Temp.Ans 	 0.189 	 total questions: 380
+
+complex 	 0.188 	 total questions: 1000
+
+entity 	 0.183 	 total questions: 657
+time 	 0.198 	 total questions: 343
+
+Hits at 10: 0.345
+Explicit 	 0.444 	 total questions: 390
+Implicit 	 0.132 	 total questions: 91
+Ordinal 	 0.158 	 total questions: 139
+Temp.Ans 	 0.363 	 total questions: 380
+
+complex 	 0.345 	 total questions: 1000
+
+entity 	 0.324 	 total questions: 657
+time 	 0.385 	 total questions: 343
+
+Epoch 4/50 Step 47/47 LR 5.68e-04 Loss 7.0848
+Epoch loss = 332.9878649711609
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 187.237222
+Eval batch size 150
+Hits at 1: 0.155
+Explicit 	 0.216 	 total questions: 1302
+Implicit 	 0.117 	 total questions: 291
+Ordinal 	 0.061 	 total questions: 570
+Temp.Ans 	 0.14 	 total questions: 1073
+
+complex 	 0.155 	 total questions: 3236
+
+entity 	 0.159 	 total questions: 2292
+time 	 0.143 	 total questions: 944
+
+Hits at 10: 0.267
+Explicit 	 0.306 	 total questions: 1302
+Implicit 	 0.223 	 total questions: 291
+Ordinal 	 0.156 	 total questions: 570
+Temp.Ans 	 0.29 	 total questions: 1073
+
+complex 	 0.267 	 total questions: 3236
+
+entity 	 0.25 	 total questions: 2292
+time 	 0.308 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 44.203885
+Eval batch size 150
+Hits at 1: 0.244
+Explicit 	 0.351 	 total questions: 390
+Implicit 	 0.143 	 total questions: 91
+Ordinal 	 0.158 	 total questions: 139
+Temp.Ans 	 0.189 	 total questions: 380
+
+complex 	 0.244 	 total questions: 1000
+
+entity 	 0.268 	 total questions: 657
+time 	 0.198 	 total questions: 343
+
+Hits at 10: 0.45
+Explicit 	 0.538 	 total questions: 390
+Implicit 	 0.308 	 total questions: 91
+Ordinal 	 0.331 	 total questions: 139
+Temp.Ans 	 0.437 	 total questions: 380
+
+complex 	 0.45 	 total questions: 1000
+
+entity 	 0.444 	 total questions: 657
+time 	 0.461 	 total questions: 343
+
+/Data/.envs/graphRag/lib64/python3.9/site-packages/torch/optim/lr_scheduler.py:209: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch 5/50 Step 47/47 LR 6.00e-04 Loss 6.6804
+Epoch loss = 313.9809250831604
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 180.091105
+Eval batch size 150
+Hits at 1: 0.163
+Explicit 	 0.226 	 total questions: 1302
+Implicit 	 0.131 	 total questions: 291
+Ordinal 	 0.068 	 total questions: 570
+Temp.Ans 	 0.147 	 total questions: 1073
+
+complex 	 0.163 	 total questions: 3236
+
+entity 	 0.168 	 total questions: 2292
+time 	 0.153 	 total questions: 944
+
+Hits at 10: 0.294
+Explicit 	 0.345 	 total questions: 1302
+Implicit 	 0.271 	 total questions: 291
+Ordinal 	 0.175 	 total questions: 570
+Temp.Ans 	 0.3 	 total questions: 1073
+
+complex 	 0.294 	 total questions: 3236
+
+entity 	 0.287 	 total questions: 2292
+time 	 0.309 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 41.807940
+Eval batch size 150
+Hits at 1: 0.283
+Explicit 	 0.413 	 total questions: 390
+Implicit 	 0.165 	 total questions: 91
+Ordinal 	 0.187 	 total questions: 139
+Temp.Ans 	 0.213 	 total questions: 380
+
+complex 	 0.283 	 total questions: 1000
+
+entity 	 0.317 	 total questions: 657
+time 	 0.219 	 total questions: 343
+
+Hits at 10: 0.481
+Explicit 	 0.574 	 total questions: 390
+Implicit 	 0.407 	 total questions: 91
+Ordinal 	 0.396 	 total questions: 139
+Temp.Ans 	 0.434 	 total questions: 380
+
+complex 	 0.481 	 total questions: 1000
+
+entity 	 0.496 	 total questions: 657
+time 	 0.452 	 total questions: 343
+
+Epoch 6/50 Step 47/47 LR 5.98e-04 Loss 6.2346
+Epoch loss = 293.0275807380676
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 175.864483
+Eval batch size 150
+Hits at 1: 0.171
+Explicit 	 0.23 	 total questions: 1302
+Implicit 	 0.093 	 total questions: 291
+Ordinal 	 0.1 	 total questions: 570
+Temp.Ans 	 0.158 	 total questions: 1073
+
+complex 	 0.171 	 total questions: 3236
+
+entity 	 0.182 	 total questions: 2292
+time 	 0.144 	 total questions: 944
+
+Hits at 10: 0.308
+Explicit 	 0.334 	 total questions: 1302
+Implicit 	 0.271 	 total questions: 291
+Ordinal 	 0.212 	 total questions: 570
+Temp.Ans 	 0.336 	 total questions: 1073
+
+complex 	 0.308 	 total questions: 3236
+
+entity 	 0.299 	 total questions: 2292
+time 	 0.329 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 39.094096
+Eval batch size 150
+Hits at 1: 0.307
+Explicit 	 0.438 	 total questions: 390
+Implicit 	 0.198 	 total questions: 91
+Ordinal 	 0.18 	 total questions: 139
+Temp.Ans 	 0.245 	 total questions: 380
+
+complex 	 0.307 	 total questions: 1000
+
+entity 	 0.339 	 total questions: 657
+time 	 0.245 	 total questions: 343
+
+Hits at 10: 0.526
+Explicit 	 0.608 	 total questions: 390
+Implicit 	 0.363 	 total questions: 91
+Ordinal 	 0.417 	 total questions: 139
+Temp.Ans 	 0.521 	 total questions: 380
+
+complex 	 0.526 	 total questions: 1000
+
+entity 	 0.527 	 total questions: 657
+time 	 0.525 	 total questions: 343
+
+Epoch 7/50 Step 47/47 LR 5.95e-04 Loss 5.8234
+Epoch loss = 273.7014193534851
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 173.646021
+Eval batch size 150
+Hits at 1: 0.171
+Explicit 	 0.227 	 total questions: 1302
+Implicit 	 0.131 	 total questions: 291
+Ordinal 	 0.091 	 total questions: 570
+Temp.Ans 	 0.156 	 total questions: 1073
+
+complex 	 0.171 	 total questions: 3236
+
+entity 	 0.18 	 total questions: 2292
+time 	 0.148 	 total questions: 944
+
+Hits at 10: 0.326
+Explicit 	 0.352 	 total questions: 1302
+Implicit 	 0.285 	 total questions: 291
+Ordinal 	 0.232 	 total questions: 570
+Temp.Ans 	 0.356 	 total questions: 1073
+
+complex 	 0.326 	 total questions: 3236
+
+entity 	 0.312 	 total questions: 2292
+time 	 0.36 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 36.908815
+Eval batch size 150
+Hits at 1: 0.3
+Explicit 	 0.446 	 total questions: 390
+Implicit 	 0.176 	 total questions: 91
+Ordinal 	 0.201 	 total questions: 139
+Temp.Ans 	 0.216 	 total questions: 380
+
+complex 	 0.3 	 total questions: 1000
+
+entity 	 0.341 	 total questions: 657
+time 	 0.222 	 total questions: 343
+
+Hits at 10: 0.571
+Explicit 	 0.656 	 total questions: 390
+Implicit 	 0.462 	 total questions: 91
+Ordinal 	 0.468 	 total questions: 139
+Temp.Ans 	 0.547 	 total questions: 380
+
+complex 	 0.571 	 total questions: 1000
+
+entity 	 0.572 	 total questions: 657
+time 	 0.569 	 total questions: 343
+
+Epoch 8/50 Step 47/47 LR 5.90e-04 Loss 5.5330
+Epoch loss = 260.0516519546509
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 171.609394
+Eval batch size 150
+Hits at 1: 0.202
+Explicit 	 0.263 	 total questions: 1302
+Implicit 	 0.158 	 total questions: 291
+Ordinal 	 0.104 	 total questions: 570
+Temp.Ans 	 0.194 	 total questions: 1073
+
+complex 	 0.202 	 total questions: 3236
+
+entity 	 0.212 	 total questions: 2292
+time 	 0.18 	 total questions: 944
+
+Hits at 10: 0.361
+Explicit 	 0.388 	 total questions: 1302
+Implicit 	 0.32 	 total questions: 291
+Ordinal 	 0.26 	 total questions: 570
+Temp.Ans 	 0.392 	 total questions: 1073
+
+complex 	 0.361 	 total questions: 3236
+
+entity 	 0.348 	 total questions: 2292
+time 	 0.391 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 33.252274
+Eval batch size 150
+Hits at 1: 0.354
+Explicit 	 0.474 	 total questions: 390
+Implicit 	 0.231 	 total questions: 91
+Ordinal 	 0.281 	 total questions: 139
+Temp.Ans 	 0.287 	 total questions: 380
+
+complex 	 0.354 	 total questions: 1000
+
+entity 	 0.391 	 total questions: 657
+time 	 0.283 	 total questions: 343
+
+Hits at 10: 0.642
+Explicit 	 0.713 	 total questions: 390
+Implicit 	 0.582 	 total questions: 91
+Ordinal 	 0.518 	 total questions: 139
+Temp.Ans 	 0.629 	 total questions: 380
+
+complex 	 0.642 	 total questions: 1000
+
+entity 	 0.641 	 total questions: 657
+time 	 0.644 	 total questions: 343
+
+Epoch 9/50 Step 47/47 LR 5.84e-04 Loss 5.2378
+Epoch loss = 246.17754554748535
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 168.897717
+Eval batch size 150
+Hits at 1: 0.214
+Explicit 	 0.279 	 total questions: 1302
+Implicit 	 0.162 	 total questions: 291
+Ordinal 	 0.13 	 total questions: 570
+Temp.Ans 	 0.196 	 total questions: 1073
+
+complex 	 0.214 	 total questions: 3236
+
+entity 	 0.224 	 total questions: 2292
+time 	 0.192 	 total questions: 944
+
+Hits at 10: 0.369
+Explicit 	 0.392 	 total questions: 1302
+Implicit 	 0.337 	 total questions: 291
+Ordinal 	 0.277 	 total questions: 570
+Temp.Ans 	 0.4 	 total questions: 1073
+
+complex 	 0.369 	 total questions: 3236
+
+entity 	 0.358 	 total questions: 2292
+time 	 0.397 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 30.898455
+Eval batch size 150
+Hits at 1: 0.406
+Explicit 	 0.554 	 total questions: 390
+Implicit 	 0.242 	 total questions: 91
+Ordinal 	 0.317 	 total questions: 139
+Temp.Ans 	 0.326 	 total questions: 380
+
+complex 	 0.406 	 total questions: 1000
+
+entity 	 0.44 	 total questions: 657
+time 	 0.341 	 total questions: 343
+
+Hits at 10: 0.681
+Explicit 	 0.759 	 total questions: 390
+Implicit 	 0.615 	 total questions: 91
+Ordinal 	 0.54 	 total questions: 139
+Temp.Ans 	 0.668 	 total questions: 380
+
+complex 	 0.681 	 total questions: 1000
+
+entity 	 0.683 	 total questions: 657
+time 	 0.676 	 total questions: 343
+
+Epoch 10/50 Step 47/47 LR 5.77e-04 Loss 4.9250
+Epoch loss = 231.47476720809937
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 161.820149
+Eval batch size 150
+Hits at 1: 0.233
+Explicit 	 0.313 	 total questions: 1302
+Implicit 	 0.196 	 total questions: 291
+Ordinal 	 0.139 	 total questions: 570
+Temp.Ans 	 0.196 	 total questions: 1073
+
+complex 	 0.233 	 total questions: 3236
+
+entity 	 0.253 	 total questions: 2292
+time 	 0.183 	 total questions: 944
+
+Hits at 10: 0.387
+Explicit 	 0.416 	 total questions: 1302
+Implicit 	 0.337 	 total questions: 291
+Ordinal 	 0.304 	 total questions: 570
+Temp.Ans 	 0.41 	 total questions: 1073
+
+complex 	 0.387 	 total questions: 3236
+
+entity 	 0.379 	 total questions: 2292
+time 	 0.407 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 27.929705
+Eval batch size 150
+Hits at 1: 0.431
+Explicit 	 0.579 	 total questions: 390
+Implicit 	 0.341 	 total questions: 91
+Ordinal 	 0.331 	 total questions: 139
+Temp.Ans 	 0.337 	 total questions: 380
+
+complex 	 0.431 	 total questions: 1000
+
+entity 	 0.47 	 total questions: 657
+time 	 0.356 	 total questions: 343
+
+Hits at 10: 0.706
+Explicit 	 0.792 	 total questions: 390
+Implicit 	 0.593 	 total questions: 91
+Ordinal 	 0.612 	 total questions: 139
+Temp.Ans 	 0.679 	 total questions: 380
+
+complex 	 0.706 	 total questions: 1000
+
+entity 	 0.715 	 total questions: 657
+time 	 0.688 	 total questions: 343
+
+Epoch 11/50 Step 47/47 LR 5.69e-04 Loss 4.6270
+Epoch loss = 217.46976852416992
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 159.314985
+Eval batch size 150
+Hits at 1: 0.247
+Explicit 	 0.316 	 total questions: 1302
+Implicit 	 0.21 	 total questions: 291
+Ordinal 	 0.153 	 total questions: 570
+Temp.Ans 	 0.225 	 total questions: 1073
+
+complex 	 0.247 	 total questions: 3236
+
+entity 	 0.261 	 total questions: 2292
+time 	 0.214 	 total questions: 944
+
+Hits at 10: 0.403
+Explicit 	 0.431 	 total questions: 1302
+Implicit 	 0.375 	 total questions: 291
+Ordinal 	 0.295 	 total questions: 570
+Temp.Ans 	 0.433 	 total questions: 1073
+
+complex 	 0.403 	 total questions: 3236
+
+entity 	 0.391 	 total questions: 2292
+time 	 0.431 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 25.810003
+Eval batch size 150
+Hits at 1: 0.499
+Explicit 	 0.667 	 total questions: 390
+Implicit 	 0.429 	 total questions: 91
+Ordinal 	 0.374 	 total questions: 139
+Temp.Ans 	 0.389 	 total questions: 380
+
+complex 	 0.499 	 total questions: 1000
+
+entity 	 0.553 	 total questions: 657
+time 	 0.397 	 total questions: 343
+
+Hits at 10: 0.745
+Explicit 	 0.81 	 total questions: 390
+Implicit 	 0.714 	 total questions: 91
+Ordinal 	 0.647 	 total questions: 139
+Temp.Ans 	 0.721 	 total questions: 380
+
+complex 	 0.745 	 total questions: 1000
+
+entity 	 0.75 	 total questions: 657
+time 	 0.735 	 total questions: 343
+
+Epoch 12/50 Step 47/47 LR 5.59e-04 Loss 4.4232
+Epoch loss = 207.89077425003052
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 159.002405
+Eval batch size 150
+Hits at 1: 0.245
+Explicit 	 0.308 	 total questions: 1302
+Implicit 	 0.206 	 total questions: 291
+Ordinal 	 0.153 	 total questions: 570
+Temp.Ans 	 0.229 	 total questions: 1073
+
+complex 	 0.245 	 total questions: 3236
+
+entity 	 0.255 	 total questions: 2292
+time 	 0.221 	 total questions: 944
+
+Hits at 10: 0.41
+Explicit 	 0.436 	 total questions: 1302
+Implicit 	 0.388 	 total questions: 291
+Ordinal 	 0.321 	 total questions: 570
+Temp.Ans 	 0.432 	 total questions: 1073
+
+complex 	 0.41 	 total questions: 3236
+
+entity 	 0.403 	 total questions: 2292
+time 	 0.428 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 24.827125
+Eval batch size 150
+Hits at 1: 0.512
+Explicit 	 0.654 	 total questions: 390
+Implicit 	 0.374 	 total questions: 91
+Ordinal 	 0.41 	 total questions: 139
+Temp.Ans 	 0.437 	 total questions: 380
+
+complex 	 0.512 	 total questions: 1000
+
+entity 	 0.546 	 total questions: 657
+time 	 0.446 	 total questions: 343
+
+Hits at 10: 0.75
+Explicit 	 0.821 	 total questions: 390
+Implicit 	 0.692 	 total questions: 91
+Ordinal 	 0.669 	 total questions: 139
+Temp.Ans 	 0.721 	 total questions: 380
+
+complex 	 0.75 	 total questions: 1000
+
+entity 	 0.758 	 total questions: 657
+time 	 0.735 	 total questions: 343
+
+Epoch 13/50 Step 47/47 LR 5.48e-04 Loss 4.1651
+Epoch loss = 195.76098465919495
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 158.811604
+Eval batch size 150
+Hits at 1: 0.257
+Explicit 	 0.337 	 total questions: 1302
+Implicit 	 0.234 	 total questions: 291
+Ordinal 	 0.175 	 total questions: 570
+Temp.Ans 	 0.211 	 total questions: 1073
+
+complex 	 0.257 	 total questions: 3236
+
+entity 	 0.282 	 total questions: 2292
+time 	 0.198 	 total questions: 944
+
+Hits at 10: 0.425
+Explicit 	 0.457 	 total questions: 1302
+Implicit 	 0.423 	 total questions: 291
+Ordinal 	 0.34 	 total questions: 570
+Temp.Ans 	 0.432 	 total questions: 1073
+
+complex 	 0.425 	 total questions: 3236
+
+entity 	 0.425 	 total questions: 2292
+time 	 0.425 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 23.251705
+Eval batch size 150
+Hits at 1: 0.555
+Explicit 	 0.685 	 total questions: 390
+Implicit 	 0.462 	 total questions: 91
+Ordinal 	 0.482 	 total questions: 139
+Temp.Ans 	 0.471 	 total questions: 380
+
+complex 	 0.555 	 total questions: 1000
+
+entity 	 0.594 	 total questions: 657
+time 	 0.481 	 total questions: 343
+
+Hits at 10: 0.79
+Explicit 	 0.844 	 total questions: 390
+Implicit 	 0.758 	 total questions: 91
+Ordinal 	 0.727 	 total questions: 139
+Temp.Ans 	 0.766 	 total questions: 380
+
+complex 	 0.79 	 total questions: 1000
+
+entity 	 0.798 	 total questions: 657
+time 	 0.776 	 total questions: 343
+
+Epoch 14/50 Step 47/47 LR 5.36e-04 Loss 3.8665
+Epoch loss = 181.7256896495819
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 154.920219
+Eval batch size 150
+Hits at 1: 0.28
+Explicit 	 0.347 	 total questions: 1302
+Implicit 	 0.251 	 total questions: 291
+Ordinal 	 0.209 	 total questions: 570
+Temp.Ans 	 0.243 	 total questions: 1073
+
+complex 	 0.28 	 total questions: 3236
+
+entity 	 0.3 	 total questions: 2292
+time 	 0.23 	 total questions: 944
+
+Hits at 10: 0.44
+Explicit 	 0.463 	 total questions: 1302
+Implicit 	 0.419 	 total questions: 291
+Ordinal 	 0.349 	 total questions: 570
+Temp.Ans 	 0.465 	 total questions: 1073
+
+complex 	 0.44 	 total questions: 3236
+
+entity 	 0.432 	 total questions: 2292
+time 	 0.459 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 20.379159
+Eval batch size 150
+Hits at 1: 0.606
+Explicit 	 0.731 	 total questions: 390
+Implicit 	 0.56 	 total questions: 91
+Ordinal 	 0.54 	 total questions: 139
+Temp.Ans 	 0.513 	 total questions: 380
+
+complex 	 0.606 	 total questions: 1000
+
+entity 	 0.647 	 total questions: 657
+time 	 0.528 	 total questions: 343
+
+Hits at 10: 0.819
+Explicit 	 0.864 	 total questions: 390
+Implicit 	 0.791 	 total questions: 91
+Ordinal 	 0.791 	 total questions: 139
+Temp.Ans 	 0.789 	 total questions: 380
+
+complex 	 0.819 	 total questions: 1000
+
+entity 	 0.822 	 total questions: 657
+time 	 0.813 	 total questions: 343
+
+Epoch 15/50 Step 47/47 LR 5.23e-04 Loss 3.6481
+Epoch loss = 171.4615659713745
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 153.152689
+Eval batch size 150
+Hits at 1: 0.282
+Explicit 	 0.358 	 total questions: 1302
+Implicit 	 0.278 	 total questions: 291
+Ordinal 	 0.198 	 total questions: 570
+Temp.Ans 	 0.235 	 total questions: 1073
+
+complex 	 0.282 	 total questions: 3236
+
+entity 	 0.305 	 total questions: 2292
+time 	 0.227 	 total questions: 944
+
+Hits at 10: 0.439
+Explicit 	 0.462 	 total questions: 1302
+Implicit 	 0.433 	 total questions: 291
+Ordinal 	 0.356 	 total questions: 570
+Temp.Ans 	 0.459 	 total questions: 1073
+
+complex 	 0.439 	 total questions: 3236
+
+entity 	 0.435 	 total questions: 2292
+time 	 0.45 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 18.960771
+Eval batch size 150
+Hits at 1: 0.638
+Explicit 	 0.779 	 total questions: 390
+Implicit 	 0.56 	 total questions: 91
+Ordinal 	 0.547 	 total questions: 139
+Temp.Ans 	 0.545 	 total questions: 380
+
+complex 	 0.638 	 total questions: 1000
+
+entity 	 0.676 	 total questions: 657
+time 	 0.566 	 total questions: 343
+
+Hits at 10: 0.837
+Explicit 	 0.877 	 total questions: 390
+Implicit 	 0.824 	 total questions: 91
+Ordinal 	 0.813 	 total questions: 139
+Temp.Ans 	 0.808 	 total questions: 380
+
+complex 	 0.837 	 total questions: 1000
+
+entity 	 0.84 	 total questions: 657
+time 	 0.831 	 total questions: 343
+
+Epoch 16/50 Step 47/47 LR 5.09e-04 Loss 3.3806
+Epoch loss = 158.88888311386108
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 155.445982
+Eval batch size 150
+Hits at 1: 0.284
+Explicit 	 0.347 	 total questions: 1302
+Implicit 	 0.275 	 total questions: 291
+Ordinal 	 0.193 	 total questions: 570
+Temp.Ans 	 0.259 	 total questions: 1073
+
+complex 	 0.284 	 total questions: 3236
+
+entity 	 0.3 	 total questions: 2292
+time 	 0.247 	 total questions: 944
+
+Hits at 10: 0.441
+Explicit 	 0.45 	 total questions: 1302
+Implicit 	 0.457 	 total questions: 291
+Ordinal 	 0.358 	 total questions: 570
+Temp.Ans 	 0.471 	 total questions: 1073
+
+complex 	 0.441 	 total questions: 3236
+
+entity 	 0.43 	 total questions: 2292
+time 	 0.468 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 18.513983
+Eval batch size 150
+Hits at 1: 0.659
+Explicit 	 0.782 	 total questions: 390
+Implicit 	 0.604 	 total questions: 91
+Ordinal 	 0.576 	 total questions: 139
+Temp.Ans 	 0.576 	 total questions: 380
+
+complex 	 0.659 	 total questions: 1000
+
+entity 	 0.693 	 total questions: 657
+time 	 0.595 	 total questions: 343
+
+Hits at 10: 0.856
+Explicit 	 0.872 	 total questions: 390
+Implicit 	 0.89 	 total questions: 91
+Ordinal 	 0.827 	 total questions: 139
+Temp.Ans 	 0.842 	 total questions: 380
+
+complex 	 0.856 	 total questions: 1000
+
+entity 	 0.852 	 total questions: 657
+time 	 0.863 	 total questions: 343
+
+Epoch 17/50 Step 47/47 LR 4.93e-04 Loss 3.2370
+Epoch loss = 152.13678193092346
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 153.540371
+Eval batch size 150
+Hits at 1: 0.301
+Explicit 	 0.359 	 total questions: 1302
+Implicit 	 0.285 	 total questions: 291
+Ordinal 	 0.242 	 total questions: 570
+Temp.Ans 	 0.266 	 total questions: 1073
+
+complex 	 0.301 	 total questions: 3236
+
+entity 	 0.316 	 total questions: 2292
+time 	 0.264 	 total questions: 944
+
+Hits at 10: 0.455
+Explicit 	 0.472 	 total questions: 1302
+Implicit 	 0.447 	 total questions: 291
+Ordinal 	 0.391 	 total questions: 570
+Temp.Ans 	 0.47 	 total questions: 1073
+
+complex 	 0.455 	 total questions: 3236
+
+entity 	 0.448 	 total questions: 2292
+time 	 0.472 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 16.382345
+Eval batch size 150
+Hits at 1: 0.697
+Explicit 	 0.803 	 total questions: 390
+Implicit 	 0.67 	 total questions: 91
+Ordinal 	 0.669 	 total questions: 139
+Temp.Ans 	 0.605 	 total questions: 380
+
+complex 	 0.697 	 total questions: 1000
+
+entity 	 0.737 	 total questions: 657
+time 	 0.621 	 total questions: 343
+
+Hits at 10: 0.877
+Explicit 	 0.897 	 total questions: 390
+Implicit 	 0.901 	 total questions: 91
+Ordinal 	 0.856 	 total questions: 139
+Temp.Ans 	 0.858 	 total questions: 380
+
+complex 	 0.877 	 total questions: 1000
+
+entity 	 0.875 	 total questions: 657
+time 	 0.88 	 total questions: 343
+
+Epoch 18/50 Step 47/47 LR 4.77e-04 Loss 2.9862
+Epoch loss = 140.35075497627258
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 150.039176
+Eval batch size 150
+Hits at 1: 0.305
+Explicit 	 0.371 	 total questions: 1302
+Implicit 	 0.292 	 total questions: 291
+Ordinal 	 0.228 	 total questions: 570
+Temp.Ans 	 0.268 	 total questions: 1073
+
+complex 	 0.305 	 total questions: 3236
+
+entity 	 0.322 	 total questions: 2292
+time 	 0.262 	 total questions: 944
+
+Hits at 10: 0.466
+Explicit 	 0.478 	 total questions: 1302
+Implicit 	 0.485 	 total questions: 291
+Ordinal 	 0.393 	 total questions: 570
+Temp.Ans 	 0.484 	 total questions: 1073
+
+complex 	 0.466 	 total questions: 3236
+
+entity 	 0.46 	 total questions: 2292
+time 	 0.48 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 15.100295
+Eval batch size 150
+Hits at 1: 0.722
+Explicit 	 0.805 	 total questions: 390
+Implicit 	 0.725 	 total questions: 91
+Ordinal 	 0.676 	 total questions: 139
+Temp.Ans 	 0.653 	 total questions: 380
+
+complex 	 0.722 	 total questions: 1000
+
+entity 	 0.746 	 total questions: 657
+time 	 0.676 	 total questions: 343
+
+Hits at 10: 0.906
+Explicit 	 0.91 	 total questions: 390
+Implicit 	 0.967 	 total questions: 91
+Ordinal 	 0.878 	 total questions: 139
+Temp.Ans 	 0.897 	 total questions: 380
+
+complex 	 0.906 	 total questions: 1000
+
+entity 	 0.898 	 total questions: 657
+time 	 0.921 	 total questions: 343
+
+Epoch 19/50 Step 47/47 LR 4.60e-04 Loss 2.7778
+Epoch loss = 130.55477571487427
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 148.249439
+Eval batch size 150
+Hits at 1: 0.319
+Explicit 	 0.379 	 total questions: 1302
+Implicit 	 0.347 	 total questions: 291
+Ordinal 	 0.249 	 total questions: 570
+Temp.Ans 	 0.277 	 total questions: 1073
+
+complex 	 0.319 	 total questions: 3236
+
+entity 	 0.339 	 total questions: 2292
+time 	 0.271 	 total questions: 944
+
+Hits at 10: 0.472
+Explicit 	 0.488 	 total questions: 1302
+Implicit 	 0.474 	 total questions: 291
+Ordinal 	 0.407 	 total questions: 570
+Temp.Ans 	 0.486 	 total questions: 1073
+
+complex 	 0.472 	 total questions: 3236
+
+entity 	 0.466 	 total questions: 2292
+time 	 0.486 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 13.515402
+Eval batch size 150
+Hits at 1: 0.758
+Explicit 	 0.846 	 total questions: 390
+Implicit 	 0.692 	 total questions: 91
+Ordinal 	 0.777 	 total questions: 139
+Temp.Ans 	 0.676 	 total questions: 380
+
+complex 	 0.758 	 total questions: 1000
+
+entity 	 0.787 	 total questions: 657
+time 	 0.703 	 total questions: 343
+
+Hits at 10: 0.921
+Explicit 	 0.936 	 total questions: 390
+Implicit 	 0.967 	 total questions: 91
+Ordinal 	 0.892 	 total questions: 139
+Temp.Ans 	 0.905 	 total questions: 380
+
+complex 	 0.921 	 total questions: 1000
+
+entity 	 0.918 	 total questions: 657
+time 	 0.927 	 total questions: 343
+
+Epoch 20/50 Step 47/47 LR 4.43e-04 Loss 2.5563
+Epoch loss = 120.14472126960754
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 148.695108
+Eval batch size 150
+Hits at 1: 0.334
+Explicit 	 0.384 	 total questions: 1302
+Implicit 	 0.32 	 total questions: 291
+Ordinal 	 0.268 	 total questions: 570
+Temp.Ans 	 0.312 	 total questions: 1073
+
+complex 	 0.334 	 total questions: 3236
+
+entity 	 0.347 	 total questions: 2292
+time 	 0.302 	 total questions: 944
+
+Hits at 10: 0.484
+Explicit 	 0.485 	 total questions: 1302
+Implicit 	 0.488 	 total questions: 291
+Ordinal 	 0.428 	 total questions: 570
+Temp.Ans 	 0.512 	 total questions: 1073
+
+complex 	 0.484 	 total questions: 3236
+
+entity 	 0.476 	 total questions: 2292
+time 	 0.502 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 13.614172
+Eval batch size 150
+Hits at 1: 0.755
+Explicit 	 0.841 	 total questions: 390
+Implicit 	 0.714 	 total questions: 91
+Ordinal 	 0.698 	 total questions: 139
+Temp.Ans 	 0.697 	 total questions: 380
+
+complex 	 0.755 	 total questions: 1000
+
+entity 	 0.769 	 total questions: 657
+time 	 0.729 	 total questions: 343
+
+Hits at 10: 0.91
+Explicit 	 0.926 	 total questions: 390
+Implicit 	 0.967 	 total questions: 91
+Ordinal 	 0.899 	 total questions: 139
+Temp.Ans 	 0.884 	 total questions: 380
+
+complex 	 0.91 	 total questions: 1000
+
+entity 	 0.909 	 total questions: 657
+time 	 0.913 	 total questions: 343
+
+Epoch 21/50 Step 47/47 LR 4.24e-04 Loss 2.3837
+Epoch loss = 112.03247237205505
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 146.850000
+Eval batch size 150
+Hits at 1: 0.337
+Explicit 	 0.384 	 total questions: 1302
+Implicit 	 0.354 	 total questions: 291
+Ordinal 	 0.261 	 total questions: 570
+Temp.Ans 	 0.315 	 total questions: 1073
+
+complex 	 0.337 	 total questions: 3236
+
+entity 	 0.349 	 total questions: 2292
+time 	 0.308 	 total questions: 944
+
+Hits at 10: 0.478
+Explicit 	 0.488 	 total questions: 1302
+Implicit 	 0.502 	 total questions: 291
+Ordinal 	 0.404 	 total questions: 570
+Temp.Ans 	 0.5 	 total questions: 1073
+
+complex 	 0.478 	 total questions: 3236
+
+entity 	 0.471 	 total questions: 2292
+time 	 0.497 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 11.507431
+Eval batch size 150
+Hits at 1: 0.813
+Explicit 	 0.864 	 total questions: 390
+Implicit 	 0.835 	 total questions: 91
+Ordinal 	 0.77 	 total questions: 139
+Temp.Ans 	 0.771 	 total questions: 380
+
+complex 	 0.813 	 total questions: 1000
+
+entity 	 0.813 	 total questions: 657
+time 	 0.813 	 total questions: 343
+
+Hits at 10: 0.931
+Explicit 	 0.944 	 total questions: 390
+Implicit 	 0.978 	 total questions: 91
+Ordinal 	 0.899 	 total questions: 139
+Temp.Ans 	 0.918 	 total questions: 380
+
+complex 	 0.931 	 total questions: 1000
+
+entity 	 0.925 	 total questions: 657
+time 	 0.942 	 total questions: 343
+
+Epoch 22/50 Step 47/47 LR 4.05e-04 Loss 2.2186
+Epoch loss = 104.27302253246307
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 147.552186
+Eval batch size 150
+Hits at 1: 0.345
+Explicit 	 0.392 	 total questions: 1302
+Implicit 	 0.344 	 total questions: 291
+Ordinal 	 0.281 	 total questions: 570
+Temp.Ans 	 0.322 	 total questions: 1073
+
+complex 	 0.345 	 total questions: 3236
+
+entity 	 0.354 	 total questions: 2292
+time 	 0.323 	 total questions: 944
+
+Hits at 10: 0.488
+Explicit 	 0.496 	 total questions: 1302
+Implicit 	 0.498 	 total questions: 291
+Ordinal 	 0.411 	 total questions: 570
+Temp.Ans 	 0.515 	 total questions: 1073
+
+complex 	 0.488 	 total questions: 3236
+
+entity 	 0.476 	 total questions: 2292
+time 	 0.516 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 10.643314
+Eval batch size 150
+Hits at 1: 0.833
+Explicit 	 0.885 	 total questions: 390
+Implicit 	 0.857 	 total questions: 91
+Ordinal 	 0.806 	 total questions: 139
+Temp.Ans 	 0.784 	 total questions: 380
+
+complex 	 0.833 	 total questions: 1000
+
+entity 	 0.839 	 total questions: 657
+time 	 0.822 	 total questions: 343
+
+Hits at 10: 0.938
+Explicit 	 0.949 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.921 	 total questions: 139
+Temp.Ans 	 0.921 	 total questions: 380
+
+complex 	 0.938 	 total questions: 1000
+
+entity 	 0.935 	 total questions: 657
+time 	 0.945 	 total questions: 343
+
+Epoch 23/50 Step 47/47 LR 3.86e-04 Loss 2.0412
+Epoch loss = 95.9344893693924
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 148.571182
+Eval batch size 150
+Hits at 1: 0.353
+Explicit 	 0.403 	 total questions: 1302
+Implicit 	 0.347 	 total questions: 291
+Ordinal 	 0.282 	 total questions: 570
+Temp.Ans 	 0.331 	 total questions: 1073
+
+complex 	 0.353 	 total questions: 3236
+
+entity 	 0.365 	 total questions: 2292
+time 	 0.323 	 total questions: 944
+
+Hits at 10: 0.506
+Explicit 	 0.512 	 total questions: 1302
+Implicit 	 0.526 	 total questions: 291
+Ordinal 	 0.423 	 total questions: 570
+Temp.Ans 	 0.538 	 total questions: 1073
+
+complex 	 0.506 	 total questions: 3236
+
+entity 	 0.497 	 total questions: 2292
+time 	 0.528 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 9.934678
+Eval batch size 150
+Hits at 1: 0.846
+Explicit 	 0.877 	 total questions: 390
+Implicit 	 0.857 	 total questions: 91
+Ordinal 	 0.849 	 total questions: 139
+Temp.Ans 	 0.811 	 total questions: 380
+
+complex 	 0.846 	 total questions: 1000
+
+entity 	 0.845 	 total questions: 657
+time 	 0.848 	 total questions: 343
+
+Hits at 10: 0.948
+Explicit 	 0.949 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.942 	 total questions: 139
+Temp.Ans 	 0.939 	 total questions: 380
+
+complex 	 0.948 	 total questions: 1000
+
+entity 	 0.938 	 total questions: 657
+time 	 0.968 	 total questions: 343
+
+Epoch 24/50 Step 47/47 LR 3.66e-04 Loss 1.8749
+Epoch loss = 88.1215124130249
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 147.673203
+Eval batch size 150
+Hits at 1: 0.362
+Explicit 	 0.406 	 total questions: 1302
+Implicit 	 0.368 	 total questions: 291
+Ordinal 	 0.289 	 total questions: 570
+Temp.Ans 	 0.346 	 total questions: 1073
+
+complex 	 0.362 	 total questions: 3236
+
+entity 	 0.369 	 total questions: 2292
+time 	 0.344 	 total questions: 944
+
+Hits at 10: 0.499
+Explicit 	 0.511 	 total questions: 1302
+Implicit 	 0.526 	 total questions: 291
+Ordinal 	 0.414 	 total questions: 570
+Temp.Ans 	 0.524 	 total questions: 1073
+
+complex 	 0.499 	 total questions: 3236
+
+entity 	 0.49 	 total questions: 2292
+time 	 0.522 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 9.288708
+Eval batch size 150
+Hits at 1: 0.861
+Explicit 	 0.903 	 total questions: 390
+Implicit 	 0.857 	 total questions: 91
+Ordinal 	 0.849 	 total questions: 139
+Temp.Ans 	 0.824 	 total questions: 380
+
+complex 	 0.861 	 total questions: 1000
+
+entity 	 0.861 	 total questions: 657
+time 	 0.86 	 total questions: 343
+
+Hits at 10: 0.962
+Explicit 	 0.972 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.957 	 total questions: 139
+Temp.Ans 	 0.947 	 total questions: 380
+
+complex 	 0.962 	 total questions: 1000
+
+entity 	 0.956 	 total questions: 657
+time 	 0.974 	 total questions: 343
+
+Epoch 25/50 Step 47/47 LR 3.46e-04 Loss 1.7279
+Epoch loss = 81.21215963363647
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 147.163944
+Eval batch size 150
+Hits at 1: 0.367
+Explicit 	 0.418 	 total questions: 1302
+Implicit 	 0.34 	 total questions: 291
+Ordinal 	 0.288 	 total questions: 570
+Temp.Ans 	 0.353 	 total questions: 1073
+
+complex 	 0.367 	 total questions: 3236
+
+entity 	 0.373 	 total questions: 2292
+time 	 0.35 	 total questions: 944
+
+Hits at 10: 0.504
+Explicit 	 0.514 	 total questions: 1302
+Implicit 	 0.536 	 total questions: 291
+Ordinal 	 0.43 	 total questions: 570
+Temp.Ans 	 0.523 	 total questions: 1073
+
+complex 	 0.504 	 total questions: 3236
+
+entity 	 0.495 	 total questions: 2292
+time 	 0.526 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 8.667598
+Eval batch size 150
+Hits at 1: 0.886
+Explicit 	 0.921 	 total questions: 390
+Implicit 	 0.901 	 total questions: 91
+Ordinal 	 0.871 	 total questions: 139
+Temp.Ans 	 0.853 	 total questions: 380
+
+complex 	 0.886 	 total questions: 1000
+
+entity 	 0.883 	 total questions: 657
+time 	 0.892 	 total questions: 343
+
+Hits at 10: 0.968
+Explicit 	 0.977 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.964 	 total questions: 139
+Temp.Ans 	 0.955 	 total questions: 380
+
+complex 	 0.968 	 total questions: 1000
+
+entity 	 0.963 	 total questions: 657
+time 	 0.977 	 total questions: 343
+
+Epoch 26/50 Step 47/47 LR 3.26e-04 Loss 1.6417
+Epoch loss = 77.15775728225708
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 148.613326
+Eval batch size 150
+Hits at 1: 0.368
+Explicit 	 0.416 	 total questions: 1302
+Implicit 	 0.347 	 total questions: 291
+Ordinal 	 0.3 	 total questions: 570
+Temp.Ans 	 0.35 	 total questions: 1073
+
+complex 	 0.368 	 total questions: 3236
+
+entity 	 0.376 	 total questions: 2292
+time 	 0.349 	 total questions: 944
+
+Hits at 10: 0.505
+Explicit 	 0.516 	 total questions: 1302
+Implicit 	 0.515 	 total questions: 291
+Ordinal 	 0.425 	 total questions: 570
+Temp.Ans 	 0.53 	 total questions: 1073
+
+complex 	 0.505 	 total questions: 3236
+
+entity 	 0.495 	 total questions: 2292
+time 	 0.528 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 7.652459
+Eval batch size 150
+Hits at 1: 0.898
+Explicit 	 0.928 	 total questions: 390
+Implicit 	 0.901 	 total questions: 91
+Ordinal 	 0.885 	 total questions: 139
+Temp.Ans 	 0.871 	 total questions: 380
+
+complex 	 0.898 	 total questions: 1000
+
+entity 	 0.895 	 total questions: 657
+time 	 0.904 	 total questions: 343
+
+Hits at 10: 0.981
+Explicit 	 0.987 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.974 	 total questions: 380
+
+complex 	 0.981 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.988 	 total questions: 343
+
+Epoch 27/50 Step 47/47 LR 3.06e-04 Loss 1.5268
+Epoch loss = 71.76145470142365
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 147.756862
+Eval batch size 150
+Hits at 1: 0.374
+Explicit 	 0.412 	 total questions: 1302
+Implicit 	 0.368 	 total questions: 291
+Ordinal 	 0.302 	 total questions: 570
+Temp.Ans 	 0.368 	 total questions: 1073
+
+complex 	 0.374 	 total questions: 3236
+
+entity 	 0.38 	 total questions: 2292
+time 	 0.36 	 total questions: 944
+
+Hits at 10: 0.508
+Explicit 	 0.514 	 total questions: 1302
+Implicit 	 0.522 	 total questions: 291
+Ordinal 	 0.435 	 total questions: 570
+Temp.Ans 	 0.535 	 total questions: 1073
+
+complex 	 0.508 	 total questions: 3236
+
+entity 	 0.497 	 total questions: 2292
+time 	 0.534 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 6.892437
+Eval batch size 150
+Hits at 1: 0.911
+Explicit 	 0.938 	 total questions: 390
+Implicit 	 0.934 	 total questions: 91
+Ordinal 	 0.906 	 total questions: 139
+Temp.Ans 	 0.879 	 total questions: 380
+
+complex 	 0.911 	 total questions: 1000
+
+entity 	 0.91 	 total questions: 657
+time 	 0.913 	 total questions: 343
+
+Hits at 10: 0.979
+Explicit 	 0.992 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.966 	 total questions: 380
+
+complex 	 0.979 	 total questions: 1000
+
+entity 	 0.98 	 total questions: 657
+time 	 0.977 	 total questions: 343
+
+Epoch 28/50 Step 47/47 LR 2.85e-04 Loss 1.4267
+Epoch loss = 67.0538204908371
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 144.230279
+Eval batch size 150
+Hits at 1: 0.387
+Explicit 	 0.419 	 total questions: 1302
+Implicit 	 0.399 	 total questions: 291
+Ordinal 	 0.302 	 total questions: 570
+Temp.Ans 	 0.389 	 total questions: 1073
+
+complex 	 0.387 	 total questions: 3236
+
+entity 	 0.388 	 total questions: 2292
+time 	 0.382 	 total questions: 944
+
+Hits at 10: 0.509
+Explicit 	 0.514 	 total questions: 1302
+Implicit 	 0.536 	 total questions: 291
+Ordinal 	 0.437 	 total questions: 570
+Temp.Ans 	 0.533 	 total questions: 1073
+
+complex 	 0.509 	 total questions: 3236
+
+entity 	 0.499 	 total questions: 2292
+time 	 0.533 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 6.768408
+Eval batch size 150
+Hits at 1: 0.931
+Explicit 	 0.956 	 total questions: 390
+Implicit 	 0.967 	 total questions: 91
+Ordinal 	 0.892 	 total questions: 139
+Temp.Ans 	 0.911 	 total questions: 380
+
+complex 	 0.931 	 total questions: 1000
+
+entity 	 0.932 	 total questions: 657
+time 	 0.93 	 total questions: 343
+
+Hits at 10: 0.983
+Explicit 	 0.992 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.964 	 total questions: 139
+Temp.Ans 	 0.979 	 total questions: 380
+
+complex 	 0.983 	 total questions: 1000
+
+entity 	 0.979 	 total questions: 657
+time 	 0.991 	 total questions: 343
+
+Epoch 29/50 Step 47/47 LR 2.65e-04 Loss 1.3513
+Epoch loss = 63.51248621940613
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.288105
+Eval batch size 150
+Hits at 1: 0.383
+Explicit 	 0.428 	 total questions: 1302
+Implicit 	 0.371 	 total questions: 291
+Ordinal 	 0.302 	 total questions: 570
+Temp.Ans 	 0.375 	 total questions: 1073
+
+complex 	 0.383 	 total questions: 3236
+
+entity 	 0.385 	 total questions: 2292
+time 	 0.377 	 total questions: 944
+
+Hits at 10: 0.515
+Explicit 	 0.524 	 total questions: 1302
+Implicit 	 0.529 	 total questions: 291
+Ordinal 	 0.435 	 total questions: 570
+Temp.Ans 	 0.542 	 total questions: 1073
+
+complex 	 0.515 	 total questions: 3236
+
+entity 	 0.507 	 total questions: 2292
+time 	 0.535 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 6.595499
+Eval batch size 150
+Hits at 1: 0.93
+Explicit 	 0.956 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.892 	 total questions: 139
+Temp.Ans 	 0.903 	 total questions: 380
+
+complex 	 0.93 	 total questions: 1000
+
+entity 	 0.93 	 total questions: 657
+time 	 0.93 	 total questions: 343
+
+Hits at 10: 0.987
+Explicit 	 0.992 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.984 	 total questions: 380
+
+complex 	 0.987 	 total questions: 1000
+
+entity 	 0.982 	 total questions: 657
+time 	 0.997 	 total questions: 343
+
+Epoch 30/50 Step 47/47 LR 2.45e-04 Loss 1.3231
+Epoch loss = 62.1840842962265
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.430219
+Eval batch size 150
+Hits at 1: 0.39
+Explicit 	 0.433 	 total questions: 1302
+Implicit 	 0.381 	 total questions: 291
+Ordinal 	 0.307 	 total questions: 570
+Temp.Ans 	 0.384 	 total questions: 1073
+
+complex 	 0.39 	 total questions: 3236
+
+entity 	 0.394 	 total questions: 2292
+time 	 0.379 	 total questions: 944
+
+Hits at 10: 0.517
+Explicit 	 0.518 	 total questions: 1302
+Implicit 	 0.55 	 total questions: 291
+Ordinal 	 0.444 	 total questions: 570
+Temp.Ans 	 0.546 	 total questions: 1073
+
+complex 	 0.517 	 total questions: 3236
+
+entity 	 0.507 	 total questions: 2292
+time 	 0.541 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 6.108179
+Eval batch size 150
+Hits at 1: 0.944
+Explicit 	 0.964 	 total questions: 390
+Implicit 	 0.978 	 total questions: 91
+Ordinal 	 0.95 	 total questions: 139
+Temp.Ans 	 0.913 	 total questions: 380
+
+complex 	 0.944 	 total questions: 1000
+
+entity 	 0.945 	 total questions: 657
+time 	 0.942 	 total questions: 343
+
+Hits at 10: 0.986
+Explicit 	 0.992 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.982 	 total questions: 380
+
+complex 	 0.986 	 total questions: 1000
+
+entity 	 0.983 	 total questions: 657
+time 	 0.991 	 total questions: 343
+
+Epoch 31/50 Step 47/47 LR 2.25e-04 Loss 1.1955
+Epoch loss = 56.187834441661835
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 144.829363
+Eval batch size 150
+Hits at 1: 0.396
+Explicit 	 0.435 	 total questions: 1302
+Implicit 	 0.399 	 total questions: 291
+Ordinal 	 0.323 	 total questions: 570
+Temp.Ans 	 0.387 	 total questions: 1073
+
+complex 	 0.396 	 total questions: 3236
+
+entity 	 0.4 	 total questions: 2292
+time 	 0.387 	 total questions: 944
+
+Hits at 10: 0.518
+Explicit 	 0.53 	 total questions: 1302
+Implicit 	 0.533 	 total questions: 291
+Ordinal 	 0.43 	 total questions: 570
+Temp.Ans 	 0.545 	 total questions: 1073
+
+complex 	 0.518 	 total questions: 3236
+
+entity 	 0.505 	 total questions: 2292
+time 	 0.548 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 5.621009
+Eval batch size 150
+Hits at 1: 0.95
+Explicit 	 0.969 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.928 	 total questions: 139
+Temp.Ans 	 0.929 	 total questions: 380
+
+complex 	 0.95 	 total questions: 1000
+
+entity 	 0.953 	 total questions: 657
+time 	 0.945 	 total questions: 343
+
+Hits at 10: 0.988
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.987 	 total questions: 380
+
+complex 	 0.988 	 total questions: 1000
+
+entity 	 0.983 	 total questions: 657
+time 	 0.997 	 total questions: 343
+
+Epoch 32/50 Step 47/47 LR 2.05e-04 Loss 1.1449
+Epoch loss = 53.80980759859085
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.898337
+Eval batch size 150
+Hits at 1: 0.394
+Explicit 	 0.434 	 total questions: 1302
+Implicit 	 0.392 	 total questions: 291
+Ordinal 	 0.311 	 total questions: 570
+Temp.Ans 	 0.391 	 total questions: 1073
+
+complex 	 0.394 	 total questions: 3236
+
+entity 	 0.396 	 total questions: 2292
+time 	 0.39 	 total questions: 944
+
+Hits at 10: 0.514
+Explicit 	 0.522 	 total questions: 1302
+Implicit 	 0.536 	 total questions: 291
+Ordinal 	 0.426 	 total questions: 570
+Temp.Ans 	 0.544 	 total questions: 1073
+
+complex 	 0.514 	 total questions: 3236
+
+entity 	 0.502 	 total questions: 2292
+time 	 0.542 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 5.296614
+Eval batch size 150
+Hits at 1: 0.957
+Explicit 	 0.969 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.928 	 total questions: 139
+Temp.Ans 	 0.947 	 total questions: 380
+
+complex 	 0.957 	 total questions: 1000
+
+entity 	 0.954 	 total questions: 657
+time 	 0.962 	 total questions: 343
+
+Hits at 10: 0.99
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.989 	 total questions: 380
+
+complex 	 0.99 	 total questions: 1000
+
+entity 	 0.985 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 33/50 Step 47/47 LR 1.86e-04 Loss 1.0705
+Epoch loss = 50.31153845787048
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 148.166773
+Eval batch size 150
+Hits at 1: 0.392
+Explicit 	 0.432 	 total questions: 1302
+Implicit 	 0.381 	 total questions: 291
+Ordinal 	 0.298 	 total questions: 570
+Temp.Ans 	 0.396 	 total questions: 1073
+
+complex 	 0.392 	 total questions: 3236
+
+entity 	 0.393 	 total questions: 2292
+time 	 0.39 	 total questions: 944
+
+Hits at 10: 0.516
+Explicit 	 0.522 	 total questions: 1302
+Implicit 	 0.54 	 total questions: 291
+Ordinal 	 0.435 	 total questions: 570
+Temp.Ans 	 0.545 	 total questions: 1073
+
+complex 	 0.516 	 total questions: 3236
+
+entity 	 0.507 	 total questions: 2292
+time 	 0.539 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 5.611889
+Eval batch size 150
+Hits at 1: 0.965
+Explicit 	 0.979 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.935 	 total questions: 139
+Temp.Ans 	 0.955 	 total questions: 380
+
+complex 	 0.965 	 total questions: 1000
+
+entity 	 0.962 	 total questions: 657
+time 	 0.971 	 total questions: 343
+
+Hits at 10: 0.991
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.989 	 total questions: 380
+
+complex 	 0.991 	 total questions: 1000
+
+entity 	 0.986 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 34/50 Step 47/47 LR 1.68e-04 Loss 1.0563
+Epoch loss = 49.64645916223526
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.632582
+Eval batch size 150
+Hits at 1: 0.409
+Explicit 	 0.445 	 total questions: 1302
+Implicit 	 0.412 	 total questions: 291
+Ordinal 	 0.323 	 total questions: 570
+Temp.Ans 	 0.408 	 total questions: 1073
+
+complex 	 0.409 	 total questions: 3236
+
+entity 	 0.408 	 total questions: 2292
+time 	 0.411 	 total questions: 944
+
+Hits at 10: 0.52
+Explicit 	 0.522 	 total questions: 1302
+Implicit 	 0.54 	 total questions: 291
+Ordinal 	 0.446 	 total questions: 570
+Temp.Ans 	 0.551 	 total questions: 1073
+
+complex 	 0.52 	 total questions: 3236
+
+entity 	 0.507 	 total questions: 2292
+time 	 0.552 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.877212
+Eval batch size 150
+Hits at 1: 0.957
+Explicit 	 0.979 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.942 	 total questions: 139
+Temp.Ans 	 0.932 	 total questions: 380
+
+complex 	 0.957 	 total questions: 1000
+
+entity 	 0.96 	 total questions: 657
+time 	 0.95 	 total questions: 343
+
+Hits at 10: 0.989
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.987 	 total questions: 380
+
+complex 	 0.989 	 total questions: 1000
+
+entity 	 0.985 	 total questions: 657
+time 	 0.997 	 total questions: 343
+
+Epoch 35/50 Step 47/47 LR 1.50e-04 Loss 0.9809
+Epoch loss = 46.101712107658386
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.629459
+Eval batch size 150
+Hits at 1: 0.404
+Explicit 	 0.444 	 total questions: 1302
+Implicit 	 0.392 	 total questions: 291
+Ordinal 	 0.325 	 total questions: 570
+Temp.Ans 	 0.4 	 total questions: 1073
+
+complex 	 0.404 	 total questions: 3236
+
+entity 	 0.404 	 total questions: 2292
+time 	 0.401 	 total questions: 944
+
+Hits at 10: 0.52
+Explicit 	 0.52 	 total questions: 1302
+Implicit 	 0.55 	 total questions: 291
+Ordinal 	 0.439 	 total questions: 570
+Temp.Ans 	 0.555 	 total questions: 1073
+
+complex 	 0.52 	 total questions: 3236
+
+entity 	 0.506 	 total questions: 2292
+time 	 0.555 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.715698
+Eval batch size 150
+Hits at 1: 0.972
+Explicit 	 0.987 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.942 	 total questions: 139
+Temp.Ans 	 0.963 	 total questions: 380
+
+complex 	 0.972 	 total questions: 1000
+
+entity 	 0.968 	 total questions: 657
+time 	 0.98 	 total questions: 343
+
+Hits at 10: 0.991
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.991 	 total questions: 1000
+
+entity 	 0.986 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 36/50 Step 47/47 LR 1.33e-04 Loss 0.9568
+Epoch loss = 44.968399584293365
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.668132
+Eval batch size 150
+Hits at 1: 0.406
+Explicit 	 0.445 	 total questions: 1302
+Implicit 	 0.402 	 total questions: 291
+Ordinal 	 0.312 	 total questions: 570
+Temp.Ans 	 0.408 	 total questions: 1073
+
+complex 	 0.406 	 total questions: 3236
+
+entity 	 0.405 	 total questions: 2292
+time 	 0.408 	 total questions: 944
+
+Hits at 10: 0.523
+Explicit 	 0.524 	 total questions: 1302
+Implicit 	 0.56 	 total questions: 291
+Ordinal 	 0.439 	 total questions: 570
+Temp.Ans 	 0.558 	 total questions: 1073
+
+complex 	 0.523 	 total questions: 3236
+
+entity 	 0.508 	 total questions: 2292
+time 	 0.56 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.740957
+Eval batch size 150
+Hits at 1: 0.968
+Explicit 	 0.985 	 total questions: 390
+Implicit 	 0.967 	 total questions: 91
+Ordinal 	 0.95 	 total questions: 139
+Temp.Ans 	 0.958 	 total questions: 380
+
+complex 	 0.968 	 total questions: 1000
+
+entity 	 0.965 	 total questions: 657
+time 	 0.974 	 total questions: 343
+
+Hits at 10: 0.993
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.986 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.993 	 total questions: 1000
+
+entity 	 0.989 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 37/50 Step 47/47 LR 1.17e-04 Loss 0.9053
+Epoch loss = 42.55041176080704
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 147.393462
+Eval batch size 150
+Hits at 1: 0.401
+Explicit 	 0.441 	 total questions: 1302
+Implicit 	 0.399 	 total questions: 291
+Ordinal 	 0.311 	 total questions: 570
+Temp.Ans 	 0.401 	 total questions: 1073
+
+complex 	 0.401 	 total questions: 3236
+
+entity 	 0.402 	 total questions: 2292
+time 	 0.397 	 total questions: 944
+
+Hits at 10: 0.521
+Explicit 	 0.527 	 total questions: 1302
+Implicit 	 0.553 	 total questions: 291
+Ordinal 	 0.433 	 total questions: 570
+Temp.Ans 	 0.551 	 total questions: 1073
+
+complex 	 0.521 	 total questions: 3236
+
+entity 	 0.507 	 total questions: 2292
+time 	 0.554 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.218782
+Eval batch size 150
+Hits at 1: 0.969
+Explicit 	 0.979 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.95 	 total questions: 139
+Temp.Ans 	 0.958 	 total questions: 380
+
+complex 	 0.969 	 total questions: 1000
+
+entity 	 0.967 	 total questions: 657
+time 	 0.974 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 38/50 Step 47/47 LR 1.01e-04 Loss 0.8708
+Epoch loss = 40.92889070510864
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.486437
+Eval batch size 150
+Hits at 1: 0.402
+Explicit 	 0.442 	 total questions: 1302
+Implicit 	 0.405 	 total questions: 291
+Ordinal 	 0.314 	 total questions: 570
+Temp.Ans 	 0.399 	 total questions: 1073
+
+complex 	 0.402 	 total questions: 3236
+
+entity 	 0.402 	 total questions: 2292
+time 	 0.401 	 total questions: 944
+
+Hits at 10: 0.52
+Explicit 	 0.53 	 total questions: 1302
+Implicit 	 0.55 	 total questions: 291
+Ordinal 	 0.437 	 total questions: 570
+Temp.Ans 	 0.543 	 total questions: 1073
+
+complex 	 0.52 	 total questions: 3236
+
+entity 	 0.508 	 total questions: 2292
+time 	 0.548 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.246701
+Eval batch size 150
+Hits at 1: 0.972
+Explicit 	 0.982 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.957 	 total questions: 139
+Temp.Ans 	 0.961 	 total questions: 380
+
+complex 	 0.972 	 total questions: 1000
+
+entity 	 0.968 	 total questions: 657
+time 	 0.98 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 39/50 Step 47/47 LR 8.68e-05 Loss 0.8200
+Epoch loss = 38.54018169641495
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 144.375129
+Eval batch size 150
+Hits at 1: 0.407
+Explicit 	 0.435 	 total questions: 1302
+Implicit 	 0.426 	 total questions: 291
+Ordinal 	 0.314 	 total questions: 570
+Temp.Ans 	 0.418 	 total questions: 1073
+
+complex 	 0.407 	 total questions: 3236
+
+entity 	 0.402 	 total questions: 2292
+time 	 0.419 	 total questions: 944
+
+Hits at 10: 0.523
+Explicit 	 0.528 	 total questions: 1302
+Implicit 	 0.553 	 total questions: 291
+Ordinal 	 0.432 	 total questions: 570
+Temp.Ans 	 0.556 	 total questions: 1073
+
+complex 	 0.523 	 total questions: 3236
+
+entity 	 0.509 	 total questions: 2292
+time 	 0.556 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.241212
+Eval batch size 150
+Hits at 1: 0.975
+Explicit 	 0.985 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.957 	 total questions: 139
+Temp.Ans 	 0.966 	 total questions: 380
+
+complex 	 0.975 	 total questions: 1000
+
+entity 	 0.971 	 total questions: 657
+time 	 0.983 	 total questions: 343
+
+Hits at 10: 0.993
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.986 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.993 	 total questions: 1000
+
+entity 	 0.989 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 40/50 Step 47/47 LR 7.33e-05 Loss 0.8016
+Epoch loss = 37.67588496208191
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.706079
+Eval batch size 150
+Hits at 1: 0.407
+Explicit 	 0.444 	 total questions: 1302
+Implicit 	 0.399 	 total questions: 291
+Ordinal 	 0.319 	 total questions: 570
+Temp.Ans 	 0.411 	 total questions: 1073
+
+complex 	 0.407 	 total questions: 3236
+
+entity 	 0.405 	 total questions: 2292
+time 	 0.412 	 total questions: 944
+
+Hits at 10: 0.527
+Explicit 	 0.529 	 total questions: 1302
+Implicit 	 0.56 	 total questions: 291
+Ordinal 	 0.439 	 total questions: 570
+Temp.Ans 	 0.561 	 total questions: 1073
+
+complex 	 0.527 	 total questions: 3236
+
+entity 	 0.512 	 total questions: 2292
+time 	 0.561 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.261611
+Eval batch size 150
+Hits at 1: 0.981
+Explicit 	 0.987 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.95 	 total questions: 139
+Temp.Ans 	 0.982 	 total questions: 380
+
+complex 	 0.981 	 total questions: 1000
+
+entity 	 0.974 	 total questions: 657
+time 	 0.994 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 41/50 Step 47/47 LR 6.09e-05 Loss 0.7881
+Epoch loss = 37.041875183582306
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.599452
+Eval batch size 150
+Hits at 1: 0.411
+Explicit 	 0.449 	 total questions: 1302
+Implicit 	 0.402 	 total questions: 291
+Ordinal 	 0.314 	 total questions: 570
+Temp.Ans 	 0.419 	 total questions: 1073
+
+complex 	 0.411 	 total questions: 3236
+
+entity 	 0.408 	 total questions: 2292
+time 	 0.418 	 total questions: 944
+
+Hits at 10: 0.525
+Explicit 	 0.535 	 total questions: 1302
+Implicit 	 0.557 	 total questions: 291
+Ordinal 	 0.437 	 total questions: 570
+Temp.Ans 	 0.553 	 total questions: 1073
+
+complex 	 0.525 	 total questions: 3236
+
+entity 	 0.512 	 total questions: 2292
+time 	 0.557 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.112651
+Eval batch size 150
+Hits at 1: 0.981
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.974 	 total questions: 380
+
+complex 	 0.981 	 total questions: 1000
+
+entity 	 0.976 	 total questions: 657
+time 	 0.991 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 42/50 Step 47/47 LR 4.97e-05 Loss 0.7775
+Epoch loss = 36.54190903902054
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.309206
+Eval batch size 150
+Hits at 1: 0.412
+Explicit 	 0.453 	 total questions: 1302
+Implicit 	 0.405 	 total questions: 291
+Ordinal 	 0.316 	 total questions: 570
+Temp.Ans 	 0.415 	 total questions: 1073
+
+complex 	 0.412 	 total questions: 3236
+
+entity 	 0.41 	 total questions: 2292
+time 	 0.416 	 total questions: 944
+
+Hits at 10: 0.527
+Explicit 	 0.535 	 total questions: 1302
+Implicit 	 0.553 	 total questions: 291
+Ordinal 	 0.442 	 total questions: 570
+Temp.Ans 	 0.554 	 total questions: 1073
+
+complex 	 0.527 	 total questions: 3236
+
+entity 	 0.514 	 total questions: 2292
+time 	 0.557 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.699134
+Eval batch size 150
+Hits at 1: 0.983
+Explicit 	 0.992 	 total questions: 390
+Implicit 	 0.978 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.976 	 total questions: 380
+
+complex 	 0.983 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.994 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 43/50 Step 47/47 LR 3.97e-05 Loss 0.7591
+Epoch loss = 35.678520143032074
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.367888
+Eval batch size 150
+Hits at 1: 0.414
+Explicit 	 0.452 	 total questions: 1302
+Implicit 	 0.412 	 total questions: 291
+Ordinal 	 0.316 	 total questions: 570
+Temp.Ans 	 0.42 	 total questions: 1073
+
+complex 	 0.414 	 total questions: 3236
+
+entity 	 0.412 	 total questions: 2292
+time 	 0.417 	 total questions: 944
+
+Hits at 10: 0.528
+Explicit 	 0.535 	 total questions: 1302
+Implicit 	 0.553 	 total questions: 291
+Ordinal 	 0.442 	 total questions: 570
+Temp.Ans 	 0.56 	 total questions: 1073
+
+complex 	 0.528 	 total questions: 3236
+
+entity 	 0.516 	 total questions: 2292
+time 	 0.559 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 4.144235
+Eval batch size 150
+Hits at 1: 0.979
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.968 	 total questions: 380
+
+complex 	 0.979 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.983 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 44/50 Step 47/47 LR 3.09e-05 Loss 0.7549
+Epoch loss = 35.48210319876671
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 144.864671
+Eval batch size 150
+Hits at 1: 0.414
+Explicit 	 0.451 	 total questions: 1302
+Implicit 	 0.405 	 total questions: 291
+Ordinal 	 0.321 	 total questions: 570
+Temp.Ans 	 0.42 	 total questions: 1073
+
+complex 	 0.414 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.421 	 total questions: 944
+
+Hits at 10: 0.526
+Explicit 	 0.532 	 total questions: 1302
+Implicit 	 0.553 	 total questions: 291
+Ordinal 	 0.435 	 total questions: 570
+Temp.Ans 	 0.558 	 total questions: 1073
+
+complex 	 0.526 	 total questions: 3236
+
+entity 	 0.512 	 total questions: 2292
+time 	 0.558 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.968880
+Eval batch size 150
+Hits at 1: 0.982
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.971 	 total questions: 380
+
+complex 	 0.982 	 total questions: 1000
+
+entity 	 0.98 	 total questions: 657
+time 	 0.985 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 45/50 Step 47/47 LR 2.33e-05 Loss 0.7147
+Epoch loss = 33.58904868364334
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.319134
+Eval batch size 150
+Hits at 1: 0.412
+Explicit 	 0.453 	 total questions: 1302
+Implicit 	 0.405 	 total questions: 291
+Ordinal 	 0.323 	 total questions: 570
+Temp.Ans 	 0.412 	 total questions: 1073
+
+complex 	 0.412 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.414 	 total questions: 944
+
+Hits at 10: 0.526
+Explicit 	 0.53 	 total questions: 1302
+Implicit 	 0.55 	 total questions: 291
+Ordinal 	 0.44 	 total questions: 570
+Temp.Ans 	 0.559 	 total questions: 1073
+
+complex 	 0.526 	 total questions: 3236
+
+entity 	 0.512 	 total questions: 2292
+time 	 0.559 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.715570
+Eval batch size 150
+Hits at 1: 0.981
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.974 	 total questions: 380
+
+complex 	 0.981 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.988 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 46/50 Step 47/47 LR 1.71e-05 Loss 0.7269
+Epoch loss = 34.16326662898064
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.190672
+Eval batch size 150
+Hits at 1: 0.413
+Explicit 	 0.452 	 total questions: 1302
+Implicit 	 0.409 	 total questions: 291
+Ordinal 	 0.314 	 total questions: 570
+Temp.Ans 	 0.418 	 total questions: 1073
+
+complex 	 0.413 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.417 	 total questions: 944
+
+Hits at 10: 0.528
+Explicit 	 0.531 	 total questions: 1302
+Implicit 	 0.56 	 total questions: 291
+Ordinal 	 0.442 	 total questions: 570
+Temp.Ans 	 0.559 	 total questions: 1073
+
+complex 	 0.528 	 total questions: 3236
+
+entity 	 0.514 	 total questions: 2292
+time 	 0.559 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.711899
+Eval batch size 150
+Hits at 1: 0.98
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.971 	 total questions: 380
+
+complex 	 0.98 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.985 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 47/50 Step 47/47 LR 1.23e-05 Loss 0.7184
+Epoch loss = 33.76549616456032
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.345307
+Eval batch size 150
+Hits at 1: 0.413
+Explicit 	 0.449 	 total questions: 1302
+Implicit 	 0.409 	 total questions: 291
+Ordinal 	 0.321 	 total questions: 570
+Temp.Ans 	 0.418 	 total questions: 1073
+
+complex 	 0.413 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.416 	 total questions: 944
+
+Hits at 10: 0.528
+Explicit 	 0.532 	 total questions: 1302
+Implicit 	 0.56 	 total questions: 291
+Ordinal 	 0.446 	 total questions: 570
+Temp.Ans 	 0.559 	 total questions: 1073
+
+complex 	 0.528 	 total questions: 3236
+
+entity 	 0.516 	 total questions: 2292
+time 	 0.559 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.573109
+Eval batch size 150
+Hits at 1: 0.984
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.979 	 total questions: 380
+
+complex 	 0.984 	 total questions: 1000
+
+entity 	 0.979 	 total questions: 657
+time 	 0.994 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 48/50 Step 47/47 LR 8.80e-06 Loss 0.7067
+Epoch loss = 33.213321417570114
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 144.916352
+Eval batch size 150
+Hits at 1: 0.413
+Explicit 	 0.45 	 total questions: 1302
+Implicit 	 0.409 	 total questions: 291
+Ordinal 	 0.318 	 total questions: 570
+Temp.Ans 	 0.421 	 total questions: 1073
+
+complex 	 0.413 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.418 	 total questions: 944
+
+Hits at 10: 0.527
+Explicit 	 0.529 	 total questions: 1302
+Implicit 	 0.557 	 total questions: 291
+Ordinal 	 0.447 	 total questions: 570
+Temp.Ans 	 0.559 	 total questions: 1073
+
+complex 	 0.527 	 total questions: 3236
+
+entity 	 0.514 	 total questions: 2292
+time 	 0.559 	 total questions: 944
+
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.624576
+Eval batch size 150
+Hits at 1: 0.982
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.976 	 total questions: 380
+
+complex 	 0.982 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.991 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 49/50 Step 47/47 LR 6.70e-06 Loss 0.6969
+Epoch loss = 32.75660613179207
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.296223
+Eval batch size 150
+Hits at 1: 0.414
+Explicit 	 0.449 	 total questions: 1302
+Implicit 	 0.412 	 total questions: 291
+Ordinal 	 0.316 	 total questions: 570
+Temp.Ans 	 0.425 	 total questions: 1073
+
+complex 	 0.414 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.424 	 total questions: 944
+
+Hits at 10: 0.528
+Explicit 	 0.533 	 total questions: 1302
+Implicit 	 0.56 	 total questions: 291
+Ordinal 	 0.444 	 total questions: 570
+Temp.Ans 	 0.558 	 total questions: 1073
+
+complex 	 0.528 	 total questions: 3236
+
+entity 	 0.516 	 total questions: 2292
+time 	 0.558 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.648711
+Eval batch size 150
+Hits at 1: 0.982
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.976 	 total questions: 380
+
+complex 	 0.982 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.991 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Epoch 50/50 Step 47/47 LR 6.00e-06 Loss 0.7043
+Epoch loss = 33.1043102145195
+Evaluating split valid
+Step 22/22
+Split valid
+Loss 145.626669
+Eval batch size 150
+Hits at 1: 0.416
+Explicit 	 0.449 	 total questions: 1302
+Implicit 	 0.409 	 total questions: 291
+Ordinal 	 0.319 	 total questions: 570
+Temp.Ans 	 0.428 	 total questions: 1073
+
+complex 	 0.416 	 total questions: 3236
+
+entity 	 0.411 	 total questions: 2292
+time 	 0.427 	 total questions: 944
+
+Hits at 10: 0.528
+Explicit 	 0.535 	 total questions: 1302
+Implicit 	 0.56 	 total questions: 291
+Ordinal 	 0.439 	 total questions: 570
+Temp.Ans 	 0.558 	 total questions: 1073
+
+complex 	 0.528 	 total questions: 3236
+
+entity 	 0.515 	 total questions: 2292
+time 	 0.558 	 total questions: 944
+
+Valid score increased
+Saving model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Saved model to /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split train_1000
+Step 7/7
+Split train_1000
+Loss 3.720069
+Eval batch size 150
+Hits at 1: 0.982
+Explicit 	 0.99 	 total questions: 390
+Implicit 	 0.989 	 total questions: 91
+Ordinal 	 0.971 	 total questions: 139
+Temp.Ans 	 0.976 	 total questions: 380
+
+complex 	 0.982 	 total questions: 1000
+
+entity 	 0.977 	 total questions: 657
+time 	 0.991 	 total questions: 343
+
+Hits at 10: 0.992
+Explicit 	 0.995 	 total questions: 390
+Implicit 	 1.0 	 total questions: 91
+Ordinal 	 0.978 	 total questions: 139
+Temp.Ans 	 0.992 	 total questions: 380
+
+complex 	 0.992 	 total questions: 1000
+
+entity 	 0.988 	 total questions: 657
+time 	 1.0 	 total questions: 343
+
+Loading best model from /Data/.models/timequestions/qa_models/tempo_qr_hard.ckpt
+Evaluating split test
+Step 22/22
+Split test
+Loss 148.343149
+Eval batch size 150
+Hits at 1: 0.41
+Explicit 	 0.466 	 total questions: 1311
+Implicit 	 0.401 	 total questions: 292
+Ordinal 	 0.316 	 total questions: 567
+Temp.Ans 	 0.393 	 total questions: 1067
+
+complex 	 0.41 	 total questions: 3237
+
+entity 	 0.411 	 total questions: 2340
+time 	 0.407 	 total questions: 897
+
+Hits at 10: 0.528
+Explicit 	 0.54 	 total questions: 1311
+Implicit 	 0.548 	 total questions: 292
+Ordinal 	 0.432 	 total questions: 567
+Temp.Ans 	 0.558 	 total questions: 1067
+
+complex 	 0.528 	 total questions: 3237
+
+entity 	 0.511 	 total questions: 2340
+time 	 0.572 	 total questions: 897
+
+Final TEST evaluation (best model) done
+Training finished

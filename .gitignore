@@ -1,0 +1,21 @@
+# *.log
+out
+*.egg-info*
+*.out
+*__pycache__*
+*.pyc
+*.pyo
+*.cache*
+*.pyd
+.Pythonß
+old
+useful_commands.txt
+results
+training_plots
+training_logs
+data.md
+hops_comparison
+src/tkg_qa_models/
+logs/wikidata_big/ablations
+logs/wikidata_big_complex/ablations
+tkg_qa_models/plots
