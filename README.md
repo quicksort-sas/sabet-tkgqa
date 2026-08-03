@@ -114,6 +114,8 @@ Q76    P39    Q11696    2009    2017
 
 Replace the hard-coded `data_dir` in both the training and dataset modules, or expose it as a command-line argument/environment variable.
 
+The data can be downloaded from https://osf.io/h39ma/overview?view_only=3f09fa70ccc04929923898a972830652
+
 ## Training
 
 A representative SABET run:
