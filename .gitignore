@@ -19,3 +19,6 @@ src/tkg_qa_models/
 logs/wikidata_big/ablations
 logs/wikidata_big_complex/ablations
 tkg_qa_models/plots
+# local data, environment and outputs
+/Data/
+/.venv/

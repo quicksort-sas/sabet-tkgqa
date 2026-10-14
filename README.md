@@ -8,171 +8,116 @@ The code includes standard KGQA baselines, temporal reasoning models, entity-awa
 
 ## Available models
 
-| CLI value | Model | Description |
+| `--model` | Class | Description |
 |---|---|---|
-| `bert` | `QA_lm` | BERT language-model baseline over head, relation, tail, and time embeddings. |
-| `roberta` | `QA_lm` | RoBERTa variant of the language-model baseline. |
-| `embedkgqa` | `QA_embedkgqa` | EmbedKGQA-style complex-valued entity scoring. |
-| `cronkgqa` | `QA_cronkgqa` | Temporal KGQA baseline with entity and timestamp prediction. |
-| `tempo_qr` | `QA_TempoQR` | Entity- and time-aware transformer reasoning model. |
-| `subgtr` | `QA_SubGTR` | Subgraph-aware temporal reasoning with optional time sensitivity. |
-| `sabet` | `QA_Sabet` | Multi-hop, bidirectional temporal KGQA model with contextualized entity/time slots and learned hop fusion. |
+| `bert`, `roberta` | `LMBaseline` | Language-model baseline: [head; question; tail; time] matched against every entity and time. |
+| `embedkgqa` | `EmbedKGQA` | EmbedKGQA-style ComplEx scoring of the head with a question relation (no time). |
+| `cronkgqa` | `CronKGQA` | CronKGQA: the question as a TComplEx virtual relation. |
+| `tempoqr` | `TempoQR` | TempoQR: entity- and time-aware transformer fusion. |
+| `subgtr` | `TempoQR(time_sensitivity=True)` | TempoQR with SubGTR's time-sensitivity layer. Not the full SubGTR (no subgraph reasoning). |
+| `sabet` | `Sabet` | SABET-QA as submitted (kept to reproduce the paper). |
+| `sabet1` | `Sabet1` | SABET v2: predicted or retrieved temporal hint, top-k working memory, answer-type head, per-hop losses. |
 
-### SABET (our model) overview
-
-SABET uses:
-
-1. DistilBERT token representations projected into the TKBC embedding space.
-2. Cross-attention to contextualize head, tail, and time slots from the question.
-3. CLS, mean, and max pooling to build a question summary.
-4. Multi-hop relation states with temporal hints from retrieved start/end times.
-5. Bidirectional entity and timestamp scoring using TComplEx-style operations.
-6. Working-memory updates based on predicted entity and time distributions.
-7. A learned gate that aggregates predictions from all reasoning hops.
+Every model has a standard and a `-Hard` variant, selected with `--supervision soft|hard`. With `hard`, the model receives the `(t1, t2)` hint retrieved from the raw TKG; with `soft`, it only uses the embeddings (TempoQR/CronKGQA infer the times, SABET v2 predicts them, SABET does without).
 
 ## Repository structure
 
-The  code is organized as follows:
-
 ```text
 .
+├── requirements.txt
+├── scripts/
+│   ├── build_benchmarks.py      # raw data -> standardized benchmarks (run once)
+│   ├── validate_benchmarks.py   # cross-checks the standardized data against the raw files
+│   └── export_kg_splits.py      # disjoint KG train/valid/test splits for embedding training
 └── tkg_qa_models/
-    ├── train_qa_model.py               # Training and evaluation entry point
-    ├── qa_baselines.py                 # QA_lm, EmbedKGQA, CronKGQA, TempoQR,
-    │                                   # SubGTR, and SABET implementations
-    ├── qa_datasets.py                  # Dataset preparation and collate functions
-    ├── hard_supervision_functions.py   # Temporal fact retrieval and supervision
-    ├── tcomplex.py                     # Temporal KG embedding model (TComplEx)
-    ├── ner_task.py                     # Named entity recognition and entity linking
-    └── utils.py                        # Dictionary and TKBC-loading utilities
+    ├── train.py                 # command-line entry point (train / eval)
+    ├── training.py              # training loop, evaluation, device selection, checkpoints
+    ├── data.py                  # TKGBenchmark and TKGQADataset: one dataset class for every benchmark
+    ├── kge.py                   # pretrained TComplEx tables and the shared scoring functions
+    ├── kge_train.py             # TComplEx training and filtered link-prediction evaluation
+    ├── paths.py                 # data root (SABET_DATA_DIR)
+    └── models/
+        ├── common.py            # QAModel base class (language model, embedding tables, losses)
+        ├── lm_baselines.py      # LMBaseline, EmbedKGQA, CronKGQA
+        ├── tempoqr.py           # TempoQR (+ SubGTR time sensitivity)
+        ├── sabet.py             # SABET-QA (submitted version)
+        └── sabet1.py            # SABET v2
 ```
 
 ## Requirements
 
-- Python 3.9 or newer.
-- A CUDA-capable GPU.
-- PyTorch with CUDA support.
-
-Core Python dependencies:
-
-```text
-torch
-transformers
-numpy
-tqdm
-```
-
-Install the basic dependencies with:
+Python 3.9+ and PyTorch 2.1+. Training runs on an NVIDIA GPU (CUDA), an Apple-silicon GPU (MPS) or the CPU; `--device auto` picks the first available.
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
-python -m pip install --upgrade pip
-pip install torch transformers numpy tqdm
+pip install -r requirements.txt
 ```
 
-## Data layout
+## Data
 
-The code currently uses the absolute root:
+The data root is defined in `tkg_qa_models/paths.py`. It defaults to `Data/` at the repository root and can be overridden with `export SABET_DATA_DIR=/path/to/Data`.
 
-```python
-data_dir = "/Data/data"
+1. Download `Data 2.zip` (about 2.7 GB) from https://osf.io/h39ma/overview?view_only=3f09fa70ccc04929923898a972830652, unzip it, and move its `data/` and `models/` folders into `Data/raw/` (the build only reads the files listed in `scripts/build_benchmarks.py` and `scripts/export_kg_splits.py`).
+2. Build the standardized benchmarks, then check them:
+
+```bash
+python scripts/build_benchmarks.py --raw Data/raw --out Data/benchmarks
+python scripts/validate_benchmarks.py --raw Data/raw --out Data/benchmarks
 ```
-
-Under that root, it expects a layout similar to:
 
 ```text
-/Data/data/
-├── data/
-│   └── <dataset_name>/
-│       ├── questions/
-│       │   ├── train.pickle
-│       │   ├── valid.pickle           # or dev.pickle for MultiTQ
-│       │   └── test.pickle
-│       └── ...                         # mappings and TKG resources used by utils
-├── models/
-│   └── <dataset_name>/
-│       ├── kg_embeddings/
-│       │   └── tcomplex.ckpt
-│       └── qa_models/
-│           └── <checkpoint>.ckpt       # checkpoints loaded with --load_from
-└── qa_models/
-    └── <dataset_name>/
-        └── <run_name>.ckpt             # checkpoints saved during training
+Data/
+├── raw/                                   # original release, only read by the build script
+├── benchmarks/
+│   └── <benchmark>/                       # cronquestions | complex_cronquestions | timequestions | multitq
+│       ├── kg/
+│       │   ├── entities.tsv               # id  key  label     (id = row of the entity embedding table)
+│       │   ├── relations.tsv              # id  key  label
+│       │   ├── timestamps.tsv             # id  key            (year, or ISO date/month/year for MultiTQ)
+│       │   └── facts.tsv                  # head  rel  tail  start  end   (ids)
+│       ├── questions/{train,valid,test}.jsonl
+│       ├── embeddings/tcomplex.ckpt       # TComplEx checkpoints aligned with kg/
+│       └── meta.json                      # sizes, checks and statistics of the build
+└── qa_models/<benchmark>/<run>.ckpt       # checkpoints saved during training
 ```
 
+Every question record has the same fields for the four benchmarks (`id`, `text`, `paraphrases` with mention spans, `entities`, `times`, `roles`, `answer_type`, `answers`, `qtype`, `complexity`, `time_level`, `hint`); all ids index the embedding tables directly. The full schema is at the top of `scripts/build_benchmarks.py`.
 
-```text
-head_entity    relation    tail_entity    start_time    end_time
+**Temporal hint `(t1, t2)`** (used by the `-Hard` variants). Following TempoQR-Hard, it is the earliest and latest timestamp of the TKG facts involving the question entities: facts linking two question entities when there are any (either direction), otherwise all facts of each entity; explicit question times are used directly. It is computed once and deterministically; placeholder timestamps (unknown start/end) are ignored, and only day-level facts are used for MultiTQ. It is read from the raw TKG, so `-Hard` models are not embedding-only. On CronQuestions, the gold answer of almost every time question is equal to `t1` or `t2` (see `hint_stats` in `meta.json`).
+
+**Known data limitations.** MultiTQ has no gold entity annotation; its entities come from Flair NER + linking (preprocessed in the release) and some links are wrong. TimeQuestions has questions whose gold answers are not in the KG (48 train, 229 valid, 270 test); they are skipped in training and counted as errors in evaluation.
+
+## Temporal KG embeddings
+
+Each benchmark ships the released TComplEx checkpoint (`embeddings/tcomplex.ckpt`). New embeddings can be trained with the procedure of Lacroix et al. (ICLR 2020, `tkbc`): reciprocal relations, full cross-entropy over entities plus a time-prediction loss, N3 and Λ3 (temporal smoothness) regularisation, Adagrad (lr 0.1, batch 1000), a timestamp sampled uniformly in each fact's interval, and filtered MRR/Hits@k of object prediction for model selection.
+
+```bash
+python scripts/export_kg_splits.py
+python -m tkg_qa_models.kge_train --dataset_name cronquestions --name tcomplex_v2
+python -m tkg_qa_models.kge_train --dataset_name cronquestions --evaluate tcomplex.ckpt
 ```
 
-Example:
-
-```text
-Q76    P39    Q11696    2009    2017
-```
-
-Replace the hard-coded `data_dir` in both the training and dataset modules, or expose it as a command-line argument/environment variable.
-
-The data can be downloaded from https://osf.io/h39ma/overview?view_only=3f09fa70ccc04929923898a972830652
+`export_kg_splits.py` writes `kg/{train,valid,test}.tsv` from the data the released checkpoints were trained on, deduplicated and made disjoint (in the raw CronQuestions KG every validation fact is also a training fact, so the released checkpoint scores 0.999 MRR on it). The new checkpoint is saved as `embeddings/<name>.ckpt` with `<name>.json` (configuration, per-epoch history, valid/test metrics); CronQuestions and Complex-CronQuestions share it. Use it for QA with `--tkbc_model_file <name>.ckpt`. `--train_on all` trains final embeddings on every split for a fixed number of epochs.
 
 ## Training
 
-A representative SABET run:
+```bash
+python -m tkg_qa_models.train --model sabet1 --dataset_name complex_cronquestions --supervision soft --save_to sabet1_std
+```
 
 ```bash
-python train_qa.py \
-  --model sabet \
-  --dataset_name wikidata_big_complex \
-  --tkbc_model_file tcomplex.ckpt \
-  --tkg_file full.txt \
-  --supervision hard \
-  --save_to sabet_run_01 \
-  --max_epochs 20 \
-  --batch_size 150 \
-  --valid_batch_size 150 \
-  --lr 2e-4 \
-  --valid_freq 1 \
-  --eval_k 1
+python -m tkg_qa_models.train --model sabet1 --dataset_name complex_cronquestions --supervision hard --save_to sabet1_hard
 ```
 
-During training, the script:
+The script loads the benchmark and its TComplEx checkpoint, checks that their sizes agree, trains with Adam (linear warm-up, cosine decay), evaluates on the validation set and on 1,000 training questions every `--valid_freq` epochs (optional early stopping with `--patience`), keeps the best validation checkpoint and finally evaluates it on the test set. Training samples a random paraphrase of each question (disable with `--no_paraphrases`). Use `--max_train_questions` / `--max_eval_questions` for quick runs.
 
-1. Loads a pretrained TKBC model.
-2. Instantiates the selected QA model and matching dataset class.
-3. Trains with Adam.
-4. Applies linear warm-up followed by cosine learning-rate decay.
-5. Evaluates on the validation set at the configured frequency.
-6. Saves the best validation checkpoint.
-7. Evaluates a 1,000-example training subset to help diagnose overfitting.
-8. Reloads the best checkpoint and evaluates it on the test set.
-
-Logs are written to:
-
-```text
-results/<dataset_name>/<save_to>.log
-```
-
-Best checkpoints are written to:
-
-```text
-/Data/data/qa_models/<dataset_name>/<save_to>.ckpt
-```
+Outputs: `results/<benchmark>/<save_to>.log` (per-epoch metrics), `results/<benchmark>/<save_to>_test.json` (final test metrics) and `Data/qa_models/<benchmark>/<save_to>.ckpt` (best checkpoint).
 
 ## Evaluation
 
-Evaluate an existing checkpoint:
-
 ```bash
-python train_qa.py \
-  --mode eval \
-  --model sabet \
-  --dataset_name wikidata_big_complex \
-  --tkbc_model_file tcomplex.ckpt \
-  --load_from sabet_run_01 \
-  --eval_split test \
-  --valid_batch_size 150 \
-  --eval_k 1
+python -m tkg_qa_models.train --mode eval --model sabet1 --dataset_name complex_cronquestions --load_from sabet1_std --eval_split test
 ```
 
 The evaluator reports:
@@ -238,12 +183,11 @@ The following tables report test-set performance using Hits@1 and Hits@10. Resul
 
 | Argument | Default | Meaning |
 |---|---:|---|
-| `--model` | `sabet` | QA architecture to use. |
-| `--dataset_name` | `wikidata_big_complex` | Dataset directory/name. |
-| `--tkbc_model_file` | `tcomplex.ckpt` | Pretrained TKBC checkpoint filename. |
-| `--tkg_file` | `full.txt` | Temporal KG facts file used for supervision/retrieval. |
-| `--mode` | `train` | `train`, `eval`, or `test_kge`. |
-| `--supervision` | `soft` | Temporal supervision mode; model support varies. |
+| `--model` | `sabet1` | QA architecture to use. |
+| `--dataset_name` | `complex_cronquestions` | Benchmark: `cronquestions`, `complex_cronquestions`, `timequestions` or `multitq` (old names are accepted). |
+| `--tkbc_model_file` | `tcomplex.ckpt` | TComplEx checkpoint in `Data/benchmarks/<benchmark>/embeddings/`. |
+| `--mode` | `train` | `train` or `eval`. |
+| `--supervision` | `soft` | `hard` gives the models the `(t1, t2)` hint retrieved from the raw TKG (`-Hard` variants). |
 | `--load_from` | empty | Existing QA checkpoint name without `.ckpt`. |
 | `--save_to` | empty | Run/checkpoint name. Empty values become `temp` inside training. |
 | `--max_epochs` | `20` | Number of training epochs. |
@@ -251,13 +195,21 @@ The following tables report test-set performance using Hits@1 and Hits@10. Resul
 | `--valid_batch_size` | `150` | Validation/test batch size. |
 | `--lr` | `2e-4` | Adam learning rate. |
 | `--valid_freq` | `1` | Validation frequency in epochs. |
-| `--eval_k` | `1` | Requested evaluation cutoff. See the caveat below. |
+| `--eval_k` | `1` | Hits@k used for model selection (Hits@1 and Hits@10 are always reported). |
 | `--frozen` | `1` | Freeze entity/time and TKBC parameters when set to `1`. |
 | `--lm_frozen` | `1` | Freeze the pretrained language model when set to `1`. |
 | `--fuse` | `add` | Combine temporal representations using `add` or `cat`. |
 | `--time_sensitivity` | off | Enable the SubGTR time-sensitivity scoring branch. |
-| `--corrupt_hard` | `0.0` | Probability/amount of corruption applied to hard supervision. |
-| `--eval_split` | `valid` | Label used in evaluation output and KGE checks. |
+| `--eval_split` | `test` | Split evaluated with `--mode eval`. |
+| `--lm` | `distilbert` | Language model of `sabet`/`sabet1`: `distilbert`, `bert` or `roberta` (the tokenizer follows). |
+| `--no_paraphrases` | off | Train on paraphrase 0 only. |
+| `--device` | `auto` | `cuda`, `mps`, `cpu` or `auto`. |
+| `--seed` | `0` | Random seed. |
+| `--patience` | `0` | Stop after this many validations without improvement (`0`: never). |
+| `--weight_decay`, `--grad_clip` | `0` | Adam weight decay and gradient-norm clipping. |
+| `--max_train_questions`, `--max_eval_questions` | all | Subsample the splits for quick runs. |
+| `--num_hops`, `--hop_loss`, `--type_loss`, `--interval_aux`, `--memory_topk` | `4`, `0.3`, `0.5`, `0.5`, `16` | SABET v2 settings (`--interval_aux 0`: no raw-TKG target at all). |
+| `--no_injection`, `--no_slot_ctx`, `--no_bidir`, `--no_type_head` | off | SABET v2 ablations. |
 <!-- 
 ## Citation
 
